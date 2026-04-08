@@ -10,7 +10,7 @@ This repository groups writeups by category and challenge source, including:
 - **REV** (reverse engineering)
 - **WEB** (web exploitation)
 - **CRYPTO** (cryptography)
-- **VM** (mobile/virtual machine challenges)
+- **VM** (mobile challenge writeups and related artifacts)
 - **REV-PWN-RootMe** (RootMe reverse/pwn challenge notes)
 
 ## Structure
