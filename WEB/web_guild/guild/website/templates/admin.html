@@ -1,0 +1,44 @@
+{% extends "base2.html" %}
+{% block title %}Guild Master{% endblock %}
+{% block content %}
+<h1 style="text-align: center;">This is {{ user.username }} 's Dashboard</h1>
+<div class="table-div">
+<table>
+    <thead class="table-head">
+        <tr>
+            <th class="t-head">User ID</th>
+            <th class="t-head">Username</th>
+            <th class="t-head">Verified</th>
+            <th class="t-head">Date</th>
+        </tr>
+    </thead>
+    {% if Verification %}
+    <tbody>
+        {% for item in Verification %}
+            {% if item.verified == 0 %}
+            <tr>
+                <td>{{ item.user_id }}</td>
+                <td>{{ User.query.filter_by(id=item.user_id).first().username }}</td>
+                <td>
+                    <form action="/verify" target="_blank" method="POST">
+                        <input type="hidden" name="user_id" value="{{ item.user_id }}">
+                        <input type="hidden" name="verification_id" value="{{ item.id }}">
+                        <input class="admin-verify" type="submit" value="Verify">
+                    </form>
+                </td>
+                <td>{{ item.date }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{ item.user_id }}</td>
+                <td>{{ User.query.filter_by(id=item.user_id).first().username }}</td>
+                <td>✅</td>
+                <td>{{ item.date }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+    {% endif %}
+</table>
+</div>
+{% endblock %}

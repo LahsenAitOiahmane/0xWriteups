@@ -1,0 +1,795 @@
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> Get-ChildItem -LiteralPath "c:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness" | Format-List *
+
+
+PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunn
+                    el
+PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness
+PSChildName       : tunnel
+PSDrive           : C
+PSProvider        : Microsoft.PowerShell.Core\FileSystem
+PSIsContainer     : False
+Mode              : -a----
+VersionInfo       : File:             C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel
+                    InternalName:     
+                    OriginalFilename: 
+                    FileVersion:      
+                    FileDescription:  
+                    Product:
+                    ProductVersion:   
+                    Debug:            False
+                    Patched:          False
+                    PreRelease:       False
+                    PrivateBuild:     False
+                    SpecialBuild:     False
+                    Language:
+
+BaseName          : tunnel
+Target            : {}
+LinkType          :
+Name              : tunnel
+Length            : 144144
+DirectoryName     : C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness
+Directory         : C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness
+IsReadOnly        : False
+Exists            : True
+FullName          : C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel
+Extension         :
+CreationTime      : 4/22/2024 4:59:24 PM
+CreationTimeUtc   : 4/22/2024 3:59:24 PM
+LastAccessTime    : 1/4/2026 9:53:07 PM
+LastAccessTime    : 1/4/2026 9:53:07 PM
+Format-Hex : A parameter cannot be found that matches parameter name 'Count'.
+At line:1 char:89
++ ... Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel" -Count 64
++                                                                 ~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Format-Hex], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Format-Hex
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc "file -b /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel"
+ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=69bd1f8548e32eed44b53fcd20d7138aecf8449d, for GNU/Linux 3.2.0, not stripped
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> Get-Help Format-Hex -Full | Select-String -Pattern "-Length|-Count|-Path" -Context 0,1
+
+> @{CommonParameters=True; WorkflowCommonParameters=False; details=; Syntax=; parameters=; 
+inputTypes=; relatedLinks=; returnValues=; aliases=fhx
+; remarks=Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying 
+only partial help.
+    -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+    -- To view the Help topic for this cmdlet online, type: "Get-Help Format-Hex -Online" or 
+       go to https://go.microsoft.com/fwlink/?LinkId=526919.; alertSet=; description=; examples=; 
+Synopsis=
+Format-Hex [-Path] <string[]> [<CommonParameters>]
+
+Format-Hex -LiteralPath <string[]> [<CommonParameters>]
+
+Format-Hex -InputObject <Object> [-Encoding <string>] [-Raw] [<CommonParameters>]
+; ModuleName=Microsoft.PowerShell.Utility; nonTerminatingErrors=;
+xmlns:command=http://schemas.microsoft.com/maml/dev/command/2004/10;
+xmlns:dev=http://schemas.microsoft.com/maml/dev/2004/10;
+xmlns:maml=http://schemas.microsoft.com/maml/2004/10; Name=Format-Hex; Category=Function;
+Component=; Role=; Functionality=}
+
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> $p="c:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel"; $fs=[System.IO.File]::OpenRead($p); $buf=New-Object byte[] 64; $n=$fs.Read($buf,0,$buf.Length); $fs.Close(); ($buf[0..($n-1)] | ForEach-Object { $_.ToString('X2') }) -join ' '    
+7F 45 4C 46 02 01 01 00 00 00 00 00 00 00 00 00 03 00 3E 00 01 00 00 00 D0 10 00 00 00 00 00 00 40 00 00 00 00 00 00 00 90 2B 02 00 00 00 00 00 00 00 00 00 40 00 38 00 0B 00 40 00 1E 00 1D 00
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc "set -e; file -b /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel; ls -l /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel"
+ers\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel" | Format-List
+ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=69bd1f8548e32eed44b53fcd20d7138aecf8449d, for GNU/Linux 3.2.0, not stripped
+-rwxrwxrwx 1 l27sen l27sen 144144 Jan  4 21:53 /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> Get-FileHash -Algorithm SHA256 -LiteralPath "c:\Uswsl -e bash -lc "set -e; strings -a -n 4 /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel | head -n 80"
+>> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> "
+>> Get-FileHash -Algorithm SHA256 -LiteralPath "c:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel" | Format-List
+>> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'strings -a -n 4 /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel | head -n 120'
+wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; chmod +x tunnel; ./tunnel </dev/null | head -n 40 || true'
+/lib64/ld-linux-x86-64.so.2
+exit
+fopen
+__isoc99_scanf
+puts
+putchar
+printf
+fgets
+fclose
+__ctype_toupper_loc
+__cxa_finalize
+__libc_start_main
+libc.so.6
+GLIBC_2.7
+GLIBC_2.2.5
+GLIBC_2.3
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+u/UH
+[]A\A]A^A_
+Direction (L/R/F/B/U/D/Q)?
+Cannot move that way
+Goodbye!
+/flag.txt
+HTB{fake_flag_for_testing}
+You break into the vault and read the secrets within...
+;*3$"
+GCC: (Debian 10.2.1-6) 10.2.1 20210110
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+__FRAME_END__
+__init_array_end
+_DYNAMIC
+__init_array_start
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_csu_fini
+__ctype_toupper_loc@GLIBC_2.3
+putchar@GLIBC_2.2.5
+prompt_and_update_pos
+_ITM_deregisterTMCloneTable
+puts@GLIBC_2.2.5
+get_flag
+_edata
+fclose@GLIBC_2.2.5
+printf@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+get_cell
+_IO_stdin_used
+maze
+__libc_csu_init
+__bss_start
+main
+fopen@GLIBC_2.2.5
+__isoc99_scanf@GLIBC_2.7
+exit@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> Write-Output "ok"
+ok
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> Get-FileHash -Algorithm SHA256 -LiteralPath "c:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel" | Format-List
+
+
+Algorithm : SHA256
+Hash      : 58F55828DA6E94C33731837D127F68742AC66DCEA43958080BCF09EEC2AAC29D
+Path      : C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness\tunnel
+
+
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'strings -a -n 4 /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness/tunnel | head -n 200'
+/lib64/ld-linux-x86-64.so.2
+exit
+fopen
+__isoc99_scanf
+puts
+putchar
+printf
+fgets
+fclose
+__ctype_toupper_loc
+__cxa_finalize
+__libc_start_main
+libc.so.6
+GLIBC_2.7
+GLIBC_2.2.5
+GLIBC_2.3
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+u/UH
+[]A\A]A^A_
+Direction (L/R/F/B/U/D/Q)?
+Cannot move that way
+Goodbye!
+/flag.txt
+HTB{fake_flag_for_testing}
+You break into the vault and read the secrets within...
+;*3$"
+GCC: (Debian 10.2.1-6) 10.2.1 20210110
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+__FRAME_END__
+__init_array_end
+_DYNAMIC
+__init_array_start
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_csu_fini
+__ctype_toupper_loc@GLIBC_2.3
+putchar@GLIBC_2.2.5
+prompt_and_update_pos
+_ITM_deregisterTMCloneTable
+puts@GLIBC_2.2.5
+get_flag
+_edata
+fclose@GLIBC_2.2.5
+printf@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+get_cell
+_IO_stdin_used
+maze
+__libc_csu_init
+__bss_start
+main
+fopen@GLIBC_2.2.5
+__isoc99_scanf@GLIBC_2.7
+exit@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> 
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S --size-sort tunnel | egrep " maze$| get_cell$|prompt_and_update_pos$|get_flag$| main$"'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S --size-sort tunnel | grep -E " (maze|get_cell|prompt_and_update_pos|get_flag|main)$"'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S --size-sort tunnel > /tmp/nm_tunnel.txt; grep " maze" /tmp/nm_tunnel.txt | head'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S --size-sort tunnel > /tmp/nm_tunnel.txt; /bin/grep maze /tmp/nm_tunnel.txt | /usr/bin/head'
+00000000000020e0 000000000001f400 R maze
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S tunnel > /tmp/nm_tunnel2.txt; /bin/grep -E " get_cell$| prompt_and_update_pos$| get_flag$| main$" /tmp/nm_tunnel2.txt | /usr/bin/head -n 50'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S tunnel > /tmp/nm_tunnel2.txt; /bin/grep " get_cell$" /tmp/nm_tunnel2.txt; /bin/grep " prompt_and_update_pos$" /tmp/nm_tunnel2.txt; /bin/grep " get_flag$" /tmp/nm_tunnel2.txt; /bin/grep " main$" /tmp/nm_tunnel2.txt'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; nm -S tunnel > /tmp/nm_tunnel2.txt; /bin/grep get_cell$ /tmp/nm_tunnel2.txt; /bin/grep prompt_and_update_pos$ /tmp/nm_tunnel2.txt; /bin/grep get_flag$ /tmp/nm_tunnel2.txt; /bin/grep " main$" /tmp/nm_tunnel2.txt || true'
+00000000000011b5 000000000000002e T get_cell
+00000000000011e3 0000000000000263 T prompt_and_update_pos
+0000000000001446 00000000000000f2 T get_flag
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; objdump -d -Mintel --disassemble=get_cell --disassemble=prompt_and_update_pos --disassemble=get_flag --disassemble=main tunnel | sed -n "1,220p"'
+
+tunnel:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000001538 <main>:
+    1538:       53                      push   rbx
+    1539:       48 83 ec 10             sub    rsp,0x10
+    153d:       c7 44 24 04 00 00 00    mov    DWORD PTR [rsp+0x4],0x0
+    1544:       00
+    1545:       c7 44 24 08 00 00 00    mov    DWORD PTR [rsp+0x8],0x0
+    154c:       00
+    154d:       c7 44 24 0c 00 00 00    mov    DWORD PTR [rsp+0xc],0x0
+    1554:       00
+    1555:       48 8d 5c 24 04          lea    rbx,[rsp+0x4]
+    155a:       eb 12                   jmp    156e <main+0x36>
+    155c:       bf 0a 00 00 00          mov    edi,0xa
+    1561:       e8 da fa ff ff          call   1040 <putchar@plt>
+    1566:       48 89 df                mov    rdi,rbx
+    1569:       e8 75 fc ff ff          call   11e3 <prompt_and_update_pos>
+    156e:       48 89 df                mov    rdi,rbx
+    1571:       e8 3f fc ff ff          call   11b5 <get_cell>
+    1576:       83 78 0c 03             cmp    DWORD PTR [rax+0xc],0x3
+    157a:       75 e0                   jne    155c <main+0x24>
+    157c:       48 8d 3d 5d ff 01 00    lea    rdi,[rip+0x1ff5d]        # 214e0 <maze+0x1f400>        
+    1583:       e8 c8 fa ff ff          call   1050 <puts@plt>
+    1588:       b8 00 00 00 00          mov    eax,0x0
+    158d:       e8 b4 fe ff ff          call   1446 <get_flag>
+    1592:       b8 00 00 00 00          mov    eax,0x0
+    1597:       48 83 c4 10             add    rsp,0x10
+    159b:       5b                      pop    rbx
+    159c:       c3                      ret
+
+Disassembly of section .fini:
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; objdump -d -Mintel --disassemble=get_cell --disassemble=prompt_and_update_pos --disassemble=get_flag --disassemble=main tunnel | sed -n "1,520p"'
+
+tunnel:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000001538 <main>:
+    1538:       53                      push   rbx
+    1539:       48 83 ec 10             sub    rsp,0x10
+    153d:       c7 44 24 04 00 00 00    mov    DWORD PTR [rsp+0x4],0x0
+    1544:       00
+    1545:       c7 44 24 08 00 00 00    mov    DWORD PTR [rsp+0x8],0x0
+    154c:       00
+    154d:       c7 44 24 0c 00 00 00    mov    DWORD PTR [rsp+0xc],0x0
+    1554:       00
+    1555:       48 8d 5c 24 04          lea    rbx,[rsp+0x4]
+    155a:       eb 12                   jmp    156e <main+0x36>
+    155c:       bf 0a 00 00 00          mov    edi,0xa
+    1561:       e8 da fa ff ff          call   1040 <putchar@plt>
+    1566:       48 89 df                mov    rdi,rbx
+    1569:       e8 75 fc ff ff          call   11e3 <prompt_and_update_pos>
+    156e:       48 89 df                mov    rdi,rbx
+    1571:       e8 3f fc ff ff          call   11b5 <get_cell>
+    1576:       83 78 0c 03             cmp    DWORD PTR [rax+0xc],0x3
+    157a:       75 e0                   jne    155c <main+0x24>
+    157c:       48 8d 3d 5d ff 01 00    lea    rdi,[rip+0x1ff5d]        # 214e0 <maze+0x1f400>        
+    1583:       e8 c8 fa ff ff          call   1050 <puts@plt>
+    1588:       b8 00 00 00 00          mov    eax,0x0
+    158d:       e8 b4 fe ff ff          call   1446 <get_flag>
+    1592:       b8 00 00 00 00          mov    eax,0x0
+    1597:       48 83 c4 10             add    rsp,0x10
+    159b:       5b                      pop    rbx
+    159c:       c3                      ret
+
+Disassembly of section .fini:
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; objdump -d -Mintel --disassemble=get_cell tunnel'
+
+tunnel:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+00000000000011b5 <get_cell>:
+    11b5:       8b 07                   mov    eax,DWORD PTR [rdi]
+    11b7:       48 8d 04 80             lea    rax,[rax+rax*4]
+    11bb:       48 8d 04 80             lea    rax,[rax+rax*4]
+    11bf:       48 c1 e0 04             shl    rax,0x4
+    11c3:       8b 57 04                mov    edx,DWORD PTR [rdi+0x4]
+    11c6:       48 8d 14 92             lea    rdx,[rdx+rdx*4]
+    11ca:       48 8d 04 90             lea    rax,[rax+rdx*4]
+    11ce:       8b 57 08                mov    edx,DWORD PTR [rdi+0x8]
+    11d1:       48 01 d0                add    rax,rdx
+    11d4:       48 c1 e0 04             shl    rax,0x4
+    11d8:       48 8d 15 01 0f 00 00    lea    rdx,[rip+0xf01]        # 20e0 <maze>
+    11df:       48 01 d0                add    rax,rdx
+    11e2:       c3                      ret
+
+Disassembly of section .fini:
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; objdump -d -Mintel --disassemble=prompt_and_update_pos tunnel | sed -n "1,260p"'
+
+tunnel:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+00000000000011e3 <prompt_and_update_pos>:
+    11e3:       53                      push   rbx
+    11e4:       48 83 ec 10             sub    rsp,0x10
+    11e8:       48 89 fb                mov    rbx,rdi
+    11eb:       48 8d 3d 12 0e 00 00    lea    rdi,[rip+0xe12]        # 2004 <_IO_stdin_used+0x4>     
+    11f2:       b8 00 00 00 00          mov    eax,0x0
+    11f7:       e8 74 fe ff ff          call   1070 <printf@plt>
+    11fc:       48 8d 74 24 0f          lea    rsi,[rsp+0xf]
+    1201:       48 8d 3d 18 0e 00 00    lea    rdi,[rip+0xe18]        # 2020 <_IO_stdin_used+0x20>    
+    1208:       b8 00 00 00 00          mov    eax,0x0
+    120d:       e8 8e fe ff ff          call   10a0 <__isoc99_scanf@plt>
+    1212:       83 f8 01                cmp    eax,0x1
+    1215:       75 41                   jne    1258 <prompt_and_update_pos+0x75>
+    1217:       e8 14 fe ff ff          call   1030 <__ctype_toupper_loc@plt>
+    121c:       48 0f be 54 24 0f       movsx  rdx,BYTE PTR [rsp+0xf]
+    1222:       48 8b 00                mov    rax,QWORD PTR [rax]
+    1225:       8b 04 90                mov    eax,DWORD PTR [rax+rdx*4]
+    1228:       88 44 24 0f             mov    BYTE PTR [rsp+0xf],al
+    122c:       48 8b 13                mov    rdx,QWORD PTR [rbx]
+    122f:       48 89 14 24             mov    QWORD PTR [rsp],rdx
+    1233:       8b 53 08                mov    edx,DWORD PTR [rbx+0x8]
+    1236:       89 54 24 08             mov    DWORD PTR [rsp+0x8],edx
+    123a:       83 e8 42                sub    eax,0x42
+    123d:       3c 13                   cmp    al,0x13
+    123f:       0f 87 8c 00 00 00       ja     12d1 <prompt_and_update_pos+0xee>
+    1245:       0f b6 c0                movzx  eax,al
+    1248:       48 8d 15 31 0e 00 00    lea    rdx,[rip+0xe31]        # 2080 <_IO_stdin_used+0x80>    
+    124f:       48 63 04 82             movsxd rax,DWORD PTR [rdx+rax*4]
+    1253:       48 01 d0                add    rax,rdx
+    1256:       ff e0                   jmp    rax
+    1258:       bf ff ff ff ff          mov    edi,0xffffffff
+    125d:       e8 4e fe ff ff          call   10b0 <exit@plt>
+    1262:       8b 03                   mov    eax,DWORD PTR [rbx]
+    1264:       85 c0                   test   eax,eax
+    1266:       74 24                   je     128c <prompt_and_update_pos+0xa9>
+    1268:       83 e8 01                sub    eax,0x1
+    126b:       89 04 24                mov    DWORD PTR [rsp],eax
+    126e:       48 89 e7                mov    rdi,rsp
+    1271:       e8 3f ff ff ff          call   11b5 <get_cell>
+    1276:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    127a:       74 1e                   je     129a <prompt_and_update_pos+0xb7>
+    127c:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    1280:       48 89 03                mov    QWORD PTR [rbx],rax
+    1283:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    1287:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    128a:       eb 45                   jmp    12d1 <prompt_and_update_pos+0xee>
+    128c:       48 8d 3d 91 0d 00 00    lea    rdi,[rip+0xd91]        # 2024 <_IO_stdin_used+0x24>    
+    1293:       e8 b8 fd ff ff          call   1050 <puts@plt>
+    1298:       eb 37                   jmp    12d1 <prompt_and_update_pos+0xee>
+    129a:       48 8d 3d 83 0d 00 00    lea    rdi,[rip+0xd83]        # 2024 <_IO_stdin_used+0x24>    
+    12a1:       e8 aa fd ff ff          call   1050 <puts@plt>
+    12a6:       eb 29                   jmp    12d1 <prompt_and_update_pos+0xee>
+    12a8:       8b 03                   mov    eax,DWORD PTR [rbx]
+    12aa:       83 f8 13                cmp    eax,0x13
+    12ad:       74 28                   je     12d7 <prompt_and_update_pos+0xf4>
+    12af:       83 c0 01                add    eax,0x1
+    12b2:       89 04 24                mov    DWORD PTR [rsp],eax
+    12b5:       48 89 e7                mov    rdi,rsp
+    12b8:       e8 f8 fe ff ff          call   11b5 <get_cell>
+    12bd:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    12c1:       74 22                   je     12e5 <prompt_and_update_pos+0x102>
+    12c3:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    12c7:       48 89 03                mov    QWORD PTR [rbx],rax
+    12ca:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    12ce:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    12d1:       48 83 c4 10             add    rsp,0x10
+    12d5:       5b                      pop    rbx
+    12d6:       c3                      ret
+    12d7:       48 8d 3d 46 0d 00 00    lea    rdi,[rip+0xd46]        # 2024 <_IO_stdin_used+0x24>    
+    12de:       e8 6d fd ff ff          call   1050 <puts@plt>
+    12e3:       eb ec                   jmp    12d1 <prompt_and_update_pos+0xee>
+    12e5:       48 8d 3d 38 0d 00 00    lea    rdi,[rip+0xd38]        # 2024 <_IO_stdin_used+0x24>    
+    12ec:       e8 5f fd ff ff          call   1050 <puts@plt>
+    12f1:       eb de                   jmp    12d1 <prompt_and_update_pos+0xee>
+    12f3:       8b 43 04                mov    eax,DWORD PTR [rbx+0x4]
+    12f6:       85 c0                   test   eax,eax
+    12f8:       74 25                   je     131f <prompt_and_update_pos+0x13c>
+    12fa:       83 e8 01                sub    eax,0x1
+    12fd:       89 44 24 04             mov    DWORD PTR [rsp+0x4],eax
+    1301:       48 89 e7                mov    rdi,rsp
+    1304:       e8 ac fe ff ff          call   11b5 <get_cell>
+    1309:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    130d:       74 1e                   je     132d <prompt_and_update_pos+0x14a>
+    130f:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    1313:       48 89 03                mov    QWORD PTR [rbx],rax
+    1316:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    131a:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    131d:       eb b2                   jmp    12d1 <prompt_and_update_pos+0xee>
+    131f:       48 8d 3d fe 0c 00 00    lea    rdi,[rip+0xcfe]        # 2024 <_IO_stdin_used+0x24>    
+    1326:       e8 25 fd ff ff          call   1050 <puts@plt>
+    132b:       eb a4                   jmp    12d1 <prompt_and_update_pos+0xee>
+    132d:       48 8d 3d f0 0c 00 00    lea    rdi,[rip+0xcf0]        # 2024 <_IO_stdin_used+0x24>    
+    1334:       e8 17 fd ff ff          call   1050 <puts@plt>
+    1339:       eb 96                   jmp    12d1 <prompt_and_update_pos+0xee>
+    133b:       8b 43 04                mov    eax,DWORD PTR [rbx+0x4]
+    133e:       83 f8 13                cmp    eax,0x13
+    1341:       74 28                   je     136b <prompt_and_update_pos+0x188>
+    1343:       83 c0 01                add    eax,0x1
+    1346:       89 44 24 04             mov    DWORD PTR [rsp+0x4],eax
+    134a:       48 89 e7                mov    rdi,rsp
+    134d:       e8 63 fe ff ff          call   11b5 <get_cell>
+    1352:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    1356:       74 24                   je     137c <prompt_and_update_pos+0x199>
+    1358:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    135c:       48 89 03                mov    QWORD PTR [rbx],rax
+    135f:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    1363:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    1366:       e9 66 ff ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    136b:       48 8d 3d b2 0c 00 00    lea    rdi,[rip+0xcb2]        # 2024 <_IO_stdin_used+0x24>    
+    1372:       e8 d9 fc ff ff          call   1050 <puts@plt>
+    1377:       e9 55 ff ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    137c:       48 8d 3d a1 0c 00 00    lea    rdi,[rip+0xca1]        # 2024 <_IO_stdin_used+0x24>    
+    1383:       e8 c8 fc ff ff          call   1050 <puts@plt>
+    1388:       e9 44 ff ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    138d:       8b 43 08                mov    eax,DWORD PTR [rbx+0x8]
+    1390:       85 c0                   test   eax,eax
+    1392:       74 28                   je     13bc <prompt_and_update_pos+0x1d9>
+    1394:       83 e8 01                sub    eax,0x1
+    1397:       89 44 24 08             mov    DWORD PTR [rsp+0x8],eax
+    139b:       48 89 e7                mov    rdi,rsp
+    139e:       e8 12 fe ff ff          call   11b5 <get_cell>
+    13a3:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    13a7:       74 24                   je     13cd <prompt_and_update_pos+0x1ea>
+    13a9:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    13ad:       48 89 03                mov    QWORD PTR [rbx],rax
+    13b0:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    13b4:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    13b7:       e9 15 ff ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    13bc:       48 8d 3d 61 0c 00 00    lea    rdi,[rip+0xc61]        # 2024 <_IO_stdin_used+0x24>    
+    13c3:       e8 88 fc ff ff          call   1050 <puts@plt>
+    13c8:       e9 04 ff ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    13cd:       48 8d 3d 50 0c 00 00    lea    rdi,[rip+0xc50]        # 2024 <_IO_stdin_used+0x24>    
+    13d4:       e8 77 fc ff ff          call   1050 <puts@plt>
+    13d9:       e9 f3 fe ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    13de:       8b 43 08                mov    eax,DWORD PTR [rbx+0x8]
+    13e1:       83 f8 13                cmp    eax,0x13
+    13e4:       74 28                   je     140e <prompt_and_update_pos+0x22b>
+    13e6:       83 c0 01                add    eax,0x1
+    13e9:       89 44 24 08             mov    DWORD PTR [rsp+0x8],eax
+    13ed:       48 89 e7                mov    rdi,rsp
+    13f0:       e8 c0 fd ff ff          call   11b5 <get_cell>
+    13f5:       83 78 0c 02             cmp    DWORD PTR [rax+0xc],0x2
+    13f9:       74 24                   je     141f <prompt_and_update_pos+0x23c>
+    13fb:       48 8b 04 24             mov    rax,QWORD PTR [rsp]
+    13ff:       48 89 03                mov    QWORD PTR [rbx],rax
+    1402:       8b 44 24 08             mov    eax,DWORD PTR [rsp+0x8]
+    1406:       89 43 08                mov    DWORD PTR [rbx+0x8],eax
+    1409:       e9 c3 fe ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    140e:       48 8d 3d 0f 0c 00 00    lea    rdi,[rip+0xc0f]        # 2024 <_IO_stdin_used+0x24>    
+    1415:       e8 36 fc ff ff          call   1050 <puts@plt>
+    141a:       e9 b2 fe ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    141f:       48 8d 3d fe 0b 00 00    lea    rdi,[rip+0xbfe]        # 2024 <_IO_stdin_used+0x24>    
+    1426:       e8 25 fc ff ff          call   1050 <puts@plt>
+    142b:       e9 a1 fe ff ff          jmp    12d1 <prompt_and_update_pos+0xee>
+    1430:       48 8d 3d 02 0c 00 00    lea    rdi,[rip+0xc02]        # 2039 <_IO_stdin_used+0x39>    
+    1437:       e8 14 fc ff ff          call   1050 <puts@plt>
+    143c:       bf fe ff ff ff          mov    edi,0xfffffffe
+    1441:       e8 6a fc ff ff          call   10b0 <exit@plt>
+
+Disassembly of section .fini:
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; readelf -x .rodata tunnel | sed -n "1,120p"'
+
+Hex dump of section '.rodata':
+  0x00002000 01000200 44697265 6374696f 6e20284c ....Direction (L
+  0x00002010 2f522f46 2f422f55 2f442f51 293f2000 /R/F/B/U/D/Q)? .
+  0x00002020 20256300 43616e6e 6f74206d 6f766520  %c.Cannot move
+  0x00002030 74686174 20776179 00476f6f 64627965 that way.Goodbye
+  0x00002040 21007200 2f666c61 672e7478 74004854 !.r./flag.txt.HT
+  0x00002050 427b6661 6b655f66 6c61675f 666f725f B{fake_flag_for_
+  0x00002060 74657374 696e677d 00000000 00000000 testing}........
+  0x00002070 00000000 00000000 00000000 00000000 ................
+  0x00002080 73f2ffff 51f2ffff 0df3ffff 51f2ffff s...Q.......Q...
+  0x00002090 bbf2ffff 51f2ffff 51f2ffff 51f2ffff ....Q...Q...Q...
+  0x000020a0 51f2ffff 51f2ffff e2f1ffff 51f2ffff Q...Q.......Q...
+  0x000020b0 51f2ffff 51f2ffff 51f2ffff b0f3ffff Q...Q...Q.......
+  0x000020c0 28f2ffff 51f2ffff 51f2ffff 5ef3ffff (...Q...Q...^...
+  0x000020d0 00000000 00000000 00000000 00000000 ................
+  0x000020e0 00000000 00000000 00000000 00000000 ................
+  0x000020f0 00000000 00000000 01000000 01000000 ................
+  0x00002100 00000000 00000000 02000000 01000000 ................
+  0x00002110 00000000 00000000 03000000 01000000 ................
+  0x00002120 00000000 00000000 04000000 02000000 ................
+  0x00002130 00000000 00000000 05000000 02000000 ................
+  0x00002140 00000000 00000000 06000000 02000000 ................
+  0x00002150 00000000 00000000 07000000 02000000 ................
+  0x00002160 00000000 00000000 08000000 02000000 ................
+  0x00002170 00000000 00000000 09000000 02000000 ................
+  0x00002180 00000000 00000000 0a000000 02000000 ................
+  0x00002190 00000000 00000000 0b000000 02000000 ................
+  0x000021a0 00000000 00000000 0c000000 02000000 ................
+  0x000021b0 00000000 00000000 0d000000 02000000 ................
+  0x000021c0 00000000 00000000 0e000000 02000000 ................
+  0x000021d0 00000000 00000000 0f000000 02000000 ................
+  0x000021e0 00000000 00000000 10000000 02000000 ................
+  0x000021f0 00000000 00000000 11000000 02000000 ................
+  0x00002200 00000000 00000000 12000000 02000000 ................
+  0x00002210 00000000 00000000 13000000 02000000 ................
+  0x00002220 00000000 01000000 00000000 02000000 ................
+  0x00002230 00000000 01000000 01000000 02000000 ................
+  0x00002240 00000000 01000000 02000000 02000000 ................
+  0x00002250 00000000 01000000 03000000 02000000 ................
+  0x00002260 00000000 01000000 04000000 02000000 ................
+  0x00002270 00000000 01000000 05000000 02000000 ................
+  0x00002280 00000000 01000000 06000000 02000000 ................
+  0x00002290 00000000 01000000 07000000 02000000 ................
+  0x000022a0 00000000 01000000 08000000 02000000 ................
+  0x000022b0 00000000 01000000 09000000 02000000 ................
+  0x000022c0 00000000 01000000 0a000000 02000000 ................
+  0x000022d0 00000000 01000000 0b000000 02000000 ................
+  0x000022e0 00000000 01000000 0c000000 02000000 ................
+  0x000022f0 00000000 01000000 0d000000 02000000 ................
+  0x00002300 00000000 01000000 0e000000 02000000 ................
+  0x00002310 00000000 01000000 0f000000 02000000 ................
+  0x00002320 00000000 01000000 10000000 02000000 ................
+  0x00002330 00000000 01000000 11000000 02000000 ................
+  0x00002340 00000000 01000000 12000000 02000000 ................
+  0x00002350 00000000 01000000 13000000 02000000 ................
+  0x00002360 00000000 02000000 00000000 02000000 ................
+  0x00002370 00000000 02000000 01000000 02000000 ................
+  0x00002380 00000000 02000000 02000000 02000000 ................
+  0x00002390 00000000 02000000 03000000 02000000 ................
+  0x000023a0 00000000 02000000 04000000 02000000 ................
+  0x000023b0 00000000 02000000 05000000 02000000 ................
+  0x000023c0 00000000 02000000 06000000 02000000 ................
+  0x000023d0 00000000 02000000 07000000 02000000 ................
+  0x000023e0 00000000 02000000 08000000 02000000 ................
+  0x000023f0 00000000 02000000 09000000 02000000 ................
+  0x00002400 00000000 02000000 0a000000 02000000 ................
+  0x00002410 00000000 02000000 0b000000 02000000 ................
+  0x00002420 00000000 02000000 0c000000 02000000 ................
+  0x00002430 00000000 02000000 0d000000 02000000 ................
+  0x00002440 00000000 02000000 0e000000 02000000 ................
+  0x00002450 00000000 02000000 0f000000 02000000 ................
+  0x00002460 00000000 02000000 10000000 02000000 ................
+  0x00002470 00000000 02000000 11000000 02000000 ................
+  0x00002480 00000000 02000000 12000000 02000000 ................
+  0x00002490 00000000 02000000 13000000 02000000 ................
+  0x000024a0 00000000 03000000 00000000 02000000 ................
+  0x000024b0 00000000 03000000 01000000 02000000 ................
+  0x000024c0 00000000 03000000 02000000 02000000 ................
+  0x000024d0 00000000 03000000 03000000 02000000 ................
+  0x000024e0 00000000 03000000 04000000 02000000 ................
+  0x000024f0 00000000 03000000 05000000 02000000 ................
+  0x00002500 00000000 03000000 06000000 02000000 ................
+  0x00002510 00000000 03000000 07000000 02000000 ................
+  0x00002520 00000000 03000000 08000000 02000000 ................
+  0x00002530 00000000 03000000 09000000 02000000 ................
+  0x00002540 00000000 03000000 0a000000 02000000 ................
+  0x00002550 00000000 03000000 0b000000 02000000 ................
+  0x00002560 00000000 03000000 0c000000 02000000 ................
+  0x00002570 00000000 03000000 0d000000 02000000 ................
+  0x00002580 00000000 03000000 0e000000 02000000 ................
+  0x00002590 00000000 03000000 0f000000 02000000 ................
+  0x000025a0 00000000 03000000 10000000 02000000 ................
+  0x000025b0 00000000 03000000 11000000 02000000 ................
+  0x000025c0 00000000 03000000 12000000 02000000 ................
+  0x000025d0 00000000 03000000 13000000 02000000 ................
+  0x000025e0 00000000 04000000 00000000 02000000 ................
+  0x000025f0 00000000 04000000 01000000 02000000 ................
+  0x00002600 00000000 04000000 02000000 02000000 ................
+  0x00002610 00000000 04000000 03000000 02000000 ................
+  0x00002620 00000000 04000000 04000000 02000000 ................
+  0x00002630 00000000 04000000 05000000 02000000 ................
+  0x00002640 00000000 04000000 06000000 02000000 ................
+  0x00002650 00000000 04000000 07000000 02000000 ................
+  0x00002660 00000000 04000000 08000000 02000000 ................
+  0x00002670 00000000 04000000 09000000 02000000 ................
+  0x00002680 00000000 04000000 0a000000 02000000 ................
+  0x00002690 00000000 04000000 0b000000 02000000 ................
+  0x000026a0 00000000 04000000 0c000000 02000000 ................
+  0x000026b0 00000000 04000000 0d000000 02000000 ................
+  0x000026c0 00000000 04000000 0e000000 02000000 ................
+  0x000026d0 00000000 04000000 0f000000 02000000 ................
+  0x000026e0 00000000 04000000 10000000 02000000 ................
+  0x000026f0 00000000 04000000 11000000 02000000 ................
+  0x00002700 00000000 04000000 12000000 02000000 ................
+  0x00002710 00000000 04000000 13000000 02000000 ................
+  0x00002720 00000000 05000000 00000000 02000000 ................
+  0x00002730 00000000 05000000 01000000 02000000 ................
+  0x00002740 00000000 05000000 02000000 02000000 ................
+  0x00002750 00000000 05000000 03000000 02000000 ................
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> 
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; python3 solve_tunnel.py --elf ./tunnel --print-path | head -c 200; echo'
+UUURFURURRFRRFFUUFURRUFUFFRFUFUUUUFFRRUUUFURFDFFUFFRRRRRFRR
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; python3 solve_tunnel.py --elf ./tunnel --print-path | wc -c'
+60
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; python3 solve_tunnel.py --elf ./tunnel --print-path'
+UUURFURURRFRRFFUUFURRUFUFFRFUFUUUUFFRRUUUFURFDFFUFFRRRRRFRR
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> wsl -e bash -lc 'cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_tunnelmadness; python3 solve_tunnel.py --elf ./tunnel --ip 94.237.123.236 --port 58120 | tail -n +1'
+
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)?
+Direction (L/R/F/B/U/D/Q)? You break into the vault and read the secrets within...
+HTB{tunn3l1ng_ab0ut_in_3d_b4bf7e204ccf1de1680a504069e6f13c}
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_tunnelmadness> 

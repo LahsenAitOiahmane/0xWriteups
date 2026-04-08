@@ -1,0 +1,396 @@
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> Get-Item .\casino | Format-List *
+
+
+PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\Users\sadik\Downloads\rev_flagcasino\rev
+                    _flagcasino\casino
+PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\Users\sadik\Downloads\rev_flagcasino\rev
+                    _flagcasino
+PSChildName       : casino
+PSDrive           : C
+PSProvider        : Microsoft.PowerShell.Core\FileSystem
+PSIsContainer     : False
+Mode              : -a----
+VersionInfo       : File:             C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino\casino   
+                    InternalName:
+                    OriginalFilename:
+                    FileVersion:
+                    FileDescription:
+                    Product:
+                    ProductVersion:
+                    Debug:            False
+                    Patched:          False
+                    PreRelease:       False
+                    PrivateBuild:     False
+                    SpecialBuild:     False
+                    Language:
+
+BaseName          : casino
+Target            : {}
+LinkType          :
+Name              : casino
+Length            : 17064
+DirectoryName     : C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino
+Directory         : C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino
+IsReadOnly        : False
+Exists            : True
+FullName          : C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino\casino
+Extension         :
+CreationTime      : 4/22/2024 10:42:34 PM
+CreationTimeUtc   : 4/22/2024 9:42:34 PM
+LastAccessTime    : 1/4/2026 8:45:01 PM
+LastAccessTimeUtc : 1/4/2026 7:45:01 PM
+LastWriteTime     : 1/4/2026 8:08:59 PM
+LastWriteTimeUtc  : 1/4/2026 7:08:59 PM
+Attributes        : Archive
+
+
+
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; file casino; ls -l casino"
+casino: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=ac3d9d8a2c65ca7a0cb88af07efaec8c991c315d, for GNU/Linux 3.2.0, not stripped
+-rwxrwxrwx 1 l27sen l27sen 17064 Jan  4 20:08 casino
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; ./casino"
+[ ** WELCOME TO ROBO CASINO **]
+     ,     ,
+    (\____/)
+     (_oo_)
+       (O)
+     __||__    \)
+  []/______\[] /
+  / \______/ \/
+ /    /__\
+(\   /____\
+---------------------
+[*** PLEASE PLACE YOUR BETS ***]
+> 123456789
+[ * INCORRECT * ]
+[ *** ACTIVATING SECURITY SYSTEM - PLEASE VACATE *** ]
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; strings -n 4 casino | head -n 200"
+/lib64/ld-linux-x86-64.so.2
+exit
+srand
+__isoc99_scanf
+puts
+printf
+__cxa_finalize
+__libc_start_main
+libc.so.6
+GLIBC_2.7
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+u/UH
+[]A\A]A^A_
+     ,     ,
+    (\____/)
+     (_oo_)
+       (O)
+     __||__    \)
+  []/______\[] /
+  / \______/ \/
+ /    /__\
+(\   /____\
+---------------------
+[ ** WELCOME TO ROBO CASINO **]
+[*** PLEASE PLACE YOUR BETS ***]
+[ * CORRECT *]
+[ * INCORRECT * ]
+[ *** ACTIVATING SECURITY SYSTEM - PLEASE VACATE *** ]
+[ ** HOUSE BALANCE $0 - PLEASE COME BACK LATER ** ]
+;*3$"
+e( 78C
+ 78C
+ol 78C7
+"GCC: (Debian 10.2.1-6) 10.2.1 20210110
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+__FRAME_END__
+__init_array_end
+_DYNAMIC
+__init_array_start
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_csu_fini
+_ITM_deregisterTMCloneTable
+puts@GLIBC_2.2.5
+_edata
+printf@GLIBC_2.2.5
+banner
+__libc_start_main@GLIBC_2.2.5
+srand@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+__libc_csu_init
+__bss_start
+main
+check
+__isoc99_scanf@GLIBC_2.7
+exit@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; nm -n casino | head -n 100"
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 w __cxa_finalize@GLIBC_2.2.5
+                 w __gmon_start__
+                 U __isoc99_scanf@GLIBC_2.7
+                 U __libc_start_main@GLIBC_2.2.5
+                 U exit@GLIBC_2.2.5
+                 U printf@GLIBC_2.2.5
+                 U puts@GLIBC_2.2.5
+                 U rand@GLIBC_2.2.5
+                 U srand@GLIBC_2.2.5
+0000000000001000 t _init
+00000000000010a0 T _start
+00000000000010d0 t deregister_tm_clones
+0000000000001100 t register_tm_clones
+0000000000001140 t __do_global_dtors_aux
+0000000000001180 t frame_dummy
+0000000000001185 T main
+0000000000001280 T __libc_csu_init
+00000000000012e0 T __libc_csu_fini
+00000000000012e4 T _fini
+0000000000002000 R _IO_stdin_used
+0000000000002020 R banner
+0000000000002194 r __GNU_EH_FRAME_HDR
+00000000000022d4 r __FRAME_END__
+0000000000003de8 d __frame_dummy_init_array_entry
+0000000000003de8 d __init_array_start
+0000000000003df0 d __do_global_dtors_aux_fini_array_entry
+0000000000003df0 d __init_array_end
+0000000000003df8 d _DYNAMIC
+0000000000004000 d _GLOBAL_OFFSET_TABLE_
+0000000000004060 D __data_start
+0000000000004060 W data_start
+0000000000004068 D __dso_handle
+0000000000004080 D check
+00000000000040f4 B __bss_start
+00000000000040f4 D _edata
+00000000000040f4 b completed.0
+00000000000040f8 D __TMC_END__
+00000000000040f8 B _end
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; objdump -d -Mintel casino --start-address=0x1185 --stop-address=0x1280"
+
+casino:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000001185 <main>:
+    1185:       55                      push   rbp
+    1186:       48 89 e5                mov    rbp,rsp
+    1189:       48 83 ec 10             sub    rsp,0x10
+    118d:       48 8d 3d 24 0f 00 00    lea    rdi,[rip+0xf24]        # 20b8 <banner+0x98>
+    1194:       e8 97 fe ff ff          call   1030 <puts@plt>
+    1199:       48 8d 3d 80 0e 00 00    lea    rdi,[rip+0xe80]        # 2020 <banner>
+    11a0:       e8 8b fe ff ff          call   1030 <puts@plt>
+    11a5:       48 8d 3d 2c 0f 00 00    lea    rdi,[rip+0xf2c]        # 20d8 <banner+0xb8>
+    11ac:       e8 7f fe ff ff          call   1030 <puts@plt>
+    11b1:       c7 45 fc 00 00 00 00    mov    DWORD PTR [rbp-0x4],0x0
+    11b8:       e9 9b 00 00 00          jmp    1258 <main+0xd3>
+    11bd:       48 8d 3d 35 0f 00 00    lea    rdi,[rip+0xf35]        # 20f9 <banner+0xd9>
+    11c4:       b8 00 00 00 00          mov    eax,0x0
+    11c9:       e8 72 fe ff ff          call   1040 <printf@plt>
+    11ce:       48 8d 45 fb             lea    rax,[rbp-0x5]
+    11d2:       48 89 c6                mov    rsi,rax
+    11d5:       48 8d 3d 20 0f 00 00    lea    rdi,[rip+0xf20]        # 20fc <banner+0xdc>
+    11dc:       b8 00 00 00 00          mov    eax,0x0
+    11e1:       e8 7a fe ff ff          call   1060 <__isoc99_scanf@plt>
+    11e6:       83 f8 01                cmp    eax,0x1
+    11e9:       74 0a                   je     11f5 <main+0x70>
+    11eb:       bf ff ff ff ff          mov    edi,0xffffffff
+    11f0:       e8 7b fe ff ff          call   1070 <exit@plt>
+    11f5:       0f b6 45 fb             movzx  eax,BYTE PTR [rbp-0x5]
+    11f9:       0f be c0                movsx  eax,al
+    11fc:       89 c7                   mov    edi,eax
+    11fe:       e8 4d fe ff ff          call   1050 <srand@plt>
+    1203:       e8 78 fe ff ff          call   1080 <rand@plt>
+    1208:       8b 55 fc                mov    edx,DWORD PTR [rbp-0x4]
+    120b:       48 63 d2                movsxd rdx,edx
+    120e:       48 8d 0c 95 00 00 00    lea    rcx,[rdx*4+0x0]
+    1215:       00
+    1216:       48 8d 15 63 2e 00 00    lea    rdx,[rip+0x2e63]        # 4080 <check>
+    121d:       8b 14 11                mov    edx,DWORD PTR [rcx+rdx*1]
+    1220:       39 d0                   cmp    eax,edx
+    1222:       75 0e                   jne    1232 <main+0xad>
+    1224:       48 8d 3d d5 0e 00 00    lea    rdi,[rip+0xed5]        # 2100 <banner+0xe0>
+    122b:       e8 00 fe ff ff          call   1030 <puts@plt>
+    1230:       eb 22                   jmp    1254 <main+0xcf>
+    1232:       48 8d 3d d6 0e 00 00    lea    rdi,[rip+0xed6]        # 210f <banner+0xef>
+    1239:       e8 f2 fd ff ff          call   1030 <puts@plt>
+    123e:       48 8d 3d e3 0e 00 00    lea    rdi,[rip+0xee3]        # 2128 <banner+0x108>
+    1245:       e8 e6 fd ff ff          call   1030 <puts@plt>
+    124a:       bf fe ff ff ff          mov    edi,0xfffffffe
+    124f:       e8 1c fe ff ff          call   1070 <exit@plt>
+    1254:       83 45 fc 01             add    DWORD PTR [rbp-0x4],0x1
+    1258:       8b 45 fc                mov    eax,DWORD PTR [rbp-0x4]
+    125b:       83 f8 1c                cmp    eax,0x1c
+    125e:       0f 86 59 ff ff ff       jbe    11bd <main+0x38>
+    125b:       83 f8 1c                cmp    eax,0x1c
+    125b:       83 f8 1c                cmp    eax,0x1c
+    125e:       0f 86 59 ff ff ff       jbe    11bd <main+0x38>
+    1264:       48 8d 3d f5 0e 00 00    lea    rdi,[rip+0xef5]        # 2160 <banner+0x140>
+    126b:       e8 c0 fd ff ff          call   1030 <puts@plt>
+    1270:       b8 00 00 00 00          mov    eax,0x0
+    1275:       c9                      leave
+    1276:       c3                      ret
+    1277:       66 0f 1f 84 00 00 00    nop    WORD PTR [rax+rax*1+0x0]
+    127e:       00 00
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> ^C
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; objdump -s -j .data casino"
+
+casino:     file format elf64-x86-64
+
+Contents of section .data:
+ 4060 00000000 00000000 68400000 00000000  ........h@......
+ 4070 00000000 00000000 00000000 00000000  ................
+ 4080 be284b24 0578f70a 17fc0d11 a1c3af07  .(K$.x..........
+ 4090 33c5fe6a a259d64e b0d4c533 b8826528  3..j.Y.N...3..e(
+ 40a0 20373843 fc145a05 9f5f1919 20373843   78C..Z.._.. 78C
+ 40b0 80931463 99b25a61 33c5fe6a b8cf6f6c  ...c..Za3..j..ol
+ 40c0 20373843 37a23d0f 33c5fe6a 99b25a61   78C7.=.3..j..Za
+ 40d0 b8826528 fc145a05 9449e43a e9dfd706  ..e(..Z..I.:....
+ 40e0 a259d64e cd4acd0c 64edd857 99b25a61  .Y.N.J..d..W..Za
+ 40f0 2abce922                             *.."
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; objdump -s -j .data casino | head -n 80"
+
+casino:     file format elf64-x86-64
+
+Contents of section .data:
+ 4060 00000000 00000000 68400000 00000000  ........h@......
+ 4070 00000000 00000000 00000000 00000000  ................
+ 4080 be284b24 0578f70a 17fc0d11 a1c3af07  .(K$.x..........
+ 4090 33c5fe6a a259d64e b0d4c533 b8826528  3..j.Y.N...3..e(
+ 40a0 20373843 fc145a05 9f5f1919 20373843   78C..Z.._.. 78C
+ 40b0 80931463 99b25a61 33c5fe6a b8cf6f6c  ...c..Za3..j..ol
+ 40c0 20373843 37a23d0f 33c5fe6a 99b25a61   78C7.=.3..j..Za
+ 40d0 b8826528 fc145a05 9449e43a e9dfd706  ..e(..Z..I.:....
+ 40e0 a259d64e cd4acd0c 64edd857 99b25a61  .Y.N.J..d..W..Za
+ 40f0 2abce922                             *.."
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; readelf -S casino | egrep ' \.data|\.text|\.rodata'"
+  [14] .text             PROGBITS         00000000000010a0  000010a0
+  [16] .rodata           PROGBITS         0000000000002000  00002000
+  [24] .data             PROGBITS         0000000000004060  00003060
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; objdump -s -j .rodata casino | sed -n '1,120p'"
+
+casino:     file format elf64-x86-64
+
+Contents of section .rodata:
+ 2000 01000200 00000000 00000000 00000000  ................
+ 2010 00000000 00000000 00000000 00000000  ................
+ 2020 20202020 202c2020 2020202c 0a202020       ,     ,.
+ 2030 20285c5f 5f5f5f2f 290a2020 20202028   (\____/).     (
+ 2040 5f6f6f5f 290a2020 20202020 20284f29  _oo_).       (O)
+ 2050 0a202020 20205f5f 7c7c5f5f 20202020  .     __||__
+ 2060 5c290a20 205b5d2f 5f5f5f5f 5f5f5c5b  \).  []/______\[
+ 2070 5d202f0a 20202f20 5c5f5f5f 5f5f5f2f  ] /.  / \______/
+ 2080 205c2f0a 202f2020 20202f5f 5f5c0a28   \/. /    /__\.(
+ 2090 5c202020 2f5f5f5f 5f5c0a2d 2d2d2d2d  \   /____\.-----
+ 20a0 2d2d2d2d 2d2d2d2d 2d2d2d2d 2d2d2d2d  ----------------
+ 20b0 00000000 00000000 5b202a2a 2057454c  ........[ ** WEL
+ 20c0 434f4d45 20544f20 524f424f 20434153  COME TO ROBO CAS
+ 20d0 494e4f20 2a2a5d00 5b2a2a2a 20504c45  INO **].[*** PLE
+ 20e0 41534520 504c4143 4520594f 55522042  ASE PLACE YOUR B
+ 20f0 45545320 2a2a2a5d 003e2000 20256300  ETS ***].> . %c.
+ 2100 5b202a20 434f5252 45435420 2a5d005b  [ * CORRECT *].[
+ 2110 202a2049 4e434f52 52454354 202a205d   * INCORRECT * ]
+ 2120 00000000 00000000 5b202a2a 2a204143  ........[ *** AC
+ 2130 54495641 54494e47 20534543 55524954  TIVATING SECURIT
+ 2140 59205359 5354454d 202d2050 4c454153  Y SYSTEM - PLEAS
+ 2150 45205641 43415445 202a2a2a 205d0000  E VACATE *** ]..
+ 2160 5b202a2a 20484f55 53452042 414c414e  [ ** HOUSE BALAN
+ 2170 43452024 30202d20 504c4541 53452043  CE $0 - PLEASE C
+ 2180 4f4d4520 4241434b 204c4154 4552202a  OME BACK LATER *
+ 2190 2a205d00                             * ].
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; python3 - <<'PY'
+>> import ctypes, struct
+>> from pathlib import Path
+>> p = Path('casino')
+>> data = p.read_bytes()
+>> off = 0x3080
+>> n = 0x74
+>> check_bytes = data[off:off+n]
+>> checks = list(struct.unpack('<' + 'I'*(n//4), check_bytes))
+>> print('count', len(checks))
+>> print('checks', [hex(x) for x in checks])
+>> libc = ctypes.CDLL('libc.so.6')
+>> libc.srand.argtypes=[ctypes.c_uint]
+>> libc.rand.restype=ctypes.c_int
+>>
+>> def first_rand(seed_u32:int)->int:
+>>     libc.srand(ctypes.c_uint(seed_u32))
+>>     return libc.rand()
+>>
+>> sol_bytes=[]
+>> for i,t in enumerate(checks):
+>>     found=None
+>>     for b in range(256):
+>>         seed = b if b<128 else b-256
+>>         seed_u32 = seed & 0xffffffff
+>>         if first_rand(seed_u32) == t:
+>>             found=b
+>>             break
+>>     if found is None:
+>>         raise SystemExit(f'no byte for index {i} target {t:#x}')
+>>     sol_bytes.append(found)
+>>
+>> s = bytes(sol_bytes)
+>> print('solution bytes:', s)
+>> print('as latin1:', s.decode('latin1'))
+>> PY"
+count 29
+checks ['0x244b28be', '0xaf77805', '0x110dfc17', '0x7afc3a1', '0x6afec533', '0x4ed659a2', '0x33c5d4b0', '0x286582b8', '0x43383720', '0x55a14fc', '0x19195f9f', '0x43383720', '0x63149380', '0x615ab299', '0x6afec533', '0x6c6fcfb8', '0x43383720', '0xf3da237', '0x6afec533', '0x615ab299', '0x286582b8', '0x55a14fc', '0x3ae44994', '0x6d7dfe9', '0x4ed659a2', '0xccd4acd', '0x57d8ed64', '0x615ab299', '0x22e9bc2a']  
+solution bytes: b'HTB{r4nd_1s_v3ry_pr3d1ct4bl3}'
+as latin1: HTB{r4nd_1s_v3ry_pr3d1ct4bl3}
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino> wsl.exe -e bash -lc "cd /mnt/c/Users/sadik/Downloads/rev_flagcasino/rev_flagcasino; printf 'HTB{r4nd_1s_v3ry_pr3d1ct4bl3}' | ./casino"
+[ ** WELCOME TO ROBO CASINO **]
+     ,     ,
+    (\____/)
+     (_oo_)
+       (O)
+     __||__    \)
+  []/______\[] /
+  / \______/ \/
+ /    /__\
+(\   /____\
+---------------------
+[*** PLEASE PLACE YOUR BETS ***]
+> [ * CORRECT *]
+[ ** HOUSE BALANCE $0 - PLEASE COME BACK LATER ** ]
+PS C:\Users\sadik\Downloads\rev_flagcasino\rev_flagcasino>

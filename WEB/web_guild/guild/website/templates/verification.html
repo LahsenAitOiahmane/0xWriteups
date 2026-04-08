@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Verification Portal{% endblock %}
+{% block content %}
+<h1>Verification Page</h1>
+<h3 align="center">Send your Guild Badge picture</h3>
+<br>
+<form method="POST" enctype=multipart/form-data>
+    <label for="file">Attatchment:</label>
+    <input class="file-input" type="file" name="file">
+    <div class="verification-send-btn" align="center">
+        <button type="submit" class="btn btn-dark">Send</button>
+    </div>
+</form>
+{% endblock %}

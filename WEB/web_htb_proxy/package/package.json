@@ -1,0 +1,15 @@
+{
+  "name": "ip-wrapper",
+  "version": "1.1.1",
+  "description": "A simple wrapper around the ip command",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Alchemilla Private Limited",
+  "license": "MIT",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}

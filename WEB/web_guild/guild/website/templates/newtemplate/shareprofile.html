@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile | {{ username }}</title>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+	<link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+	<style>
+		body {
+			background-image: url(../static/images/wp3688942-medieval-background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+			padding: 25px;
+		}
+
+		h1 {
+			font-size: 50px;
+			text-transform: uppercase;
+			font-family: 'Moon Dance';
+			font-weight: bold;
+			color: rgb(233, 229, 229);
+			letter-spacing: 2px;
+			margin-bottom: 10px;
+		}
+
+		.sprofile-div {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#custom-string {
+			font-size: 20px;
+			line-height: 30px;
+			margin-top: 25px;
+			max-width: 350px;
+			max-height: 300px;
+			overflow: auto;
+		}
+
+		.para-class {
+			font-family: MedievalSharp,sans-serif;
+			color: #3C2A21;
+		}
+
+		@media only screen and (max-width: 1290px) {
+			body {
+				background-image: none;
+				background-image: url(../../static/images/more-leaves.png);
+			}
+
+			h1 {
+				color: black;
+			}
+
+			.para-class {
+				color: black;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="sprofile-div">
+		<div class="h1-div">
+			<h1>{{ username }}</h1>
+		</div>
+		<div id="custom-string">
+			<p class="para-class">%s</p>
+	    </div>
+	</div>
+
+</body>
+</html>

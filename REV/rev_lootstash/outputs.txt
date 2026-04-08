@@ -1,0 +1,89 @@
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> wsl -e bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_lootstash; ls -la; file stash; sha256sum stash 2>/dev/null || true; chmod +x stash 2PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> wsl -e bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_lootstash; ls -la; file stash; sha256sum stash 2>/dev/null || true; chmod +x stash 2>/dev/null || true"
+total 32
+drwxrwxrwx 1 l27sen l27sen  4096 Jan  4 20:59 .
+drwxrwxrwx 1 l27sen l27sen  4096 Jan  4 20:59 ..
+-rwxrwxrwx 1 l27sen l27sen 30704 Jan  4 20:59 stash
+stash: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=817b1311ae44bdc6ed8a9b563159616844e59c64, for GNU/Linux 3.2.0, not stripped
+2de89e7ea8347d190dbd9314f8a8f5680678abe03e520a530ecd87c29fb99c72  stash
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> powershell -NoProfile -Command "Get-ChildItem -LiteralPath 'c:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash' -Force | Format-List Name,Length,Mode,LastWriteTime"
+
+
+Name          : stash
+Length        : 30704
+Mode          : -a----
+LastWriteTime : 1/4/2026 8:59:11 PM
+
+
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> wsl -e bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_lootstash; echo '--- strings (filtered) ---'; strings -a stash | egrep -i 'HTB\{|flag|loot|stash|weapon|gear|wrong|correct|enter|input|usage|congrats|success|fail' || true; echo '--- dynamic symbols ---'; nm -D stash | head -n 80; echo '--- symbols (non-dynamic) ---'; nm -n stash | head -n 120"
+--- strings (filtered) ---
+HTB{n33dl3_1n_a_l00t_stack}
+Diving into the stash - let's see what we can find.
+gear
+--- dynamic symbols ---
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 w __cxa_finalize@GLIBC_2.2.5
+                 w __gmon_start__
+                 U __libc_start_main@GLIBC_2.34
+                 U printf@GLIBC_2.2.5
+                 U putchar@GLIBC_2.2.5
+                 U puts@GLIBC_2.2.5
+                 U rand@GLIBC_2.2.5
+                 U setvbuf@GLIBC_2.2.5
+                 U sleep@GLIBC_2.2.5
+                 U srand@GLIBC_2.2.5
+0000000000007858 B stdout@GLIBC_2.2.5
+                 U time@GLIBC_2.2.5
+--- symbols (non-dynamic) ---
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 w __cxa_finalize@GLIBC_2.2.5
+                 w __gmon_start__
+                 U __libc_start_main@GLIBC_2.34
+                 U printf@GLIBC_2.2.5
+                 U putchar@GLIBC_2.2.5
+                 U puts@GLIBC_2.2.5
+                 U rand@GLIBC_2.2.5
+                 U setvbuf@GLIBC_2.2.5
+                 U sleep@GLIBC_2.2.5
+                 U srand@GLIBC_2.2.5
+                 U time@GLIBC_2.2.5
+000000000000037c r __abi_tag
+0000000000002000 T _init
+00000000000020c0 T _start
+00000000000020f0 t deregister_tm_clones
+0000000000002120 t register_tm_clones
+0000000000002160 t __do_global_dtors_aux
+00000000000021a0 t frame_dummy
+00000000000021a9 T main
+0000000000002288 T _fini
+0000000000003000 R _IO_stdin_used
+00000000000050cc r __GNU_EH_FRAME_HDR
+00000000000051a0 r __FRAME_END__
+0000000000006dd0 d __frame_dummy_init_array_entry
+0000000000006dd8 d __do_global_dtors_aux_fini_array_entry
+0000000000006de0 d _DYNAMIC
+0000000000006fe8 d _GLOBAL_OFFSET_TABLE_
+0000000000007040 D __data_start
+0000000000007040 W data_start
+0000000000007048 D __dso_handle
+0000000000007060 D gear
+0000000000007858 D __TMC_END__
+0000000000007858 B __bss_start
+0000000000007858 D _edata
+0000000000007858 B stdout@GLIBC_2.2.5
+0000000000007860 b completed.0
+0000000000007868 B _end
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_lootstash> wsl -e bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_lootstash; echo '--- run (no input) ---'; ./stash </dev/null || true; echo '--- run (sample input) ---'; printf 'test\n' | ./stash || true"
+--- run (no input) ---
+Diving into the stash - let's see what we can find.
+.....
+You got: 'Moonshard, Bead of Misery'. Now run, before anyone tries to steal it!
+--- run (sample input) ---
+Diving into the stash - let's see what we can find.
+.wsl -e bash -lc "cd /mnt/c/Users/sadik/Documents/H.TB-CTF/REV/rev_lootstash; ./stash"
+...
+You got: 'Dementia, Ravager of the Dead'. Now run, before anyone tries to steal it!

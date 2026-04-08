@@ -1,0 +1,1123 @@
+    8dcb:       lea    rdi,[rip+0x3e2de]        # 470b0 <str.1>
+    8dd2:       lea    rdx,[rip+0x4f4bf]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8dd9:       mov    esi,0x21
+    8dde:       call   QWORD PTR [rip+0x521fc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8de4:       lea    rdi,[rip+0x3e2f5]        # 470e0 <str.2>
+    8deb:       lea    rdx,[rip+0x4f4a6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8df2:       mov    esi,0x1c
+    8df7:       call   QWORD PTR [rip+0x521e3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8dfd:       nop    DWORD PTR [rax]
+
+0000000000008e00 <_ZN4core3ops8function6FnOnce9call_once17hc26775751c1be756E>:
+    8e00:       push   rax
+    8e01:       cmp    dil,0x7b
+    8e05:       jb     8e0b <_ZN4core3ops8function6FnOnce9call_once17hc26775751c1be756E+0xb>
+    8e07:       jne    8e24 <_ZN4core3ops8function6FnOnce9call_once17hc26775751c1be756E+0x24>
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo '---check_flag pointer table setup---'; objdump -d --no-show-raw-insn -Mintel ./dontpanic | awk 'BEGIN{p=0} /<src::check_flag>/{p=1} p==1{print} /cmp[[:space:]]+rsi,0x1f/{exit}'"
+---check_flag pointer table setup---
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo '---check_flag (first ~140 lines)---'; objdump -d --demangle --no-show-raw-insn -Mintel ./dontpanic | sed -n '/<src::check_flag>/,/cmp[[:space:]]\+rsi,0x1f/p' | head -n 170"
+---check_flag (first ~140 lines)---
+0000000000009060 <src::check_flag>:
+    9060:       push   r14
+    9062:       push   rbx
+    9063:       sub    rsp,0x138
+    906a:       mov    rbx,rdi
+    906d:       lea    rax,[rip+0xfffffffffffffb0c]        # 8b80 <core::ops::function::FnOnce::call_once>
+    9074:       mov    QWORD PTR [rsp+0x10],rax
+    9079:       lea    rax,[rip+0xfffffffffffffd00]        # 8d80 <core::ops::function::FnOnce::call_once>
+    9080:       mov    QWORD PTR [rsp+0x18],rax
+    9085:       lea    rax,[rip+0xfffffffffffffcb4]        # 8d40 <core::ops::function::FnOnce::call_once>
+    908c:       mov    QWORD PTR [rsp+0x20],rax
+    9091:       lea    rax,[rip+0xfffffffffffffd68]        # 8e00 <core::ops::function::FnOnce::call_once>
+    9098:       mov    QWORD PTR [rsp+0x28],rax
+    909d:       lea    rax,[rip+0xfffffffffffffd9c]        # 8e40 <core::ops::function::FnOnce::call_once>
+    90a4:       mov    QWORD PTR [rsp+0x30],rax
+    90a9:       lea    rax,[rip+0xfffffffffffffb50]        # 8c00 <core::ops::function::FnOnce::call_once>
+    90b0:       mov    QWORD PTR [rsp+0x38],rax
+    90b5:       lea    rax,[rip+0xfffffffffffffbc4]        # 8c80 <core::ops::function::FnOnce::call_once>
+    90bc:       mov    QWORD PTR [rsp+0x40],rax
+    90c1:       lea    rcx,[rip+0xfffffffffffff9f8]        # 8ac0 <core::ops::function::FnOnce::call_once>
+    90c8:       mov    QWORD PTR [rsp+0x48],rcx
+    90cd:       lea    rdx,[rip+0xfffffffffffffa2c]        # 8b00 <core::ops::function::FnOnce::call_once>
+    90d4:       mov    QWORD PTR [rsp+0x50],rdx
+    90d9:       lea    rdi,[rip+0xfffffffffffff9a0]        # 8a80 <core::ops::function::FnOnce::call_once>
+    90e0:       mov    QWORD PTR [rsp+0x58],rdi
+    90e5:       lea    rdi,[rip+0xfffffffffffffc14]        # 8d00 <core::ops::function::FnOnce::call_once>
+    90ec:       mov    QWORD PTR [rsp+0x60],rdi
+    90f1:       mov    QWORD PTR [rsp+0x68],rax
+    90f6:       lea    rax,[rip+0xfffffffffffffbc3]        # 8cc0 <core::ops::function::FnOnce::call_once>
+    90fd:       mov    QWORD PTR [rsp+0x70],rax
+    9102:       lea    rax,[rip+0xfffffffffffffa37]        # 8b40 <core::ops::function::FnOnce::call_once>
+    9109:       mov    QWORD PTR [rsp+0x78],rax
+    910e:       mov    QWORD PTR [rsp+0x80],rdx
+    9116:       mov    QWORD PTR [rsp+0x88],rax
+    911e:       mov    QWORD PTR [rsp+0x90],rdi
+    9126:       mov    QWORD PTR [rsp+0x98],rcx
+    912e:       mov    QWORD PTR [rsp+0xa0],rax
+    9136:       lea    rax,[rip+0xfffffffffffff903]        # 8a40 <core::ops::function::FnOnce::call_once>
+    913d:       mov    QWORD PTR [rsp+0xa8],rax
+    9145:       mov    QWORD PTR [rsp+0xb0],rdx
+    914d:       mov    QWORD PTR [rsp+0xb8],rcx
+    9155:       mov    QWORD PTR [rsp+0xc0],rax
+    915d:       lea    rax,[rip+0xfffffffffffffc5c]        # 8dc0 <core::ops::function::FnOnce::call_once>
+    9164:       mov    QWORD PTR [rsp+0xc8],rax
+    916c:       mov    QWORD PTR [rsp+0xd0],rdx
+    9174:       lea    rax,[rip+0xfffffffffffffd05]        # 8e80 <core::ops::function::FnOnce::call_once>
+    917b:       mov    QWORD PTR [rsp+0xd8],rax
+    9183:       lea    rax,[rip+0xfffffffffffffab6]        # 8c40 <core::ops::function::FnOnce::call_once>
+    918a:       mov    QWORD PTR [rsp+0xe0],rax
+    9192:       mov    QWORD PTR [rsp+0xe8],rax
+    919a:       lea    rcx,[rip+0xfffffffffffffa1f]        # 8bc0 <core::ops::function::FnOnce::call_once>
+    91a1:       mov    QWORD PTR [rsp+0xf0],rcx
+    91a9:       mov    QWORD PTR [rsp+0xf8],rax
+    91b1:       lea    rax,[rip+0xfffffffffffffd08]        # 8ec0 <core::ops::function::FnOnce::call_once>
+    91b8:       mov    QWORD PTR [rsp+0x100],rax
+    91c0:       mov    QWORD PTR [rsp],rsi
+    91c4:       mov    QWORD PTR [rsp+0x8],0x1f
+    91cd:       cmp    rsi,0x1f
+    92f8:       call   9060 <src::check_flag>
+    92fd:       mov    QWORD PTR [rsp+0x48],0x0
+    9306:       lea    rax,[rip+0x4ef6b]        # 58278 <__do_global_dtors_aux_fini_array_entry+0xe8>
+    930d:       mov    QWORD PTR [rsp+0x18],rax
+    9312:       mov    QWORD PTR [rsp+0x20],0x1
+    931b:       mov    QWORD PTR [rsp+0x28],r14
+    9320:       xorps  xmm0,xmm0
+    9323:       movups XMMWORD PTR [rsp+0x30],xmm0
+    9328:       lea    rdi,[rsp+0x18]
+    932d:       call   QWORD PTR [rip+0x51c55]        # 5af88 <_GLOBAL_OFFSET_TABLE_+0x678>
+    9333:       mov    bpl,0x1
+    9336:       xor    ebx,ebx
+    9338:       mov    rsi,QWORD PTR [rsp]
+    933c:       test   rsi,rsi
+    933f:       je     9351 <src::main+0x121>
+    9341:       mov    rdi,QWORD PTR [rsp+0x8]
+    9346:       mov    edx,0x1
+    934b:       call   QWORD PTR [rip+0x5183f]        # 5ab90 <_GLOBAL_OFFSET_TABLE_+0x280>
+    9351:       test   bpl,bpl
+    9354:       jne    9372 <src::main+0x142>
+    9356:       mov    rdi,rbx
+    9359:       call   QWORD PTR [r15]
+    935c:       mov    rsi,QWORD PTR [r15+0x8]
+    9360:       test   rsi,rsi
+    9363:       je     9372 <src::main+0x142>
+    9365:       mov    rdx,QWORD PTR [r15+0x10]
+    9369:       mov    rdi,rbx
+    936c:       call   QWORD PTR [rip+0x5181e]        # 5ab90 <_GLOBAL_OFFSET_TABLE_+0x280>
+    9372:       add    rsp,0x58
+    9376:       pop    rbx
+    9377:       pop    r14
+    9379:       pop    r15
+    937b:       pop    rbp
+    937c:       ret
+    937d:       mov    QWORD PTR [rsp+0x18],rdx
+    9382:       lea    rdi,[rip+0x3dcb7]        # 47040 <_fini+0x1000>
+    9389:       lea    rcx,[rip+0x4ee38]        # 581c8 <__do_global_dtors_aux_fini_array_entry+0x38>
+    9390:       lea    r8,[rip+0x4eec9]        # 58260 <__do_global_dtors_aux_fini_array_entry+0xd0>
+    9397:       lea    rdx,[rsp+0x18]
+    939c:       mov    esi,0x13
+    93a1:       call   QWORD PTR [rip+0x518c1]        # 5ac68 <_GLOBAL_OFFSET_TABLE_+0x358>
+    93a7:       ud2
+    93a9:       mov    r14,rax
+    93ac:       mov    rsi,QWORD PTR [r15+0x8]
+    93b0:       test   rsi,rsi
+    93b3:       je     9477 <src::main+0x247>
+    93b9:       mov    rdx,QWORD PTR [r15+0x10]
+    93bd:       mov    rdi,rbx
+    93c0:       jmp    9471 <src::main+0x241>
+    93c5:       mov    rdi,rax
+    93c8:       call   QWORD PTR [rip+0x516ea]        # 5aab8 <_GLOBAL_OFFSET_TABLE_+0x1a8>
+    93ce:       mov    rbx,rax
+    93d1:       mov    r15,rdx
+    93d4:       mov    QWORD PTR [rsp+0x48],rax
+    93d9:       mov    QWORD PTR [rsp+0x50],rdx
+    93de:       lea    rax,[rip+0x4eea3]        # 58288 <__do_global_dtors_aux_fini_array_entry+0xf8>
+    93e5:       mov    QWORD PTR [rsp+0x18],rax
+    93ea:       mov    QWORD PTR [rsp+0x20],0x1
+    93f3:       mov    QWORD PTR [rsp+0x28],r14
+    93f8:       xorps  xmm0,xmm0
+    93fb:       movups XMMWORD PTR [rsp+0x30],xmm0
+    9400:       lea    rdi,[rsp+0x18]
+    9405:       call   QWORD PTR [rip+0x51b7d]        # 5af88 <_GLOBAL_OFFSET_TABLE_+0x678>
+    940b:       xor    ebp,ebp
+    940d:       jmp    9338 <src::main+0x108>
+    9412:       call   QWORD PTR [rip+0x51670]        # 5aa88 <_GLOBAL_OFFSET_TABLE_+0x178>
+    9418:       mov    r14,rax
+    941b:       mov    rsi,QWORD PTR [rsp]
+    941f:       test   rsi,rsi
+    9422:       je     9434 <src::main+0x204>
+    9424:       mov    rdi,QWORD PTR [rsp+0x8]
+    9429:       mov    edx,0x1
+    942e:       call   QWORD PTR [rip+0x5175c]        # 5ab90 <_GLOBAL_OFFSET_TABLE_+0x280>
+    9434:       lea    rdi,[rsp+0x48]
+    9439:       call   8f00 <core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn core::any::Any+core::marker::Send>>>>
+    943e:       jmp    9477 <src::main+0x247>
+    9440:       call   QWORD PTR [rip+0x5191a]        # 5ad60 <_GLOBAL_OFFSET_TABLE_+0x450>
+    9446:       mov    r14,rax
+    9449:       lea    rdi,[rsp+0x18]
+    944e:       call   8f70 <core::ptr::drop_in_place<std::io::error::Error>>
+    9453:       jmp    945e <src::main+0x22e>
+    9455:       call   QWORD PTR [rip+0x51905]        # 5ad60 <_GLOBAL_OFFSET_TABLE_+0x450>
+    945b:       mov    r14,rax
+    945e:       mov    rsi,QWORD PTR [rsp]
+    9462:       test   rsi,rsi
+    9465:       je     9477 <src::main+0x247>
+    9467:       mov    rdi,QWORD PTR [rsp+0x8]
+    946c:       mov    edx,0x1
+    9471:       call   QWORD PTR [rip+0x51719]        # 5ab90 <_GLOBAL_OFFSET_TABLE_+0x280>
+    9477:       mov    rdi,r14
+    947a:       call   6060 <_Unwind_Resume@plt>
+    947f:       nop
+
+0000000000009480 <src::main::{{closure}}>:
+    9480:       ret
+    9481:       cs nop WORD PTR [rax+rax*1+0x0]
+    948b:       nop    DWORD PTR [rax+rax*1+0x0]
+
+0000000000009490 <main>:
+    9490:       push   rax
+    9491:       mov    rcx,rsi
+    9494:       movsxd rdx,edi
+    9497:       lea    rax,[rip+0xfffffffffffffd92]        # 9230 <src::main>
+    949e:       mov    QWORD PTR [rsp],rax
+    94a2:       lea    rsi,[rip+0x4ecef]        # 58198 <__do_global_dtors_aux_fini_array_entry+0x8>
+    94a9:       mov    rdi,rsp
+    94ac:       xor    r8d,r8d
+    94af:       call   QWORD PTR [rip+0x51573]        # 5aa28 <_GLOBAL_OFFSET_TABLE_+0x118>
+    94b5:       pop    rcx
+    94b6:       ret
+    94b7:       nop    WORD PTR [rax+rax*1+0x0]
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo '---extract cmp constants for check stubs---'; objdump -d --no-show-raw-insn -Mintel ./dontpanic | awk 'BEGIN{p=0} /^0000000000008a40/{p=1} p==1{print} /^0000000000008f00/{exit}' | egrep '^[0-9a-f]+ <|cmp[[:space:]]+dil,0x'"
+---extract cmp constants for check stubs---
+0000000000008a40 <_ZN4core3ops8function6FnOnce9call_once17h076f93abc7994a2bE>:
+    8a41:       cmp    dil,0x68
+0000000000008a80 <_ZN4core3ops8function6FnOnce9call_once17h08f069e45c38c91bE>:
+    8a81:       cmp    dil,0x70
+0000000000008ac0 <_ZN4core3ops8function6FnOnce9call_once17h1e50475f0ef4e3b2E>:
+    8ac1:       cmp    dil,0x74
+0000000000008b00 <_ZN4core3ops8function6FnOnce9call_once17h28c42c5fb55e3f9fE>:
+    8b01:       cmp    dil,0x5f
+0000000000008b40 <_ZN4core3ops8function6FnOnce9call_once17h2ed86dfdd0fc9ca5E>:
+    8b41:       cmp    dil,0x63
+0000000000008b80 <_ZN4core3ops8function6FnOnce9call_once17h32497efb348ffe3cE>:
+    8b81:       cmp    dil,0x48
+0000000000008bc0 <_ZN4core3ops8function6FnOnce9call_once17h3dae80a6281f81f5E>:
+    8bc1:       cmp    dil,0x6f
+0000000000008c00 <_ZN4core3ops8function6FnOnce9call_once17h40d00bd196c3c783E>:
+    8c01:       cmp    dil,0x30
+0000000000008c40 <_ZN4core3ops8function6FnOnce9call_once17h4aee5a63c69b281cE>:
+    8c41:       cmp    dil,0x72
+0000000000008c80 <_ZN4core3ops8function6FnOnce9call_once17h4e1d94269d5dab9fE>:
+    8c81:       cmp    dil,0x6e
+0000000000008cc0 <_ZN4core3ops8function6FnOnce9call_once17h5935cc8a67508b36E>:
+    8cc1:       cmp    dil,0x31
+0000000000008d00 <_ZN4core3ops8function6FnOnce9call_once17h70ddab66eb3eaf7eE>:
+    8d01:       cmp    dil,0x34
+0000000000008d40 <_ZN4core3ops8function6FnOnce9call_once17h784eba9476a4f0f4E>:
+    8d41:       cmp    dil,0x42
+0000000000008d80 <_ZN4core3ops8function6FnOnce9call_once17h827ece763c8c7e2eE>:
+    8d81:       cmp    dil,0x54
+0000000000008dc0 <_ZN4core3ops8function6FnOnce9call_once17ha0a2d91800448694E>:
+    8dc1:       cmp    dil,0x65
+0000000000008e00 <_ZN4core3ops8function6FnOnce9call_once17hc26775751c1be756E>:
+    8e01:       cmp    dil,0x7b
+0000000000008e40 <_ZN4core3ops8function6FnOnce9call_once17hc599f6727ca8db95E>:
+    8e41:       cmp    dil,0x64
+0000000000008e80 <_ZN4core3ops8function6FnOnce9call_once17hd3a717188d9c9564E>:
+    8e81:       cmp    dil,0x33
+0000000000008ec0 <_ZN4core3ops8function6FnOnce9call_once17he29dc24b9b003076E>:
+    8ec1:       cmp    dil,0x7d
+0000000000008f00 <_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha99478eed0505dd4E>:
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> ^C
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo '---reconstruct expected string (from pointer table)---'; python3 - <<'PY'
+>> import re, subprocess
+>>
+>> def run(cmd):
+>>     return subprocess.check_output(cmd, text=True)
+>>
+>> # Map stub address -> required byte from cmp dil,0x..
+>> stubs_txt = run(['bash','-lc',"objdump -d --no-show-raw-insn -Mintel ./dontpanic | awk 'BEGIN{p=0} /^0000000000008a40/{p=1} p==1{print} /^0000000000008f00/{exit}'"])
+>> addr=None
+>> req={}
+>> for line in stubs_txt.splitlines():
+>>     m=re.match(r'^000000000000([0-9a-f]{4}) <', line)
+>>     if m:
+>>         addr=int(m.group(1),16)
+>>         continue
+>>     m=re.search(r'cmp\s+dil,0x([0-9a-f]{2})', line)
+>>     if m and addr is not None:
+>>         req[addr]=int(m.group(1),16)
+>>
+>> # Extract the pointer writes from check_flag
+>> cf_txt = run(['bash','-lc',"objdump -d --demangle --no-show-raw-insn -Mintel ./dontpanic | sed -n '/<src::check_flag>/,/cmp[[:space:]]\\+rsi,0x1f/p'"])
+>> # Parse sequences like: lea rax,... # 8b80 ; mov QWORD PTR [rsp+0x10],rax
+>> # also lea rcx/rdx/rdi used, then moved.
+>> reg_val={}
+>> slots={}
+>> for line in cf_txt.splitlines():
+>>     m=re.search(r'lea\s+(rax|rcx|rdx|rdi),\[rip\+[^\]]+\]\s+#\s+([0-9a-f]+)\s+<', line)
+>>     if m:
+>>         reg_val[m.group(1)]=int(m.group(2),16)
+>>         continue
+>>     m=re.search(r'mov\s+QWORD PTR \[rsp\+0x([0-9a-f]+)\],(rax|rcx|rdx|rdi)', line)
+>>     if m:
+>>         off=int(m.group(1),16)
+>>         reg=m.group(2)
+>>         slots[off]=reg_val.get(reg)
+>>         continue
+>>
+>> # Slots for indices 0..30 are offsets 0x10..0x100 step 8
+>> expected=[]
+>> missing=[]
+>> for i,off in enumerate(range(0x10,0x108,8)):
+>>     addr=slots.get(off)
+>>     if addr is None:
+>>         missing.append((i,off,'no_addr'))
+>>         expected.append('?')
+>>         continue
+>>     b=req.get(addr)
+>>     if b is None:
+>>         missing.append((i,off,f'no_cmp_for_{addr:x}'))
+>>         expected.append('?')
+>>         continue
+>>     expected.append(chr(b))
+>>
+>> s=''.join(expected)
+>> print('expected_len',len(s))
+>> print('expected',s)
+>> if missing:
+>>     print('missing',missing)
+>> PY"
+awk : The term 'awk' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct   
+and try again.
+At line:8 char:84
++ ... -lc',"objdump -d --no-show-raw-insn -Mintel ./dontpanic | awk 'BEGIN{ ...
++                                                               ~~~
+    + CategoryInfo          : ObjectNotFound: (awk:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; chmod +x ./dontpanic; echo '==checksec=='; (checksec --file=./dontpanic 2>/dev/null || true); echo '==run=='; (./dontpanic 2>&1 | head -n 40); echo '==strings(HTB/flag)=='; strings -n 4 ./dontpanic | grep -E 'HTB\{|flag|FLAG|panic|robot|alarm|password|pass|key' | head -n 80; echo '==symbols=='; (nm -C ./dontpanic | grep -E 'check_flag|flag|main|panic' | head -n 80)"
+==checksec==
+==run==
+
+🤖💬 < Have you got a message for me? > 🗨️ 🤖: 😱😱😱 You made me panic! 😱😱😱
+==strings(HTB/flag)==
+pthread_key_create
+pthread_key_delete
+ You made me panic!
+fatal runtime error: drop of the panic payload panicked
+library/std/src/thread/scoped.rsassertion failed: page_size != 0AccessErroruse of std::thread::current() is not possible after the thread's local data has been destroyedlibrary/std/src/thread/mod.rsfailed to generate unique thread ID: bitspace exhaustedstream did not contain valid UTF-8failed to write the buffered data/library/std/src/io/buffered/linewritershim.rspermission deniedconnection refusednetwork unreachableconnection abortednot connectedaddress in useaddress not availablenetwork downbroken pipeentity already existsoperation would blocknot a directoryis a directorydirectory not emptyread-only filesystem or storage mediumfilesystem loop or indirection limit (e.g. symlink loop)stale network file handleinvalid input parameterinvalid datatimed outwrite zeroseek on unseekable filefilesystem quota exceededfile too largeresource busyexecutable file busycross-device link or renametoo many linksargument list too longoperation interruptedunsupportedunexpected end of fileout of memoryother erroruncategorized errorOsmessageCustomerror (os error )library/std/src/io/stdio.rscannot access a Thread Local Storage value during or after destructionlibrary/std/src/thread/local.rsfailed printing to : stdoutlibrary/std/src/io/mod.rsadvancing io slices beyond their lengthadvancing IoSlice beyond its lengthlibrary/std/src/sys/pal/unix/io.rsfailed to write whole bufferformatter errorlibrary/std/src/panic.rslibrary/std/src/path.rs.library/std/src/sync/once.rslock count overflow in reentrant mutexlibrary/std/src/sync/reentrant_lock.rsfile name contained an unexpected NUL bytestack backtrace:
+ bytes failedlibrary/std/src/alloc.rsfatal runtime error: Rust panics must be rethrown
+cannot modify the panic hook from a panicking threadlibrary/std/src/panicking.rsBox<dyn Any><unnamed>' panicked at :
+panicked after panic::always_abort(), aborting.
+thread panicked while processing panic. aborting.
+thread caused non-unwinding panic. aborting.
+fatal runtime error: failed to initiate panic, error library/std/src/../../backtrace/src/symbolize/mod.rs -       :ConnectionRefusedConnectionResetHostUnreachableNetworkUnreachableConnectionAbortedNotConnectedAddrInUseNetworkDownBrokenPipeAlreadyExistsWouldBlockNotADirectoryIsADirectoryDirectoryNotEmptyReadOnlyFilesystemFilesystemLoopStaleNetworkFileHandleInvalidInputInvalidDataWriteZeroStorageFullNotSeekableFilesystemQuotaExceededFileTooLargeResourceBusyExecutableFileBusyCrossesDevicesTooManyLinksInvalidFilenameArgumentListTooLongInterruptedUnsupportedUnexpectedEofOutOfMemoryOtherUncategorizedstrerror_r failurelibrary/std/src/sys/pal/unix/os.rsno /proc/self/exe available. Is /proc mounted?/dev/null      
+library/std/src/sys/pal/unix/mod.rsOnce instance has previously been poisonedinternal error: entered unreachable code: state is never set to invalid valuestoo many active read locks on RwLocklibrary/std/src/sys/sync/rwlock/futex.rsassertion failed: is_unlocked(state)library/std/src/sys/pal/unix/thread_local_key.rsfatal runtime error: assertion failed: key as usize != KEY_SENTVAL
+ACcapacity but is  (bytes from_str_radix_int: must lie in the range `[2, 36]` - found library/core/src/num/mod.rslibrary/core/src/fmt/mod.rs)..BorrowMutErroralready borrowed: library/core/src/char/methods.rsindex out of bounds: the len is library/core/src/fmt/builders.rslibrary/core/src/slice/memchr.rs:[called `Option::unwrap()` on a `None` valuepanicked at :
+library/core/src/panicking.rs but the index is panic in a function that cannot unwindpanic in a destructor during cleanup==!=matches right` failed
+library/core/src/panic
+panicking.rs
+panicking.rs
+panic.rs
+panic.rs
+thread_local_key.rs
+thread_local_key.rs
+panic_info.rs
+library/panic_unwind/src
+panicking.rs
+panic.rs
+panic.rs
+panic.rs
+library/core/src/panic
+panic.rs
+overflow_panic.rs
+panicking.rs
+panic_info.rs
+call_once<fn(&core::panic::panic_info::PanicInfo), (&core::panic::panic_info::PanicInfo)>
+_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h21e8bdadc29cfd37E
+drop_key_val<u64, gimli::read::abbrev::Abbreviation, alloc::collections::btree::node::marker::LeafOrInternal>
+_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h02519b830d8ffb8bE
+drop_key_val<std::ffi::os_str::OsString, std::ffi::os_str::OsString, alloc::collections::btree::node::marker::LeafOrInternal>
+panicking
+panic_count
+_ZN3std9panicking11panic_count13count_is_zero17h13296320bd2b06caE
+_ZN3std9panicking9panicking17h957330e8f9792515E
+_ZN3std6thread9panicking17h46e6df3d61e2a04fE
+_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hcd409899b5e2fe1dE
+drop_key_val<std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>, alloc::collections::btree::node::marker::LeafOrInternal>
+_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17ha8606cc8312e9b8cE
+drop_key_val<u64, core::result::Result<alloc::sync::Arc<gimli::read::abbrev::Abbreviations, alloc::alloc::Global>, gimli::read::Error>, alloc::collections::btree::node::marker::LeafOrInternal>
+_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$core..panic..panic_info..PanicInfo$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcb1908a3fb28610aE
+drop_in_place<alloc::boxed::Box<(dyn core::ops::function::Fn<(&core::panic::panic_info::PanicInfo), Output=()> + core::marker::Send + core::marker::Sync), alloc::alloc::Global>>
+size_of_val_raw<(dyn core::ops::function::Fn<(&core::panic::panic_info::PanicInfo), Output=()> + core::marker::Send + core::marker::Sync)>
+for_value_raw<(dyn core::ops::function::Fn<(&core::panic::panic_info::PanicInfo), Output=()> + core::marker::Send + core::marker::Sync)>
+drop<(dyn core::ops::function::Fn<(&core::panic::panic_info::PanicInfo), Output=()> + core::marker::Send + core::marker::Sync), alloc::alloc::Global>
+sort_unstable_by_key
+_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h157316359c0de3f1E
+insert_tail<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+insert_tail<addr2line::UnitRange, alloc::slice::{impl#0}::sort_by_key::{closure_env#0}<addr2line::UnitRange, u64, addr2line::{impl#2}::parse_units::{closure_env#5}<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>>
+sort_by_key
+_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf8890e19012d73f9E
+insert_tail<(gimli::common::DebugInfoOffset<usize>, gimli::common::DebugArangesOffset<usize>), alloc::slice::{impl#0}::sort_by_key::{closure_env#0}<(gimli::common::DebugInfoOffset<usize>, gimli::common::DebugArangesOffset<usize>), gimli::common::DebugInfoOffset<usize>, addr2line::{impl#2}::parse_units::{closure_env#0}<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>>
+_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h0c6f6f31b107dafcE
+insert_tail<addr2line::function::FunctionAddress, alloc::slice::{impl#0}::sort_by_key::{closure_env#0}<addr2line::function::FunctionAddress, u64, addr2line::function::{impl#0}::parse::{closure_env#1}<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>>
+_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h699643fd122fe4f6E
+insert_tail<addr2line::LineSequence, alloc::slice::{impl#0}::sort_by_key::{closure_env#0}<addr2line::LineSequence, u64, addr2line::{impl#3}::parse::{closure_env#1}<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>>
+_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hcd059cec0bfa3b1dE
+insert_head<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+choose_pivot<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+{closure#2}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+{closure#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+{closure#1}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+partition_equal<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+partition<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+partition_in_blocks<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+{closure#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, &mut core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+call_mut<(&std::backtrace_rs::symbolize::gimli::elf::ParsedSym, &std::backtrace_rs::symbolize::gimli::elf::ParsedSym), core::slice::{impl#0}::sort_unstable_by_key::{closure_env#0}<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, u64, std::backtrace_rs::symbolize::gimli::elf::{impl#1}::parse::{closure_env#3}>>
+_ZN5alloc11collections5btree4node76NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$Type$GT$4keys17hb9440fe1ce90eb82E
+keys<std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>, alloc::collections::btree::node::marker::LeafOrInternal>
+_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$14find_key_index17h4a18a3b477d0f5efE
+find_key_index<alloc::collections::btree::node::marker::Mut, std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>, alloc::collections::btree::node::marker::LeafOrInternal, std::ffi::os_str::OsString>
+_ZN5alloc11collections5btree4node76NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$Type$GT$4keys17h97a071cd00ff5c18E
+keys<std::ffi::os_str::OsString, std::ffi::os_str::OsString, alloc::collections::btree::node::marker::LeafOrInternal>
+_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$14find_key_index17hef58a5d4c939509fE
+==symbols==
+0000000000025ff0 T <std::panicking::begin_panic_handler::FormatStringPayload as core::panic::PanicPayload>::get
+0000000000025ed0 T <std::panicking::begin_panic_handler::FormatStringPayload as core::panic::PanicPayload>::take_box
+00000000000345c0 t panic_unwind::real_imp::panic::exception_cleanup
+000000000004a7d0 r panic_unwind::real_imp::CANARY
+0000000000009060 t src::check_flag
+0000000000009230 t src::main
+0000000000009480 t src::main::{{closure}}
+000000000005b0e8 b std::panic::SHOULD_CAPTURE
+0000000000022e50 T std::panic::get_backtrace_style
+0000000000000000 b std::panicking::panic_count::LOCAL_PANIC_COUNT::__getit::VAL
+0000000000000008 b std::panicking::panic_count::LOCAL_PANIC_COUNT::__getit::VAL
+0000000000007110 T std::panicking::panic_count::is_zero_slow_path
+000000000005b120 B std::panicking::panic_count::GLOBAL_PANIC_COUNT
+0000000000025910 T std::panicking::default_hook
+000000000005b020 d std::panicking::default_hook::{{closure}}::FIRST_PANIC
+0000000000025d40 t std::panicking::default_hook::{{closure}}
+00000000000260f0 t std::panicking::begin_panic_handler::{{closure}}
+00000000000261d0 T std::panicking::rust_panic_with_hook
+0000000000007130 T std::panicking::try::cleanup
+000000000005b100 B std::panicking::HOOK
+0000000000025720 T std::panicking::set_hook
+000000000000aa90 t core::ptr::drop_in_place<std::panicking::Hook>
+00000000000343e0 t core::ptr::drop_in_place<panic_unwind::real_imp::Exception>
+0000000000009020 t core::ptr::drop_in_place<src::main::{{closure}}>
+000000000000b120 t core::ptr::drop_in_place<std::panicking::begin_panic_handler::FormatStringPayload> 
+0000000000034430 t core::ptr::drop_in_place<alloc::boxed::Box<panic_unwind::real_imp::Exception>>     
+0000000000008260 T core::cell::panic_already_borrowed
+0000000000006ab0 t core::panicking::assert_failed
+0000000000006080 t core::panicking::assert_failed
+0000000000008150 t core::panicking::assert_failed
+0000000000041d90 t core::panicking::panic_display
+0000000000008400 T core::panicking::panic_nounwind
+0000000000008540 T core::panicking::panic_in_cleanup
+00000000000084a0 T core::panicking::panic_bounds_check
+0000000000008340 T core::panicking::panic_nounwind_fmt
+0000000000008560 T core::panicking::assert_failed_inner
+0000000000008520 T core::panicking::panic_cannot_unwind
+0000000000008450 T core::panicking::panic_nounwind_nobacktrace
+00000000000083b0 T core::panicking::panic
+0000000000008300 T core::panicking::panic_fmt
+0000000000041b80 T <core::panic::location::Location as core::fmt::Display>::fmt
+0000000000041c10 T <core::panic::panic_info::PanicInfo as core::fmt::Display>::fmt
+00000000000260e0 t <std::panicking::begin_panic_handler::StaticStrPayload as core::panic::PanicPayload>::get
+0000000000026090 T <std::panicking::begin_panic_handler::StaticStrPayload as core::panic::PanicPayload>::take_box
+                 U __libc_start_main@GLIBC_2.2.5
+000000000005b061 B __rust_alloc_error_handler_should_panic
+00000000000255a0 T __rust_drop_panic
+00000000000344c0 T __rust_panic_cleanup
+0000000000034520 T __rust_start_panic
+0000000000009490 T main
+0000000000026560 T rust_panic
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo '==check_flag disasm=='; objdump -d --demangle --no-show-raw-insn -Mintel ./dontpanic | sed -n '/<src::check_flag>:/,/^$/p' | head -n 220; echo '==near 0x8a00..0x8f50=='; objdump -d --no-show-raw-insn -Mintel --start-address=0x8a00 --stop-address=0x8f60 ./dontpanic | head -n 260"
+==check_flag disasm==
+0000000000009060 <src::check_flag>:
+    9060:       push   r14
+    9062:       push   rbx
+    9063:       sub    rsp,0x138
+    906a:       mov    rbx,rdi
+    906d:       lea    rax,[rip+0xfffffffffffffb0c]        # 8b80 <core::ops::function::FnOnce::call_once>
+    9074:       mov    QWORD PTR [rsp+0x10],rax
+    9079:       lea    rax,[rip+0xfffffffffffffd00]        # 8d80 <core::ops::function::FnOnce::call_once>
+    9080:       mov    QWORD PTR [rsp+0x18],rax
+    9085:       lea    rax,[rip+0xfffffffffffffcb4]        # 8d40 <core::ops::function::FnOnce::call_once>
+    908c:       mov    QWORD PTR [rsp+0x20],rax
+    9091:       lea    rax,[rip+0xfffffffffffffd68]        # 8e00 <core::ops::function::FnOnce::call_once>
+    9098:       mov    QWORD PTR [rsp+0x28],rax
+    909d:       lea    rax,[rip+0xfffffffffffffd9c]        # 8e40 <core::ops::function::FnOnce::call_once>
+    90a4:       mov    QWORD PTR [rsp+0x30],rax
+    90a9:       lea    rax,[rip+0xfffffffffffffb50]        # 8c00 <core::ops::function::FnOnce::call_once>
+    90b0:       mov    QWORD PTR [rsp+0x38],rax
+    90b5:       lea    rax,[rip+0xfffffffffffffbc4]        # 8c80 <core::ops::function::FnOnce::call_once>
+    90bc:       mov    QWORD PTR [rsp+0x40],rax
+    90c1:       lea    rcx,[rip+0xfffffffffffff9f8]        # 8ac0 <core::ops::function::FnOnce::call_once>
+    90c8:       mov    QWORD PTR [rsp+0x48],rcx
+    90cd:       lea    rdx,[rip+0xfffffffffffffa2c]        # 8b00 <core::ops::function::FnOnce::call_once>
+    90d4:       mov    QWORD PTR [rsp+0x50],rdx
+    90d9:       lea    rdi,[rip+0xfffffffffffff9a0]        # 8a80 <core::ops::function::FnOnce::call_once>
+    90e0:       mov    QWORD PTR [rsp+0x58],rdi
+    90e5:       lea    rdi,[rip+0xfffffffffffffc14]        # 8d00 <core::ops::function::FnOnce::call_once>
+    90ec:       mov    QWORD PTR [rsp+0x60],rdi
+    90f1:       mov    QWORD PTR [rsp+0x68],rax
+    90f6:       lea    rax,[rip+0xfffffffffffffbc3]        # 8cc0 <core::ops::function::FnOnce::call_once>
+    90fd:       mov    QWORD PTR [rsp+0x70],rax
+    9102:       lea    rax,[rip+0xfffffffffffffa37]        # 8b40 <core::ops::function::FnOnce::call_once>
+    9109:       mov    QWORD PTR [rsp+0x78],rax
+    910e:       mov    QWORD PTR [rsp+0x80],rdx
+    9116:       mov    QWORD PTR [rsp+0x88],rax
+    911e:       mov    QWORD PTR [rsp+0x90],rdi
+    9126:       mov    QWORD PTR [rsp+0x98],rcx
+    912e:       mov    QWORD PTR [rsp+0xa0],rax
+    9136:       lea    rax,[rip+0xfffffffffffff903]        # 8a40 <core::ops::function::FnOnce::call_once>
+    913d:       mov    QWORD PTR [rsp+0xa8],rax
+    9145:       mov    QWORD PTR [rsp+0xb0],rdx
+    914d:       mov    QWORD PTR [rsp+0xb8],rcx
+    9155:       mov    QWORD PTR [rsp+0xc0],rax
+    915d:       lea    rax,[rip+0xfffffffffffffc5c]        # 8dc0 <core::ops::function::FnOnce::call_once>
+    9164:       mov    QWORD PTR [rsp+0xc8],rax
+    916c:       mov    QWORD PTR [rsp+0xd0],rdx
+    9174:       lea    rax,[rip+0xfffffffffffffd05]        # 8e80 <core::ops::function::FnOnce::call_once>
+    917b:       mov    QWORD PTR [rsp+0xd8],rax
+    9183:       lea    rax,[rip+0xfffffffffffffab6]        # 8c40 <core::ops::function::FnOnce::call_once>
+    918a:       mov    QWORD PTR [rsp+0xe0],rax
+    9192:       mov    QWORD PTR [rsp+0xe8],rax
+    919a:       lea    rcx,[rip+0xfffffffffffffa1f]        # 8bc0 <core::ops::function::FnOnce::call_once>
+    91a1:       mov    QWORD PTR [rsp+0xf0],rcx
+    91a9:       mov    QWORD PTR [rsp+0xf8],rax
+    91b1:       lea    rax,[rip+0xfffffffffffffd08]        # 8ec0 <core::ops::function::FnOnce::call_once>
+    91b8:       mov    QWORD PTR [rsp+0x100],rax
+    91c0:       mov    QWORD PTR [rsp],rsi
+    91c4:       mov    QWORD PTR [rsp+0x8],0x1f
+    91cd:       cmp    rsi,0x1f
+    91d1:       jne    9200 <src::check_flag+0x1a0>
+    91d3:       xor    eax,eax
+    91d5:       data16 cs nop WORD PTR [rax+rax*1+0x0]
+    91e0:       lea    r14,[rax+0x1]
+    91e4:       movzx  edi,BYTE PTR [rbx+rax*1]
+    91e8:       call   QWORD PTR [rsp+rax*8+0x10]
+    91ec:       mov    rax,r14
+    91ef:       cmp    r14,0x1f
+    91f3:       jne    91e0 <src::check_flag+0x180>
+    91f5:       add    rsp,0x138
+    91fc:       pop    rbx
+    91fd:       pop    r14
+    91ff:       ret
+    9200:       mov    QWORD PTR [rsp+0x108],0x0
+    920c:       mov    rdi,rsp
+    920f:       lea    rsi,[rsp+0x8]
+    9214:       lea    rdx,[rsp+0x108]
+    921c:       call   6080 <core::panicking::assert_failed>
+    9221:       cs nop WORD PTR [rax+rax*1+0x0]
+    922b:       nop    DWORD PTR [rax+rax*1+0x0]
+
+==near 0x8a00..0x8f50==
+
+./dontpanic:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000008a00 <_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53cc666221deec33E>:
+    8a00:       mov    rdi,QWORD PTR [rdi]
+    8a03:       mov    eax,DWORD PTR [rsi+0x34]
+    8a06:       test   al,0x10
+    8a08:       jne    8a14 <_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53cc666221deec33E+0x14>
+    8a0a:       test   al,0x20
+    8a0c:       jne    8a1a <_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53cc666221deec33E+0x1a>
+    8a0e:       jmp    QWORD PTR [rip+0x51fec]        # 5aa00 <_GLOBAL_OFFSET_TABLE_+0xf0>
+    8a14:       jmp    QWORD PTR [rip+0x5220e]        # 5ac28 <_GLOBAL_OFFSET_TABLE_+0x318>
+    8a1a:       jmp    QWORD PTR [rip+0x52390]        # 5adb0 <_GLOBAL_OFFSET_TABLE_+0x4a0>
+
+0000000000008a20 <_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h044efa3eb6a95d2fE>:
+    8a20:       ret
+    8a21:       cs nop WORD PTR [rax+rax*1+0x0]
+    8a2b:       nop    DWORD PTR [rax+rax*1+0x0]
+
+0000000000008a30 <_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h4d4db117d58f1221E>:
+    8a30:       push   rax
+    8a31:       mov    rdi,QWORD PTR [rdi]
+    8a34:       call   89e0 <_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h118cbbb426945c3bE>
+    8a39:       xor    eax,eax
+    8a3b:       pop    rcx
+    8a3c:       ret
+    8a3d:       nop    DWORD PTR [rax]
+
+0000000000008a40 <_ZN4core3ops8function6FnOnce9call_once17h076f93abc7994a2bE>:
+    8a40:       push   rax
+    8a41:       cmp    dil,0x68
+    8a45:       jb     8a4b <_ZN4core3ops8function6FnOnce9call_once17h076f93abc7994a2bE+0xb>
+    8a47:       jne    8a64 <_ZN4core3ops8function6FnOnce9call_once17h076f93abc7994a2bE+0x24>
+    8a49:       pop    rax
+    8a4a:       ret
+    8a4b:       lea    rdi,[rip+0x3e65e]        # 470b0 <str.1>
+    8a52:       lea    rdx,[rip+0x4f83f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8a59:       mov    esi,0x21
+    8a5e:       call   QWORD PTR [rip+0x5257c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8a64:       lea    rdi,[rip+0x3e675]        # 470e0 <str.2>
+    8a6b:       lea    rdx,[rip+0x4f826]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8a72:       mov    esi,0x1c
+    8a77:       call   QWORD PTR [rip+0x52563]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8a7d:       nop    DWORD PTR [rax]
+
+0000000000008a80 <_ZN4core3ops8function6FnOnce9call_once17h08f069e45c38c91bE>:
+    8a80:       push   rax
+    8a81:       cmp    dil,0x70
+    8a85:       jb     8a8b <_ZN4core3ops8function6FnOnce9call_once17h08f069e45c38c91bE+0xb>
+    8a87:       jne    8aa4 <_ZN4core3ops8function6FnOnce9call_once17h08f069e45c38c91bE+0x24>
+    8a89:       pop    rax
+    8a8a:       ret
+    8a8b:       lea    rdi,[rip+0x3e61e]        # 470b0 <str.1>
+    8a92:       lea    rdx,[rip+0x4f7ff]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8a99:       mov    esi,0x21
+    8a9e:       call   QWORD PTR [rip+0x5253c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8aa4:       lea    rdi,[rip+0x3e635]        # 470e0 <str.2>
+    8aab:       lea    rdx,[rip+0x4f7e6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8ab2:       mov    esi,0x1c
+    8ab7:       call   QWORD PTR [rip+0x52523]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8abd:       nop    DWORD PTR [rax]
+
+0000000000008ac0 <_ZN4core3ops8function6FnOnce9call_once17h1e50475f0ef4e3b2E>:
+    8ac0:       push   rax
+    8ac1:       cmp    dil,0x74
+    8ac5:       jb     8acb <_ZN4core3ops8function6FnOnce9call_once17h1e50475f0ef4e3b2E+0xb>
+    8ac7:       jne    8ae4 <_ZN4core3ops8function6FnOnce9call_once17h1e50475f0ef4e3b2E+0x24>
+    8ac9:       pop    rax
+    8aca:       ret
+    8acb:       lea    rdi,[rip+0x3e5de]        # 470b0 <str.1>
+    8ad2:       lea    rdx,[rip+0x4f7bf]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8ad9:       mov    esi,0x21
+    8ade:       call   QWORD PTR [rip+0x524fc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8ae4:       lea    rdi,[rip+0x3e5f5]        # 470e0 <str.2>
+    8aeb:       lea    rdx,[rip+0x4f7a6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8af2:       mov    esi,0x1c
+    8af7:       call   QWORD PTR [rip+0x524e3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8afd:       nop    DWORD PTR [rax]
+
+0000000000008b00 <_ZN4core3ops8function6FnOnce9call_once17h28c42c5fb55e3f9fE>:
+    8b00:       push   rax
+    8b01:       cmp    dil,0x5f
+    8b05:       jb     8b0b <_ZN4core3ops8function6FnOnce9call_once17h28c42c5fb55e3f9fE+0xb>
+    8b07:       jne    8b24 <_ZN4core3ops8function6FnOnce9call_once17h28c42c5fb55e3f9fE+0x24>
+    8b09:       pop    rax
+    8b0a:       ret
+    8b0b:       lea    rdi,[rip+0x3e59e]        # 470b0 <str.1>
+    8b12:       lea    rdx,[rip+0x4f77f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8b19:       mov    esi,0x21
+    8b1e:       call   QWORD PTR [rip+0x524bc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8b24:       lea    rdi,[rip+0x3e5b5]        # 470e0 <str.2>
+    8b2b:       lea    rdx,[rip+0x4f766]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8b32:       mov    esi,0x1c
+    8b37:       call   QWORD PTR [rip+0x524a3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8b3d:       nop    DWORD PTR [rax]
+
+0000000000008b40 <_ZN4core3ops8function6FnOnce9call_once17h2ed86dfdd0fc9ca5E>:
+    8b40:       push   rax
+    8b41:       cmp    dil,0x63
+    8b45:       jb     8b4b <_ZN4core3ops8function6FnOnce9call_once17h2ed86dfdd0fc9ca5E+0xb>
+    8b47:       jne    8b64 <_ZN4core3ops8function6FnOnce9call_once17h2ed86dfdd0fc9ca5E+0x24>
+    8b49:       pop    rax
+    8b4a:       ret
+    8b4b:       lea    rdi,[rip+0x3e55e]        # 470b0 <str.1>
+    8b52:       lea    rdx,[rip+0x4f73f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8b59:       mov    esi,0x21
+    8b5e:       call   QWORD PTR [rip+0x5247c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8b64:       lea    rdi,[rip+0x3e575]        # 470e0 <str.2>
+    8b6b:       lea    rdx,[rip+0x4f726]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8b72:       mov    esi,0x1c
+    8b77:       call   QWORD PTR [rip+0x52463]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8b7d:       nop    DWORD PTR [rax]
+
+0000000000008b80 <_ZN4core3ops8function6FnOnce9call_once17h32497efb348ffe3cE>:
+    8b80:       push   rax
+    8b81:       cmp    dil,0x48
+    8b85:       jb     8b8b <_ZN4core3ops8function6FnOnce9call_once17h32497efb348ffe3cE+0xb>
+    8b87:       jne    8ba4 <_ZN4core3ops8function6FnOnce9call_once17h32497efb348ffe3cE+0x24>
+    8b89:       pop    rax
+    8b8a:       ret
+    8b8b:       lea    rdi,[rip+0x3e51e]        # 470b0 <str.1>
+    8b92:       lea    rdx,[rip+0x4f6ff]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8b99:       mov    esi,0x21
+    8b9e:       call   QWORD PTR [rip+0x5243c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8ba4:       lea    rdi,[rip+0x3e535]        # 470e0 <str.2>
+    8bab:       lea    rdx,[rip+0x4f6e6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8bb2:       mov    esi,0x1c
+    8bb7:       call   QWORD PTR [rip+0x52423]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8bbd:       nop    DWORD PTR [rax]
+
+0000000000008bc0 <_ZN4core3ops8function6FnOnce9call_once17h3dae80a6281f81f5E>:
+    8bc0:       push   rax
+    8bc1:       cmp    dil,0x6f
+    8bc5:       jb     8bcb <_ZN4core3ops8function6FnOnce9call_once17h3dae80a6281f81f5E+0xb>
+    8bc7:       jne    8be4 <_ZN4core3ops8function6FnOnce9call_once17h3dae80a6281f81f5E+0x24>
+    8bc9:       pop    rax
+    8bca:       ret
+    8bcb:       lea    rdi,[rip+0x3e4de]        # 470b0 <str.1>
+    8bd2:       lea    rdx,[rip+0x4f6bf]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8bd9:       mov    esi,0x21
+    8bde:       call   QWORD PTR [rip+0x523fc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8be4:       lea    rdi,[rip+0x3e4f5]        # 470e0 <str.2>
+    8beb:       lea    rdx,[rip+0x4f6a6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8bf2:       mov    esi,0x1c
+    8bf7:       call   QWORD PTR [rip+0x523e3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8bfd:       nop    DWORD PTR [rax]
+
+0000000000008c00 <_ZN4core3ops8function6FnOnce9call_once17h40d00bd196c3c783E>:
+    8c00:       push   rax
+    8c01:       cmp    dil,0x30
+    8c05:       jb     8c0b <_ZN4core3ops8function6FnOnce9call_once17h40d00bd196c3c783E+0xb>
+    8c07:       jne    8c24 <_ZN4core3ops8function6FnOnce9call_once17h40d00bd196c3c783E+0x24>
+    8c09:       pop    rax
+    8c0a:       ret
+    8c0b:       lea    rdi,[rip+0x3e49e]        # 470b0 <str.1>
+    8c12:       lea    rdx,[rip+0x4f67f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8c19:       mov    esi,0x21
+    8c1e:       call   QWORD PTR [rip+0x523bc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8c24:       lea    rdi,[rip+0x3e4b5]        # 470e0 <str.2>
+    8c2b:       lea    rdx,[rip+0x4f666]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8c32:       mov    esi,0x1c
+    8c37:       call   QWORD PTR [rip+0x523a3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8c3d:       nop    DWORD PTR [rax]
+
+0000000000008c40 <_ZN4core3ops8function6FnOnce9call_once17h4aee5a63c69b281cE>:
+    8c40:       push   rax
+    8c41:       cmp    dil,0x72
+    8c45:       jb     8c4b <_ZN4core3ops8function6FnOnce9call_once17h4aee5a63c69b281cE+0xb>
+    8c47:       jne    8c64 <_ZN4core3ops8function6FnOnce9call_once17h4aee5a63c69b281cE+0x24>
+    8c49:       pop    rax
+    8c4a:       ret
+    8c4b:       lea    rdi,[rip+0x3e45e]        # 470b0 <str.1>
+    8c52:       lea    rdx,[rip+0x4f63f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8c59:       mov    esi,0x21
+    8c5e:       call   QWORD PTR [rip+0x5237c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8c64:       lea    rdi,[rip+0x3e475]        # 470e0 <str.2>
+    8c6b:       lea    rdx,[rip+0x4f626]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8c72:       mov    esi,0x1c
+    8c77:       call   QWORD PTR [rip+0x52363]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8c7d:       nop    DWORD PTR [rax]
+
+0000000000008c80 <_ZN4core3ops8function6FnOnce9call_once17h4e1d94269d5dab9fE>:
+    8c80:       push   rax
+    8c81:       cmp    dil,0x6e
+    8c85:       jb     8c8b <_ZN4core3ops8function6FnOnce9call_once17h4e1d94269d5dab9fE+0xb>
+    8c87:       jne    8ca4 <_ZN4core3ops8function6FnOnce9call_once17h4e1d94269d5dab9fE+0x24>
+    8c89:       pop    rax
+    8c8a:       ret
+    8c8b:       lea    rdi,[rip+0x3e41e]        # 470b0 <str.1>
+    8c92:       lea    rdx,[rip+0x4f5ff]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8c99:       mov    esi,0x21
+    8c9e:       call   QWORD PTR [rip+0x5233c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8ca4:       lea    rdi,[rip+0x3e435]        # 470e0 <str.2>
+    8cab:       lea    rdx,[rip+0x4f5e6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8cb2:       mov    esi,0x1c
+    8cb7:       call   QWORD PTR [rip+0x52323]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8cbd:       nop    DWORD PTR [rax]
+
+0000000000008cc0 <_ZN4core3ops8function6FnOnce9call_once17h5935cc8a67508b36E>:
+    8cc0:       push   rax
+    8cc1:       cmp    dil,0x31
+    8cc5:       jb     8ccb <_ZN4core3ops8function6FnOnce9call_once17h5935cc8a67508b36E+0xb>
+    8cc7:       jne    8ce4 <_ZN4core3ops8function6FnOnce9call_once17h5935cc8a67508b36E+0x24>
+    8cc9:       pop    rax
+    8cca:       ret
+    8ccb:       lea    rdi,[rip+0x3e3de]        # 470b0 <str.1>
+    8cd2:       lea    rdx,[rip+0x4f5bf]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8cd9:       mov    esi,0x21
+    8cde:       call   QWORD PTR [rip+0x522fc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8ce4:       lea    rdi,[rip+0x3e3f5]        # 470e0 <str.2>
+    8ceb:       lea    rdx,[rip+0x4f5a6]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8cf2:       mov    esi,0x1c
+    8cf7:       call   QWORD PTR [rip+0x522e3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8cfd:       nop    DWORD PTR [rax]
+
+0000000000008d00 <_ZN4core3ops8function6FnOnce9call_once17h70ddab66eb3eaf7eE>:
+    8d00:       push   rax
+    8d01:       cmp    dil,0x34
+    8d05:       jb     8d0b <_ZN4core3ops8function6FnOnce9call_once17h70ddab66eb3eaf7eE+0xb>
+    8d07:       jne    8d24 <_ZN4core3ops8function6FnOnce9call_once17h70ddab66eb3eaf7eE+0x24>
+    8d09:       pop    rax
+    8d0a:       ret
+    8d0b:       lea    rdi,[rip+0x3e39e]        # 470b0 <str.1>
+    8d12:       lea    rdx,[rip+0x4f57f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8d19:       mov    esi,0x21
+    8d1e:       call   QWORD PTR [rip+0x522bc]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8d24:       lea    rdi,[rip+0x3e3b5]        # 470e0 <str.2>
+    8d2b:       lea    rdx,[rip+0x4f566]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8d32:       mov    esi,0x1c
+    8d37:       call   QWORD PTR [rip+0x522a3]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8d3d:       nop    DWORD PTR [rax]
+
+0000000000008d40 <_ZN4core3ops8function6FnOnce9call_once17h784eba9476a4f0f4E>:
+    8d40:       push   rax
+    8d41:       cmp    dil,0x42
+    8d45:       jb     8d4b <_ZN4core3ops8function6FnOnce9call_once17h784eba9476a4f0f4E+0xb>
+    8d47:       jne    8d64 <_ZN4core3ops8function6FnOnce9call_once17h784eba9476a4f0f4E+0x24>
+    8d49:       pop    rax
+    8d4a:       ret
+    8d4b:       lea    rdi,[rip+0x3e35e]        # 470b0 <str.1>
+    8d52:       lea    rdx,[rip+0x4f53f]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8d59:       mov    esi,0x21
+    8d5e:       call   QWORD PTR [rip+0x5227c]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8d64:       lea    rdi,[rip+0x3e375]        # 470e0 <str.2>
+    8d6b:       lea    rdx,[rip+0x4f526]        # 58298 <__do_global_dtors_aux_fini_array_entry+0x108>
+    8d72:       mov    esi,0x1c
+    8d77:       call   QWORD PTR [rip+0x52263]        # 5afe0 <_GLOBAL_OFFSET_TABLE_+0x6d0>
+    8d7d:       nop    DWORD PTR [rax]
+
+0000000000008d80 <_ZN4core3ops8function6FnOnce9call_once17h827ece763c8c7e2eE>:
+    8d80:       push   rax
+    8d81:       cmp    dil,0x54
+    8d85:       jb     8d8b <_ZN4core3ops8function6FnOnce9call_once17h827ece763c8c7e2eE+0xb>
+    8d87:       jne    8da4 <_ZN4core3ops8function6FnOnce9call_once17h827ece763c8c7e2eE+0x24>
+    8d89:       pop    rax
+    8d8a:       ret
+    8d8b:       lea    rdi,[rip+0x3e31e]        # 470b0 <str.1>
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; python3 - <<'PY'
+>> import re, subprocess
+>>
+>> def sh(cmd):
+>>     return subprocess.check_output(['bash','-lc',cmd], text=True)
+>>
+>> dis = sh("objdump -d --demangle --no-show-raw-insn -Mintel ./dontpanic")
+>>
+>> # 1) Map stub function start addr -> required byte (cmp dil,0xNN)
+>> stub_req = {}
+>> cur_addr = None
+>> in_stub = False
+>> for line in dis.splitlines():
+>>     m = re.match(r'^([0-9a-f]+) <(_ZN4core3ops8function6FnOnce9call_once.*)>:$', line)
+>>     if m:
+>>         cur_addr = int(m.group(1), 16)
+>>         in_stub = True
+>>         continue
+>>     if in_stub:
+>>         m = re.search(r'\bcmp\s+dil,0x([0-9a-f]{2})\b', line)
+>>         if m:
+>>             stub_req[cur_addr] = int(m.group(1),16)
+>>             in_stub = False
+>>
+>> # 2) Extract table slots from src::check_flag
+>> cf = sh("objdump -d --demangle --no-show-raw-insn -Mintel ./dontpanic | sed -n '/<src::check_flag>:/,/^$/p'")
+>> reg = {}
+>> slots = {}
+>> for line in cf.splitlines():
+>>     m = re.search(r'\blea\s+(rax|rbx|rcx|rdx|rsi|rdi|r14),\[rip\+0x[0-9a-f]+\]\s+#\s+([0-9a-f]+)\s+<', line)
+>>     if m:
+>>         reg[m.group(1)] = int(m.group(2),16)
+>>         continue
+>>     m = re.search(r'mov\s+QWORD PTR \[rsp\+0x([0-9a-f]+)\],(rax|rcx|rdx|rdi|r14)', line)
+>>     if m:
+>>         off = int(m.group(1),16)
+>>         slots[off] = reg.get(m.group(2))
+>>
+>> # 3) Build expected string in order slots 0x10..0x100 step 8
+>> expected = []
+>> missing = []
+>> for i, off in enumerate(range(0x10, 0x10 + 8*0x1f, 8)):
+>>     addr = slots.get(off)
+>>     if addr is None:
+>>         expected.append('?')
+>>         missing.append((i, hex(off), 'no_slot'))
+>>         continue
+>>     b = stub_req.get(addr)
+>>     if b is None:
+>>         expected.append('?')
+>>         missing.append((i, hex(off), f'no_stub_cmp@{hex(addr)}'))
+>>         continue
+>>     expected.append(chr(b))
+>>
+>> s = ''.join(expected)
+>> print('slots_found', len(slots), 'stubs_found', len(stub_req))
+>> print('expected_len', len(s))
+>> print('expected', s)
+>> if missing:
+>>     print('missing_count', len(missing))
+>>     for item in missing[:20]:
+>>         print('missing', item)
+>>
+>> PY"
+sed : The term 'sed' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct   
+and try again.
+At line:26 char:73
++ ... mp -d --demangle --no-show-raw-insn -Mintel ./dontpanic | sed -n '/<s ...
++                                                               ~~~
+    + CategoryInfo          : ObjectNotFound: (sed:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; echo 'which python3:'; which python3; python3 -c 'import sys,os; print(sys.executable); print(os.uname())'; echo 'which sed:'; which sed; sed --version | head -n 2"
+which python3:
+/usr/bin/python3
+/usr/bin/python3
+posix.uname_result(sysname='Linux', nodename='DESKTOP-RUMPC8D', release='6.6.87.2-microsoft-standard-WSL2', version='#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025', machine='x86_64')
+which sed:
+/usr/bin/sed
+sed (GNU sed) 4.9
+Packaged by Debian
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; python3 - <<'PY'
+>> import re, subprocess
+>>
+>> dis = subprocess.check_output(['objdump','-d','--demangle','--no-show-raw-insn','-Mintel','./dontpanic'], text=True)
+>>
+>> # 1) Map stub start -> required byte
+>> stub_req = {}
+>> cur = None
+>> in_stub = False
+>> for line in dis.splitlines():
+>>     m = re.match(r'^([0-9a-f]+) <(_ZN4core3ops8function6FnOnce9call_once[^>]*)>:$', line)
+>>     if m:
+>>         cur = int(m.group(1),16)
+>>         in_stub = True
+>>         continue
+>>     if in_stub:
+>>         m = re.search(r'\bcmp\s+dil,0x([0-9a-f]{2})\b', line)
+>>         if m:
+>>             stub_req[cur] = int(m.group(1),16)
+>>             in_stub = False
+>>
+>> # 2) Extract the src::check_flag block from objdump output
+>> start_pat = re.compile(r'^[0-9a-f]+ <src::check_flag>:$')
+>> end_pat = re.compile(r'^[0-9a-f]+ <')
+>> lines = dis.splitlines()
+>> start = None
+>> for i,l in enumerate(lines):
+>>     if start_pat.match(l):
+>>         start = i
+>>         break
+>> if start is None:
+>>     raise SystemExit('could not find src::check_flag')
+>>
+>> # take until next symbol header after start (excluding the header itself)
+>> block = []
+>> for l in lines[start+1:]:
+>>     if end_pat.match(l):
+>>         break
+>>     block.append(l)
+>>
+>> reg = {}
+>> slots = {}
+>> for line in block:
+>>     m = re.search(r'\blea\s+(rax|rcx|rdx|rdi|r14),\[rip\+0x[0-9a-f]+\]\s+#\s+([0-9a-f]+)\s+<', line)
+>>     if m:
+>>         reg[m.group(1)] = int(m.group(2),16)
+>>         continue
+>>     m = re.search(r'mov\s+QWORD PTR \[rsp\+0x([0-9a-f]+)\],(rax|rcx|rdx|rdi|r14)', line)
+>>     if m:
+>>         off = int(m.group(1),16)
+>>         slots[off] = reg.get(m.group(2))
+>>
+>> expected = []
+>> missing = []
+>> for idx, off in enumerate(range(0x10, 0x10 + 8*0x1f, 8)):
+>>     addr = slots.get(off)
+>>     if addr is None:
+>>         expected.append('?')
+>>         missing.append((idx, hex(off), 'no_slot'))
+>>         continue
+>>     b = stub_req.get(addr)
+>>     if b is None:
+>>         expected.append('?')
+>>         missing.append((idx, hex(off), f'no_cmp_for_{hex(addr)}'))
+>>         continue
+>>     expected.append(chr(b))
+>>
+>> s = ''.join(expected)
+>> print('stubs_found', len(stub_req))
+>> print('slots_written', len(slots), 'expected_table_len', 0x1f)
+>> print('expected', s)
+>> print('printable?', all(32 <= ord(c) < 127 for c in s))
+>> if missing:
+>>     print('missing_count', len(missing))
+>>     for m in missing[:40]:
+>>         print('missing', m)
+>>
+>> PY"
+stubs_found 0
+slots_written 31 expected_table_len 31
+expected ???????????????????????????????
+printable? True
+missing_count 31
+missing (0, '0x10', 'no_cmp_for_0x8b80')
+missing (1, '0x18', 'no_cmp_for_0x8d80')
+missing (2, '0x20', 'no_cmp_for_0x8d40')
+missing (3, '0x28', 'no_cmp_for_0x8e00')
+missing (4, '0x30', 'no_cmp_for_0x8e40')
+missing (5, '0x38', 'no_cmp_for_0x8c00')
+missing (6, '0x40', 'no_cmp_for_0x8c80')
+missing (7, '0x48', 'no_cmp_for_0x8ac0')
+missing (8, '0x50', 'no_cmp_for_0x8b00')
+missing (9, '0x58', 'no_cmp_for_0x8a80')
+missing (10, '0x60', 'no_cmp_for_0x8d00')
+missing (11, '0x68', 'no_cmp_for_0x8c80')
+missing (12, '0x70', 'no_cmp_for_0x8cc0')
+missing (13, '0x78', 'no_cmp_for_0x8b40')
+missing (14, '0x80', 'no_cmp_for_0x8b00')
+missing (15, '0x88', 'no_cmp_for_0x8b40')
+missing (16, '0x90', 'no_cmp_for_0x8d00')
+missing (17, '0x98', 'no_cmp_for_0x8ac0')
+missing (18, '0xa0', 'no_cmp_for_0x8b40')
+missing (19, '0xa8', 'no_cmp_for_0x8a40')
+missing (20, '0xb0', 'no_cmp_for_0x8b00')
+missing (21, '0xb8', 'no_cmp_for_0x8ac0')
+missing (22, '0xc0', 'no_cmp_for_0x8a40')
+missing (23, '0xc8', 'no_cmp_for_0x8dc0')
+missing (24, '0xd0', 'no_cmp_for_0x8b00')
+missing (25, '0xd8', 'no_cmp_for_0x8e80')
+missing (26, '0xe0', 'no_cmp_for_0x8c40')
+missing (27, '0xe8', 'no_cmp_for_0x8c40')
+missing (28, '0xf0', 'no_cmp_for_0x8bc0')
+missing (29, '0xf8', 'no_cmp_for_0x8c40')
+missing (30, '0x100', 'no_cmp_for_0x8ec0')
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; python3 - <<'PY'
+>> import re, subprocess
+>>
+>> dis = subprocess.check_output(['objdump','-d','--no-show-raw-insn','-Mintel','./dontpanic'], text=True)
+>>
+>> # stub start -> required byte
+>> stub_req = {}
+>> cur = None
+>> in_stub = False
+>> for line in dis.splitlines():
+>>     m = re.match(r'^([0-9a-f]+) <_ZN4core3ops8function6FnOnce9call_once[^>]*>:$', line)
+>>     if m:
+>>         cur = int(m.group(1),16)
+>>         in_stub = True
+>>         continue
+>>     if in_stub:
+>>         m = re.search(r'\bcmp\s+dil,0x([0-9a-f]{2})\b', line)
+>>         if m:
+>>             stub_req[cur] = int(m.group(1),16)
+>>             in_stub = False
+>>
+>> # extract check_flag block
+>> lines = dis.splitlines()
+>> start = None
+>> for i,l in enumerate(lines):
+>>     if re.match(r'^[0-9a-f]+ <src::check_flag>:$', l):
+>>         start = i
+>>         break
+>> if start is None:
+>>     raise SystemExit('no src::check_flag')
+>> block = []
+>> for l in lines[start+1:]:
+>>     if re.match(r'^[0-9a-f]+ <', l):
+>>         break
+>>     block.append(l)
+>>
+>> reg = {}
+>> slots = {}
+>> for line in block:
+>>     m = re.search(r'\blea\s+(rax|rcx|rdx|rdi|r14),\[rip\+0x[0-9a-f]+\]\s+#\s+([0-9a-f]+)\s+<', line)
+>>     if m:
+>>         reg[m.group(1)] = int(m.group(2),16)
+>>         continue
+>>     m = re.search(r'mov\s+QWORD PTR \[rsp\+0x([0-9a-f]+)\],(rax|rcx|rdx|rdi|r14)', line)
+>>     if m:
+>>         slots[int(m.group(1),16)] = reg.get(m.group(2))
+>>
+>> expected=[]
+>> missing=[]
+>> for idx, off in enumerate(range(0x10, 0x10 + 8*0x1f, 8)):
+>>     addr = slots.get(off)
+>>     if addr is None:
+>>         expected.append('?'); missing.append((idx,hex(off),'no_slot')); continue
+>>     b = stub_req.get(addr)
+>>     if b is None:
+>>         expected.append('?'); missing.append((idx,hex(off),f'no_cmp_for_{hex(addr)}')); continue   
+>>     expected.append(chr(b))
+>>
+>> s=''.join(expected)
+>> print('stubs_found', len(stub_req))
+>> print('expected', s)
+>> print('hex', s.encode().hex())
+>> if missing:
+>>     print('missing_count',len(missing))
+>>     for m in missing[:20]:
+>>         print('missing',m)
+>> PY"
+no src::check_flag
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; objdump -d --no-show-raw-insn -Mintel ./dontpanic | grep -n 'check_flag' | head -n 20"
+3152:0000000000009060 <_ZN3src10check_flag17h397d174e03dc8c74E>:
+3210:    91d1:  jne    9200 <_ZN3src10check_flag17h397d174e03dc8c74E+0x1a0>
+3218:    91f3:  jne    91e0 <_ZN3src10check_flag17h397d174e03dc8c74E+0x180>
+3273:    92f8:  call   9060 <_ZN3src10check_flag17h397d174e03dc8c74E>
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic> wsl bash -lc "cd /mnt/c/Users/sadik/Documents/HTB-CTF/REV/rev_dontpanic; python3 - <<'PY'
+>> import re, subprocess
+>>
+>> dis = subprocess.check_output(['objdump','-d','--no-show-raw-insn','-Mintel','./dontpanic'], text=True)
+>> lines = dis.splitlines()
+>>
+>> # 1) stub start -> required byte
+>> stub_req = {}
+>> cur = None
+>> in_stub = False
+>> stub_hdr = re.compile(r'^([0-9a-f]+) <_ZN4core3ops8function6FnOnce9call_once[^>]*>:$')
+>> for line in lines:
+>>     m = stub_hdr.match(line)
+>>     if m:
+>>         cur = int(m.group(1),16)
+>>         in_stub = True
+>>         continue
+>>     if in_stub:
+>>         m = re.search(r'\bcmp\s+dil,0x([0-9a-f]{2})\b', line)
+>>         if m:
+>>             stub_req[cur] = int(m.group(1),16)
+>>             in_stub = False
+>>
+>> # 2) extract check_flag function block
+>> start = None
+>> for i,l in enumerate(lines):
+>>     if re.match(r'^[0-9a-f]+ <_ZN3src10check_flag17h[0-9a-f]+E>:$', l):
+>>         start = i
+>>         break
+>> if start is None:
+>>     raise SystemExit('could not find check_flag header')
+>> block=[]
+>> for l in lines[start+1:]:
+>>     if re.match(r'^[0-9a-f]+ <', l):
+>>         break
+>>     block.append(l)
+>>
+>> # 3) parse table writes
+>> reg = {}
+>> slots = {}
+>> for line in block:
+>>     m = re.search(r'\blea\s+(rax|rcx|rdx|rdi|r14),\[rip\+0x[0-9a-f]+\]\s+#\s+([0-9a-f]+)\s+<', line)
+>>     if m:
+>>         reg[m.group(1)] = int(m.group(2),16)
+>>         continue
+>>     m = re.search(r'mov\s+QWORD PTR \[rsp\+0x([0-9a-f]+)\],(rax|rcx|rdx|rdi|r14)', line)
+>>     if m:
+>>         slots[int(m.group(1),16)] = reg.get(m.group(2))
+>>
+>> expected=[]
+>> missing=[]
+>> for idx, off in enumerate(range(0x10, 0x10+8*0x1f, 8)):
+>>     addr = slots.get(off)
+>>     if addr is None:
+>>         expected.append('?'); missing.append((idx,hex(off),'no_slot')); continue
+>>     b = stub_req.get(addr)
+>>     if b is None:
+>>         expected.append('?'); missing.append((idx,hex(off),f'no_cmp_for_{hex(addr)}')); continue   
+>>     expected.append(chr(b))
+>>
+>> s=''.join(expected)
+>> print('stubs_found', len(stub_req))
+>> print('slots_written', len(slots))
+>> print('expected', s)
+>> print('hex', s.encode().hex())
+>> if missing:
+>>     print('missing_count', len(missing))
+>>     for m in missing[:40]:
+>>         print('missing', m)
+>>
+>> PY"
+stubs_found 20
+slots_written 31
+expected HTB{d0nt_p4n1c_c4tch_the_3rror}
+hex 4854427b64306e745f70346e31635f63347463685f7468655f3372726f727d
+PS C:\Users\sadik\Documents\HTB-CTF\REV\rev_dontpanic>

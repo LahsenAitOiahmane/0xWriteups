@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h1>Your Profile Bio here!</h1>
+<h2>{{ Bio }}</h2>
+<br>
+<form method="POST">
+    <div class="form-group profile-div">
+        <label for="bio">Edit Bio!</label>
+        <input type="text" class="form-control" id="password" name="bio" placeholder="Enter bio">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark">✏️</button>
+</form>
+<br>
+<a class="fp-link" href="/getlink">Share your Profile?</a>
+{% endblock %}

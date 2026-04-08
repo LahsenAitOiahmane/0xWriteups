@@ -1,0 +1,50 @@
+.container  {
+    margin-top: 50px;
+    text-align: center;
+    font-family: MedievalSharp;
+    color: #3C2A21;
+    
+}
+
+.fp-link {
+    color: #3C2A21;
+    text-decoration: none;
+}
+
+.submit-button {
+    color: #3C2A21;
+}
+
+.verification-send-btn {
+    margin-top: 20px;
+}
+
+.file-input {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border: 1px solid;
+    border-color: #3C2A21;
+}
+
+.t-head {
+    padding: 20px;
+}
+
+.table-div {
+    margin-top: 50px;
+}
+
+.admin-verify {
+    background-color: #D5CEA3;
+    border-color: #3C2A21;
+    border-radius: 7px;
+}
+
+.admin-verify:hover {
+    background-color: #3C2A21;
+    color: white;
+}
