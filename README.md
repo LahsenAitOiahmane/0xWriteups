@@ -1,6 +1,6 @@
 # 0xWriteups
 
-A curated collection of CTF writeups, challenge notes, and solving resources by **L27Sen**.
+A curated collection of CTF writeups, challenge notes, and solving resources by **l27sen**.
 
 ## Repository Overview
 
