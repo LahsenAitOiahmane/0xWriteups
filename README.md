@@ -41,8 +41,9 @@ Each challenge folder usually contains one or more of the following:
 
 ## Latest Updates
 
-- Added the **MISC** category with the new **Prison Pipeline** challenge files (`abceb8b`).
-- Repository baseline commit includes contributor name capitalization updates across existing writeups (`1b07d80`).
+- Added the **MISC** category with the new **Prison Pipeline** challenge files.
+- Included broad contributor name capitalization updates across existing writeups.
+- See the full commit history for ongoing updates: <https://github.com/LahsenAitOiahmane/0xWriteups/commits>.
 
 ---
 
