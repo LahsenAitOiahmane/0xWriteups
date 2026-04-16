@@ -41,8 +41,8 @@ Each challenge folder usually contains one or more of the following:
 
 ## Latest Updates
 
-- Added the **MISC** category with the new **Prison Pipeline** challenge files.
-- Included broad contributor name capitalization updates across existing writeups.
+- Added the **dark_portal** PWN challenge under `PWN/darkportal/`, including the writeup and exploit script.
+- Added supporting challenge artifacts for **dark_portal** (`darkportal` binary and `libc.so.6`).
 - See the full commit history for ongoing updates: <https://github.com/LahsenAitOiahmane/0xWriteups/commits>.
 
 ---
