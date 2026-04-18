@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .center { text-align: center; }
+        img { width: 150px; margin-bottom: 20px; }
+        h1 { font-size: 28px; margin-bottom: 30px; }
+        input {
+            display: block;
+            padding: 10px;
+            margin: 15px auto;
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            font-size: 16px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 30px;
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            cursor: pointer;
+            font-family: 'Consolas', monospace;
+        }
+        button:hover { background: #0f0; color: #000; }
+        #message { margin-top: 20px; }
+        
+        .login-link {
+            color: #888;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .login-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <h1>REGISTER</h1>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">CREATE ACCOUNT</button>
+        </form>
+        <a href="/login" class="login-link">Already have an account? Login</a>
+        <div id="message"></div>
+    </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            const response = await fetch('/api/v1/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({username, password})
+            });
+            
+            const data = await response.json();
+            if (data.success) {
+                window.location.href = '/login';
+            } else {
+                messageDiv.textContent = data.message || 'REGISTRATION FAILED';
+            }
+        });
+    </script>
+</body>
+</html>

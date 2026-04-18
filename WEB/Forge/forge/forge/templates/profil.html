@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .center {
+            text-align: center;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        .admin-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #0f0;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Consolas', monospace;
+        }
+        .admin-btn:hover {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Hello, {{ user.username }}</h1>
+        
+        {% if user.role == 'admin' %}
+        <a href="/admin" class="admin-btn">GO TO ADMIN PANEL</a>
+        {% endif %}
+    </div>
+</body>
+</html>

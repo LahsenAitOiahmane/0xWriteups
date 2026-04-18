@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        
+        input {
+            display: block;
+            padding: 10px;
+            margin: 15px auto;
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            font-size: 16px;
+            font-family: 'Consolas', monospace;
+            width: 300px;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        button {
+            padding: 10px 30px;
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Consolas', monospace;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        .register-link {
+            color: #0f0;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <h1>LOGIN</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit">LOGIN</button>
+        </form>
+        <a href="/register" class="register-link">No account? Register here</a>
+        <div id="message"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            const response = await fetch('/api/v1/process_login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({username, password})
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                window.location.href = '/profil';
+            } else {
+                messageDiv.textContent = 'ACCESS DENIED';
+            }
+        });
+    </script>
+</body>
+</html>

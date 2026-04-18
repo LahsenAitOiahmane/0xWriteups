@@ -1,0 +1,2 @@
+if there is any .git file remove it then rename git folder to .git
+in case u wanna try to solve it ur self
