@@ -1,0 +1,12 @@
+set pagination off
+break *main+0x204
+run < in1
+p/x $rbp
+p/x $rsp
+x/20gx $rbp-0x60
+x/20gx $rsp
+p/x *(unsigned long long*)($rbp+0x8)
+p/x *(unsigned long long*)($rbp+0x10)
+p/x *(unsigned long long*)($rbp+0x18)
+continue
+quit

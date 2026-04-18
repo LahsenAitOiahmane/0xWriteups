@@ -1,0 +1,7 @@
+set disable-randomization off
+break *main+0x204
+run < input.txt
+p/x $rbp
+p/x *(unsigned long long*)($rbp+0x10)
+p/x ((unsigned long long)*(unsigned long long*)($rbp+0x10) - (unsigned long long)$rbp)
+quit

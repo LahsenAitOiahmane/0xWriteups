@@ -1,0 +1,7 @@
+set pagination off
+break *main+0x204
+run < in1
+info proc mappings
+p/x *(unsigned long long*)($rbp+0x8)
+continue
+quit
