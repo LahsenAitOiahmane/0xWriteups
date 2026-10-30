@@ -1,0 +1,15 @@
+import re, html
+h = open('topics_html/_t_50_yo-mort1cia-we-need-to-talk-about-ur-past.html', encoding='utf-8', errors='replace').read()
+h = re.sub(r'(?is)<style.*?</style>', '', h)
+h = re.sub(r'(?is)<script.*?</script>', '', h)
+print("TITLE:", html.unescape(re.search(r'(?is)<h1[^>]*>(.*?)</h1>', h).group(1)).strip())
+for m in re.finditer(r'(?is)<div class="post-card" id="[^"]*">(.*?)(?=<div class="post-card" id=|</div>\s*<div class="posts-list)', h):
+    blk = m.group(1)
+    u = re.search(r'(?is)class="post-username"[^>]*>\s*([^<]+?)\s*<', blk)
+    d = re.search(r'(?is)class="post-date">\s*([^<]+?)\s*<', blk)
+    raw = re.search(r'(?is)class="post-content[^"]*"[^>]*>(.*?)</div>', blk).group(1)
+    imgs = re.findall(r'(?is)src="([^"]+)"', raw)
+    txt = html.unescape(re.sub(r'\s+', ' ', re.sub(r'(?s)<[^>]+>', ' ', raw))).strip()
+    print(f"\n--- {u.group(1).strip()}  [{d.group(1).strip() if d else '?'}] ---")
+    print(txt)
+    for i in imgs: print("   IMAGE:", i)
