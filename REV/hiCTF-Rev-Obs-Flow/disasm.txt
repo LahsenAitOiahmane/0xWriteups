@@ -1,0 +1,1569 @@
+4010c0: sub          rsp, 0x2a8
+4010c7: pxor         xmm0, xmm0
+4010cb: xor          eax, eax
+4010cd: mov          edx, eax
+4010cf: add          eax, 0x40
+4010d2: movaps       xmmword ptr [rsp + rdx + 0x170], xmm0
+4010da: movaps       xmmword ptr [rsp + rdx + 0x180], xmm0
+4010e2: movaps       xmmword ptr [rsp + rdx + 0x190], xmm0
+4010ea: movaps       xmmword ptr [rsp + rdx + 0x1a0], xmm0
+4010f2: cmp          eax, 0x100
+4010f7: jb           0x4010cd
+4010f9: mov          edi, 0x403008
+4010fe: xor          eax, eax
+401100: call         0x401060
+401105: mov          rdi, qword ptr [rip + 0x3f34]
+40110c: call         0x401080
+401111: mov          rdx, qword ptr [rip + 0x3f38]
+401118: mov          esi, 0x100
+40111d: lea          rdi, [rsp + 0x170]
+401125: call         0x401070
+40112a: test         rax, rax
+40112d: je           0x401e05
+401133: lea          rdi, [rsp + 0x170]
+40113b: call         0x401050
+401140: test         rax, rax
+401143: jne          0x401171
+401145: jmp          0x401570
+40114a: nop          word ptr cs:[rax + rax]
+401155: nop          word ptr cs:[rax + rax]
+401160: mov          byte ptr [rsp + rax + 0x170], 0
+401168: test         rax, rax
+40116b: je           0x401570
+401171: sub          rax, 1
+401175: movzx        edx, byte ptr [rsp + rax + 0x170]
+40117d: cmp          dl, 0xa
+401180: je           0x401160
+401182: cmp          dl, 0xd
+401185: je           0x401160
+401187: cmp          rax, 0x2e
+40118b: jne          0x401570
+401191: mov          edx, 6
+401196: mov          esi, 0x403046
+40119b: lea          rdi, [rsp + 0x170]
+4011a3: call         0x401030
+4011a8: test         eax, eax
+4011aa: jne          0x401570
+4011b0: cmp          byte ptr [rsp + 0x19e], 0x7d
+4011b8: jne          0x401570
+4011be: mov          dword ptr [rsp + 0x58], eax
+4011c2: mov          ecx, dword ptr [rsp + 0x19a]
+4011c9: xor          edx, edx
+4011cb: mov          qword ptr [rsp + 0x278], rbx
+4011d3: mov          eax, dword ptr [rsp + 0x186]
+4011da: mov          ebx, dword ptr [rsp + 0x176]
+4011e1: mov          dword ptr [rsp + 0x2c], ecx
+4011e5: mov          ecx, 0x7fffffff
+4011ea: mov          dword ptr [rsp], eax
+4011ed: mov          edi, dword ptr [rsp + 0x17a]
+4011f4: mov          eax, ebx
+4011f6: mov          qword ptr [rsp + 0x2a0], r15
+4011fe: movdqa       xmm0, xmmword ptr [rip + 0x200a]
+401206: div          ecx
+401208: mov          dword ptr [rsp + 0x50], ebx
+40120c: mov          esi, dword ptr [rsp + 0x196]
+401213: mov          dword ptr [rsp + 0x5c], edi
+401217: movaps       xmmword ptr [rsp + 0xe0], xmm0
+40121f: movdqa       xmm0, xmmword ptr [rip + 0x1ff9]
+401227: mov          dword ptr [rsp + 0x28], esi
+40122b: movaps       xmmword ptr [rsp + 0xf0], xmm0
+401233: mov          qword ptr [rsp + 0x280], rbp
+40123b: mov          qword ptr [rsp + 0x288], r12
+401243: mov          r12d, dword ptr [rsp + 0x18a]
+40124b: mov          qword ptr [rsp + 0x290], r13
+401253: mov          r13d, dword ptr [rsp + 0x17e]
+40125b: mov          qword ptr [rsp + 0x298], r14
+401263: mov          r14d, dword ptr [rsp + 0x182]
+40126b: mov          eax, edi
+40126d: mov          r15d, edx
+401270: xor          edx, edx
+401272: div          ecx
+401274: mov          rax, r15
+401277: mov          rdi, r15
+40127a: xor          ecx, ecx
+40127c: imul         rdi, r15
+401280: mov          ebx, edx
+401282: mul          r15
+401285: mov          rsi, rdx
+401288: mov          edx, 0x7fffffff
+40128d: call         0x4028f0
+401292: mov          rdi, rbx
+401295: xor          ecx, ecx
+401297: mov          qword ptr [rsp + 0x38], rax
+40129c: mov          rax, rbx
+40129f: imul         rdi, rbx
+4012a3: mul          rbx
+4012a6: mov          rsi, rdx
+4012a9: mov          edx, 0x7fffffff
+4012ae: call         0x4028f0
+4012b3: xor          ecx, ecx
+4012b5: mov          rdi, rax
+4012b8: mov          eax, 0x7a69
+4012bd: mul          rdi
+4012c0: imul         rdi, rdi, 0x7a69
+4012c7: mov          rsi, rdx
+4012ca: mov          edx, 0x7fffffff
+4012cf: call         0x4028f0
+4012d4: mov          rdi, r15
+4012d7: xor          ecx, ecx
+4012d9: mov          qword ptr [rsp + 0x40], rax
+4012de: mov          rax, rbx
+4012e1: imul         rdi, rbx
+4012e5: mul          r15
+4012e8: mov          rsi, rdx
+4012eb: mov          edx, 0x7fffffff
+4012f0: call         0x4028f0
+4012f5: mov          r15d, dword ptr [rsp + 0x18e]
+4012fd: xor          ecx, ecx
+4012ff: xor          rax, 0x37c0f52c
+401305: mov          qword ptr [rsp + 0x48], rax
+40130a: mov          eax, 0xcc1321
+40130f: imul         rdi, r15, 0xcc1321
+401316: mul          r15
+401319: mov          rsi, rdx
+40131c: mov          edx, 0xfffffffb
+401321: call         0x4028f0
+401326: mov          ebp, dword ptr [rsp + 0x192]
+40132d: xor          ecx, ecx
+40132f: mov          rbx, rax
+401332: mov          eax, 0x3ade68b1
+401337: mul          rbp
+40133a: imul         rdi, rbp, 0x3ade68b1
+401341: mov          rsi, rdx
+401344: mov          edx, 0xfffffffb
+401349: call         0x4028f0
+40134e: xor          edx, edx
+401350: add          rax, rbx
+401353: mov          ebx, 0xfffffffb
+401358: div          rbx
+40135b: mov          eax, 0x92660155
+401360: xor          rdx, rax
+401363: mov          eax, 0x75bcd15
+401368: xor          ecx, ecx
+40136a: mov          qword ptr [rsp + 0x10], rdx
+40136f: mul          r15
+401372: imul         rdi, r15, 0x75bcd15
+401379: mov          rsi, rdx
+40137c: mov          edx, 0xfffffffb
+401381: call         0x4028f0
+401386: imul         rdi, rbp, 0x211ecd59
+40138d: xor          ecx, ecx
+40138f: mov          r15, rax
+401392: mov          eax, 0x211ecd59
+401397: mul          rbp
+40139a: mov          ebp, 0x20
+40139f: mov          rsi, rdx
+4013a2: mov          edx, 0xfffffffb
+4013a7: call         0x4028f0
+4013ac: xor          edx, edx
+4013ae: mov          ecx, 0x7ffffffe
+4013b3: mov          edi, dword ptr [rsp + 0x28]
+4013b7: add          rax, r15
+4013ba: mov          esi, dword ptr [rsp + 0x2c]
+4013be: div          rbx
+4013c1: mov          rbx, qword ptr [rsp + 0x10]
+4013c6: mov          eax, dword ptr [rsp]
+4013c9: mov          qword ptr [rsp + 0x68], rdi
+4013ce: mov          qword ptr [rsp + 0x20], rsi
+4013d3: xor          rdx, 0x7da7aac3
+4013da: or           rbx, rdx
+4013dd: xor          edx, edx
+4013df: div          ecx
+4013e1: mov          qword ptr [rsp + 0x60], rbx
+4013e6: mov          eax, r12d
+4013e9: mov          dword ptr [rsp + 0x78], edx
+4013ed: xor          edx, edx
+4013ef: div          ecx
+4013f1: lea          rax, [rdi + rsi]
+4013f5: mov          ecx, 0x7fffffff
+4013fa: mov          dword ptr [rsp + 0x7c], edx
+4013fe: xor          edx, edx
+401400: div          rcx
+401403: mov          rax, rsi
+401406: imul         rsi, rdi
+40140a: xor          ecx, ecx
+40140c: mov          rbx, rdx
+40140f: mul          rdi
+401412: mov          rdi, rsi
+401415: xor          rbx, 0x4770c967
+40141c: mov          rsi, rdx
+40141f: mov          edx, 0x7fffffff
+401424: call         0x4028f0
+401429: mov          ecx, 0x3b9aca07
+40142e: xor          edx, edx
+401430: xor          rax, 0x2e97d196
+401436: or           rbx, rax
+401439: mov          eax, r13d
+40143c: div          ecx
+40143e: mov          qword ptr [rsp + 0x30], rbx
+401443: mov          eax, r14d
+401446: mov          ebx, edx
+401448: xor          edx, edx
+40144a: div          ecx
+40144c: mov          qword ptr [rsp + 0x10], rbx
+401451: mov          rax, rbx
+401454: mov          rdi, rbx
+401457: mov          r15, rbx
+40145a: mov          r14d, edx
+40145d: mul          rax
+401460: imul         rdi, rbx
+401464: xor          ecx, ecx
+401466: mov          rsi, rdx
+401469: mov          edx, 0x3b9aca07
+40146e: call         0x4028f0
+401473: xor          ecx, ecx
+401475: mov          rdi, rax
+401478: mov          rax, rbx
+40147b: mul          rdi
+40147e: imul         rdi, rbx
+401482: mov          rsi, rdx
+401485: mov          edx, 0x3b9aca07
+40148a: call         0x4028f0
+40148f: imul         rdi, r15, 0x20a6e
+401496: xor          ecx, ecx
+401498: mov          rbx, rax
+40149b: mov          eax, 0x20a6e
+4014a0: mul          r15
+4014a3: mov          rsi, rdx
+4014a6: mov          edx, 0x3b9aca07
+4014ab: call         0x4028f0
+4014b0: mov          ecx, 0x3b9aca07
+4014b5: xor          edx, edx
+4014b7: mov          rdi, r14
+4014ba: add          rax, rbx
+4014bd: imul         rdi, r14
+4014c1: mov          qword ptr [rsp + 0x18], r14
+4014c6: div          rcx
+4014c9: lea          rax, [rdx + 0x30730db7]
+4014d0: xor          edx, edx
+4014d2: div          rcx
+4014d5: mov          rax, r14
+4014d8: xor          ecx, ecx
+4014da: mov          rbx, rdx
+4014dd: mul          rax
+4014e0: mov          rsi, rdx
+4014e3: mov          edx, 0x3b9aca07
+4014e8: call         0x4028f0
+4014ed: xor          rbx, rax
+4014f0: mov          eax, 0x2f71a8d4
+4014f5: mov          qword ptr [rsp + 0x70], rbx
+4014fa: movabs       rbx, 0x3fffffffffffffff
+401504: cmp          eax, 0x3d087b16
+401509: je           0x40176a
+40150f: nop          
+401510: ja           0x401590
+401512: cmp          eax, 0x2f71a8d4
+401517: je           0x401b9d
+40151d: cmp          eax, 0x38a5f41c
+401522: je           0x401a9a
+401528: cmp          eax, 0x19c45d80
+40152d: je           0x401822
+401533: mov          edi, 0x40304d
+401538: call         0x401040
+40153d: mov          rbx, qword ptr [rsp + 0x278]
+401545: mov          rbp, qword ptr [rsp + 0x280]
+40154d: mov          r12, qword ptr [rsp + 0x288]
+401555: mov          r13, qword ptr [rsp + 0x290]
+40155d: mov          r14, qword ptr [rsp + 0x298]
+401565: mov          r15, qword ptr [rsp + 0x2a0]
+40156d: jmp          0x40157a
+40156f: nop          
+401570: mov          edi, 0x40304d
+401575: call         0x401040
+40157a: mov          r10d, 1
+401580: mov          eax, r10d
+401583: add          rsp, 0x2a8
+40158a: ret          
+40158b: nop          dword ptr [rax + rax]
+401590: cmp          eax, 0x51e29f3a
+401595: je           0x4017db
+40159b: cmp          eax, 0x6b3e91f2
+4015a0: je           0x4016dd
+4015a6: cmp          eax, 0x43b7e025
+4015ab: jne          0x401533
+4015ad: mov          eax, dword ptr [rsp + 0x78]
+4015b1: test         eax, eax
+4015b3: je           0x401949
+4015b9: mov          esi, eax
+4015bb: mov          r10d, 7
+4015c1: mov          ecx, 1
+4015c6: movabs       rdi, 0x200000005
+4015d0: test         sil, 1
+4015d4: je           0x401688
+4015da: mov          rax, rcx
+4015dd: imul         r10
+4015e0: mov          r8, rax
+4015e3: mov          r9, rdx
+4015e6: mov          rdx, rax
+4015e9: mov          r12, r8
+4015ec: and          rdx, rbx
+4015ef: mov          rax, r9
+4015f2: shrd         r12, r9, 0x3e
+4015f7: shr          rax, 0x3c
+4015fb: and          r12, rbx
+4015fe: add          rdx, r12
+401601: lea          rcx, [rdx + rax]
+401605: mov          rax, rcx
+401608: mul          rdi
+40160b: mov          rax, rcx
+40160e: sub          rax, rdx
+401611: shr          rax, 1
+401614: add          rdx, rax
+401617: shr          rdx, 0x1e
+40161b: mov          rax, rdx
+40161e: shl          rax, 0x1f
+401622: sub          rax, rdx
+401625: sub          rcx, rax
+401628: shr          rsi, 1
+40162b: je           0x40194e
+401631: mov          rax, r10
+401634: imul         r10
+401637: mov          r8, rax
+40163a: mov          r9, rdx
+40163d: mov          rdx, rax
+401640: mov          r10, r8
+401643: and          rdx, rbx
+401646: mov          rax, r9
+401649: shrd         r10, r9, 0x3e
+40164e: shr          rax, 0x3c
+401652: and          r10, rbx
+401655: add          r10, rdx
+401658: add          r10, rax
+40165b: mov          rax, r10
+40165e: mul          rdi
+401661: mov          rax, r10
+401664: sub          rax, rdx
+401667: shr          rax, 1
+40166a: add          rdx, rax
+40166d: shr          rdx, 0x1e
+401671: mov          rax, rdx
+401674: shl          rax, 0x1f
+401678: sub          rax, rdx
+40167b: sub          r10, rax
+40167e: test         sil, 1
+401682: jne          0x4015da
+401688: mov          rax, r10
+40168b: shr          rsi, 1
+40168e: imul         r10
+401691: mov          r8, rax
+401694: mov          r9, rdx
+401697: mov          rdx, rax
+40169a: mov          r10, r8
+40169d: and          rdx, rbx
+4016a0: mov          rax, r9
+4016a3: shrd         r10, r9, 0x3e
+4016a8: shr          rax, 0x3c
+4016ac: and          r10, rbx
+4016af: add          r10, rdx
+4016b2: add          r10, rax
+4016b5: mov          rax, r10
+4016b8: mul          rdi
+4016bb: mov          rax, r10
+4016be: sub          rax, rdx
+4016c1: shr          rax, 1
+4016c4: add          rdx, rax
+4016c7: shr          rdx, 0x1e
+4016cb: mov          rax, rdx
+4016ce: shl          rax, 0x1f
+4016d2: sub          rax, rdx
+4016d5: sub          r10, rax
+4016d8: jmp          0x4015d0
+4016dd: mov          r9, qword ptr [rsp + 0x38]
+4016e2: mov          rax, qword ptr [rsp + 0x40]
+4016e7: cmp          r9, rax
+4016ea: jb           0x401db7
+4016f0: sub          r9, rax
+4016f3: mov          rax, qword ptr [rsp + 0x50]
+4016f8: mov          edx, dword ptr [rsp + 0x5c]
+4016fc: lea          rdi, [rsp + 0xe0]
+401704: xor          r9, 0x1e054920
+40170b: shl          rax, 0x20
+40170f: or           rax, rdx
+401712: xor          qword ptr [rsp + 0xe0], rax
+40171a: call         0x401f80
+40171f: xor          edx, edx
+401721: or           r9, qword ptr [rsp + 0x48]
+401726: je           0x401738
+401728: mov          ecx, 7
+40172d: mov          rax, r9
+401730: xor          edx, edx
+401732: div          rcx
+401735: add          edx, 1
+401738: mov          eax, dword ptr [rdx*4 + 0x403100]
+40173f: nop          
+401740: cmp          eax, 0x7e192d4b
+401745: je           0x401e87
+40174b: cmp          eax, 0x6eadbeef
+401750: je           0x401e14
+401756: sub          ebp, 1
+401759: je           0x401533
+40175f: cmp          eax, 0x3d087b16
+401764: jne          0x401510
+40176a: mov          edi, dword ptr [rsp + 0x28]
+40176e: xor          edi, 9
+401771: call         0x402010
+401776: mov          edi, dword ptr [rsp + 0x2c]
+40177a: mov          r14d, eax
+40177d: xor          edi, 0x11
+401780: call         0x402010
+401785: mov          rdx, qword ptr [rsp + 0x68]
+40178a: shl          rdx, 0x20
+40178e: or           rdx, qword ptr [rsp + 0x20]
+401793: xor          rdx, qword ptr [rsp + 0xe0]
+40179b: test         r14d, r14d
+40179e: je           0x401d78
+4017a4: test         eax, eax
+4017a6: je           0x401e7d
+4017ac: lea          rdi, [rsp + 0xe0]
+4017b4: mov          qword ptr [rsp + 0xe0], rdx
+4017bc: call         0x401f80
+4017c1: xor          eax, eax
+4017c3: cmp          qword ptr [rsp + 0x30], 0
+4017c9: jne          0x401e59
+4017cf: mov          eax, dword ptr [rax*4 + 0x403180]
+4017d6: jmp          0x401740
+4017db: lea          rdi, [rsp + 0xe0]
+4017e3: movabs       rax, 0x926601557da7aac3
+4017ed: xor          qword ptr [rsp + 0xe0], rax
+4017f5: call         0x401f80
+4017fa: mov          rdi, qword ptr [rsp + 0x60]
+4017ff: xor          eax, eax
+401801: test         rdi, rdi
+401804: je           0x401816
+401806: mov          ecx, 7
+40180b: mov          rax, rdi
+40180e: xor          edx, edx
+401810: div          rcx
+401813: lea          eax, [rdx + 1]
+401816: mov          eax, dword ptr [rax*4 + 0x403160]
+40181d: jmp          0x401740
+401822: mov          rax, qword ptr [rsp + 0x10]
+401827: pxor         xmm1, xmm1
+40182b: movdqa       xmm0, xmmword ptr [rip + 0x19fd]
+401833: mov          r14d, 0xb
+401839: mov          r12d, 1
+40183f: mov          r15d, 0x539
+401845: lea          r13, [rsp + 0x100]
+40184d: movaps       xmmword ptr [rsp], xmm1
+401851: mov          qword ptr [rsp + 0x80], rax
+401859: mov          rax, qword ptr [rsp + 0x18]
+40185e: movaps       xmmword ptr [rsp + 0x100], xmm0
+401866: mov          qword ptr [rsp + 0x88], rax
+40186e: xor          eax, eax
+401870: mov          dword ptr [rsp + 0x90], eax
+401877: xor          eax, eax
+401879: mov          dword ptr [rsp + 0x110], eax
+401880: jmp          0x4018c9
+401882: nop          word ptr [rax + rax]
+401888: sub          rsp, 0x30
+40188c: mov          rdi, r13
+40188f: shr          r15, 1
+401892: mov          rax, qword ptr [rsp + 0x140]
+40189a: movdqa       xmm0, xmmword ptr [rsp + 0x130]
+4018a3: mov          qword ptr [rsp + 0x28], rax
+4018a8: mov          qword ptr [rsp + 0x10], rax
+4018ad: movups       xmmword ptr [rsp + 0x18], xmm0
+4018b2: movups       xmmword ptr [rsp], xmm0
+4018b6: call         0x402220
+4018bb: add          rsp, 0x30
+4018bf: sub          r14d, 1
+4018c3: je           0x401c76
+4018c9: test         r15b, 1
+4018cd: je           0x401888
+4018cf: movdqa       xmm2, xmmword ptr [rsp]
+4018d4: mov          dword ptr [rsp + 0xd0], r12d
+4018dc: sub          rsp, 0x30
+4018e0: movaps       xmmword ptr [rsp + 0xf0], xmm2
+4018e8: mov          rax, qword ptr [rsp + 0x140]
+4018f0: movdqa       xmm0, xmmword ptr [rsp + 0x130]
+4018f9: lea          rdi, [rsp + 0xf0]
+401901: mov          qword ptr [rsp + 0x28], rax
+401906: mov          rax, qword ptr [rsp + 0x100]
+40190e: movups       xmmword ptr [rsp + 0x18], xmm0
+401913: movdqa       xmm0, xmmword ptr [rsp + 0xf0]
+40191c: mov          qword ptr [rsp + 0x10], rax
+401921: movups       xmmword ptr [rsp], xmm0
+401925: call         0x402220
+40192a: mov          r12d, dword ptr [rsp + 0x100]
+401932: movdqa       xmm3, xmmword ptr [rsp + 0xf0]
+40193b: movaps       xmmword ptr [rsp + 0x30], xmm3
+401940: add          rsp, 0x30
+401944: jmp          0x401888
+401949: mov          ecx, 1
+40194e: mov          eax, dword ptr [rsp + 0x7c]
+401952: xor          rcx, 0x7bb949ec
+401959: movabs       r9, 0x7bb949ec0b3bbfc8
+401963: xor          r9, qword ptr [rsp + 0xe0]
+40196b: mov          r10, rcx
+40196e: test         eax, eax
+401970: je           0x401dd4
+401976: mov          r12d, ebp
+401979: mov          esi, eax
+40197b: mov          r11d, 0xb
+401981: mov          ecx, 1
+401986: movabs       rdi, 0x200000005
+401990: mov          rbp, r9
+401993: nop          word ptr cs:[rax + rax]
+40199e: nop          
+4019a0: test         sil, 1
+4019a4: je           0x401a4b
+4019aa: mov          rax, rcx
+4019ad: imul         r11
+4019b0: mov          r8, rax
+4019b3: mov          rcx, rax
+4019b6: mov          rax, rdx
+4019b9: shrd         r8, rdx, 0x3e
+4019be: and          rcx, rbx
+4019c1: shr          rax, 0x3c
+4019c5: and          r8, rbx
+4019c8: add          rcx, r8
+4019cb: add          rcx, rax
+4019ce: mov          rax, rcx
+4019d1: mul          rdi
+4019d4: mov          rax, rcx
+4019d7: sub          rax, rdx
+4019da: shr          rax, 1
+4019dd: add          rdx, rax
+4019e0: shr          rdx, 0x1e
+4019e4: mov          rax, rdx
+4019e7: shl          rax, 0x1f
+4019eb: sub          rax, rdx
+4019ee: sub          rcx, rax
+4019f1: shr          rsi, 1
+4019f4: je           0x401d3f
+4019fa: mov          rax, r11
+4019fd: imul         r11
+401a00: mov          r8, rax
+401a03: mov          r11, rax
+401a06: mov          rax, rdx
+401a09: shrd         r8, rdx, 0x3e
+401a0e: and          r11, rbx
+401a11: shr          rax, 0x3c
+401a15: and          r8, rbx
+401a18: add          r11, r8
+401a1b: add          r11, rax
+401a1e: mov          rax, r11
+401a21: mul          rdi
+401a24: mov          rax, r11
+401a27: sub          rax, rdx
+401a2a: shr          rax, 1
+401a2d: add          rdx, rax
+401a30: shr          rdx, 0x1e
+401a34: mov          rax, rdx
+401a37: shl          rax, 0x1f
+401a3b: sub          rax, rdx
+401a3e: sub          r11, rax
+401a41: test         sil, 1
+401a45: jne          0x4019aa
+401a4b: mov          rax, r11
+401a4e: shr          rsi, 1
+401a51: imul         r11
+401a54: mov          r8, rax
+401a57: mov          r11, rax
+401a5a: mov          rax, rdx
+401a5d: shrd         r8, rdx, 0x3e
+401a62: and          r11, rbx
+401a65: shr          rax, 0x3c
+401a69: and          r8, rbx
+401a6c: add          r11, r8
+401a6f: add          r11, rax
+401a72: mov          rax, r11
+401a75: mul          rdi
+401a78: mov          rax, r11
+401a7b: sub          rax, rdx
+401a7e: shr          rax, 1
+401a81: add          rdx, rax
+401a84: shr          rdx, 0x1e
+401a88: mov          rax, rdx
+401a8b: shl          rax, 0x1f
+401a8f: sub          rax, rdx
+401a92: sub          r11, rax
+401a95: jmp          0x4019a0
+401a9a: mov          ecx, 0x63
+401a9f: xor          eax, eax
+401aa1: mov          r10d, dword ptr [rsp + 0x58]
+401aa6: xor          r9d, r9d
+401aa9: lea          r11, [rsp + 0x100]
+401ab1: lea          rbx, [rsp + 0xe0]
+401ab9: mov          rdi, r11
+401abc: rep stosb    byte ptr [rdi], al
+401abe: nop          
+401ac0: mov          rdi, rbx
+401ac3: call         0x401f80
+401ac8: mov          edi, 1
+401acd: mov          rsi, qword ptr [rbx + rdi*8 - 8]
+401ad2: xor          eax, eax
+401ad4: nop          word ptr cs:[rax + rax]
+401adf: nop          word ptr cs:[rax + rax]
+401aea: nop          word ptr cs:[rax + rax]
+401af5: nop          word ptr cs:[rax + rax]
+401b00: lea          ecx, [rax*8]
+401b07: mov          rdx, rsi
+401b0a: add          eax, 1
+401b0d: shr          rdx, cl
+401b10: xor          dl, byte ptr [r9 + 0x4031a0]
+401b17: mov          byte ptr [r11 + r9], dl
+401b1b: add          r9, 1
+401b1f: cmp          r9, 0x62
+401b23: setne        dl
+401b26: cmp          eax, 8
+401b29: je           0x401b2f
+401b2b: test         dl, dl
+401b2d: jne          0x401b00
+401b2f: cmp          rdi, 4
+401b33: setne        al
+401b36: add          rdi, 1
+401b3a: test         al, dl
+401b3c: jne          0x401acd
+401b3e: cmp          r9, 0x62
+401b42: jne          0x401ac0
+401b48: mov          rdx, r11
+401b4b: lea          rsi, [rsp + 0x162]
+401b53: xor          eax, eax
+401b55: nop          word ptr cs:[rax + rax]
+401b60: mov          ecx, eax
+401b62: add          rdx, 1
+401b66: shl          ecx, 5
+401b69: sub          ecx, eax
+401b6b: movzx        eax, byte ptr [rdx - 1]
+401b6f: add          eax, ecx
+401b71: cmp          rsi, rdx
+401b74: jne          0x401b60
+401b76: cmp          eax, 0xb4f079c8
+401b7b: jne          0x401533
+401b81: mov          rsi, r11
+401b84: mov          edi, 0x403060
+401b89: xor          eax, eax
+401b8b: mov          dword ptr [rsp], r10d
+401b8f: call         0x401060
+401b94: mov          r10d, dword ptr [rsp]
+401b98: jmp          0x401e24
+401b9d: mov          r8d, 0x1f
+401ba3: mov          ecx, 0x7ffffffe
+401ba8: mov          r11d, 1
+401bae: movabs       r9, 0x200000005
+401bb8: mov          esi, 3
+401bbd: nop          dword ptr [rax]
+401bc0: test         cl, 1
+401bc3: je           0x401c0d
+401bc5: mov          rax, r11
+401bc8: imul         rsi
+401bcb: mov          r10, rax
+401bce: mov          rdi, rax
+401bd1: mov          rax, rdx
+401bd4: shrd         r10, rdx, 0x3e
+401bd9: and          rdi, rbx
+401bdc: shr          rax, 0x3c
+401be0: and          r10, rbx
+401be3: lea          r11, [rdi + r10]
+401be7: add          r11, rax
+401bea: mov          rax, r11
+401bed: mul          r9
+401bf0: mov          rax, r11
+401bf3: sub          rax, rdx
+401bf6: shr          rax, 1
+401bf9: add          rdx, rax
+401bfc: shr          rdx, 0x1e
+401c00: mov          rax, rdx
+401c03: shl          rax, 0x1f
+401c07: sub          rax, rdx
+401c0a: sub          r11, rax
+401c0d: mov          rax, rsi
+401c10: shr          rcx, 1
+401c13: imul         rsi
+401c16: mov          rsi, rax
+401c19: mov          r10, rax
+401c1c: shrd         rsi, rdx, 0x3e
+401c21: and          r10, rbx
+401c24: and          rsi, rbx
+401c27: add          r10, rsi
+401c2a: mov          rsi, rdx
+401c2d: shr          rsi, 0x3c
+401c31: add          rsi, r10
+401c34: mov          rax, rsi
+401c37: mul          r9
+401c3a: mov          rax, rsi
+401c3d: sub          rax, rdx
+401c40: shr          rax, 1
+401c43: add          rdx, rax
+401c46: shr          rdx, 0x1e
+401c4a: mov          rax, rdx
+401c4d: shl          rax, 0x1f
+401c51: sub          rax, rdx
+401c54: sub          rsi, rax
+401c57: sub          r8d, 1
+401c5b: jne          0x401bc0
+401c61: xor          eax, eax
+401c63: sub          r11, 1
+401c67: setne        al
+401c6a: mov          eax, dword ptr [rax*4 + 0x4030e0]
+401c71: jmp          0x401740
+401c76: movdqa       xmm1, xmmword ptr [rsp]
+401c7b: mov          dword ptr [rsp + 0xd0], r12d
+401c83: sub          rsp, 0x30
+401c87: mov          rdi, r13
+401c8a: mov          rax, qword ptr [rsp + 0x100]
+401c92: movaps       xmmword ptr [rsp + 0xf0], xmm1
+401c9a: mov          qword ptr [rsp + 0xe0], rax
+401ca2: movaps       xmmword ptr [rsp + 0xd0], xmm1
+401caa: mov          rdx, qword ptr [rsp + 0xc0]
+401cb2: movdqa       xmm0, xmmword ptr [rsp + 0xb0]
+401cbb: mov          qword ptr [rsp + 0x10], rax
+401cc0: mov          qword ptr [rsp + 0x28], rdx
+401cc5: movups       xmmword ptr [rsp + 0x18], xmm0
+401cca: movups       xmmword ptr [rsp], xmm1
+401cce: call         0x402220
+401cd3: mov          r9, qword ptr [rsp + 0x130]
+401cdb: mov          rdx, qword ptr [rsp + 0x138]
+401ce3: movabs       rax, 0x2d0c1bbd205c7191
+401ced: xor          qword ptr [rsp + 0x110], rax
+401cf5: add          rsp, 0x30
+401cf9: xor          r9, 0x2d0c1bbd
+401d00: xor          rdx, 0x205c7191
+401d07: lea          rdi, [rsp + 0xe0]
+401d0f: or           r9, rdx
+401d12: call         0x401f80
+401d17: or           r9, qword ptr [rsp + 0x70]
+401d1c: je           0x401d2f
+401d1e: mov          ecx, 7
+401d23: mov          rax, r9
+401d26: xor          edx, edx
+401d28: div          rcx
+401d2b: lea          r14d, [rdx + 1]
+401d2f: mov          r14d, r14d
+401d32: mov          eax, dword ptr [r14*4 + 0x403120]
+401d3a: jmp          0x401740
+401d3f: xor          rcx, 0xb3bbfc8
+401d46: lea          rdi, [rsp + 0xe0]
+401d4e: mov          qword ptr [rsp + 0xe0], rbp
+401d56: mov          ebp, r12d
+401d59: mov          r11, rcx
+401d5c: call         0x401f80
+401d61: xor          eax, eax
+401d63: or           r10, r11
+401d66: jne          0x401df0
+401d6c: mov          eax, dword ptr [rax*4 + 0x403140]
+401d73: jmp          0x401740
+401d78: mov          r9, qword ptr [rsp + 0x30]
+401d7d: or           r9b, 0xaa
+401d81: test         eax, eax
+401d83: jne          0x401e63
+401d89: lea          rdi, [rsp + 0xe0]
+401d91: mov          qword ptr [rsp + 0xe0], rdx
+401d99: or           r9, 0x55
+401d9d: call         0x401f80
+401da2: mov          ecx, 7
+401da7: mov          rax, r9
+401daa: xor          edx, edx
+401dac: div          rcx
+401daf: lea          eax, [rdx + 1]
+401db2: jmp          0x4017cf
+401db7: mov          r9d, 0x7fffffff
+401dbd: mov          rax, qword ptr [rsp + 0x40]
+401dc2: xor          edx, edx
+401dc4: sub          rax, qword ptr [rsp + 0x38]
+401dc9: div          r9
+401dcc: sub          r9, rdx
+401dcf: jmp          0x4016f3
+401dd4: lea          rdi, [rsp + 0xe0]
+401ddc: mov          qword ptr [rsp + 0xe0], r9
+401de4: or           r10, 0xb3bbfc9
+401deb: call         0x401f80
+401df0: mov          ecx, 7
+401df5: mov          rax, r10
+401df8: xor          edx, edx
+401dfa: div          rcx
+401dfd: lea          eax, [rdx + 1]
+401e00: jmp          0x401d6c
+401e05: mov          edi, 0x403035
+401e0a: call         0x401040
+401e0f: jmp          0x40157a
+401e14: mov          r10d, dword ptr [rsp + 0x58]
+401e19: cmp          eax, 0x7e192d4b
+401e1e: jne          0x401533
+401e24: mov          rbx, qword ptr [rsp + 0x278]
+401e2c: mov          rbp, qword ptr [rsp + 0x280]
+401e34: mov          r12, qword ptr [rsp + 0x288]
+401e3c: mov          r13, qword ptr [rsp + 0x290]
+401e44: mov          r14, qword ptr [rsp + 0x298]
+401e4c: mov          r15, qword ptr [rsp + 0x2a0]
+401e54: jmp          0x401580
+401e59: mov          r9, qword ptr [rsp + 0x30]
+401e5e: jmp          0x401da2
+401e63: lea          rdi, [rsp + 0xe0]
+401e6b: mov          qword ptr [rsp + 0xe0], rdx
+401e73: call         0x401f80
+401e78: jmp          0x401da2
+401e7d: mov          r9, qword ptr [rsp + 0x30]
+401e82: jmp          0x401d89
+401e87: mov          r10d, dword ptr [rsp + 0x58]
+401e8c: jmp          0x401e24
+401e8e: nop          
+401e90: xor          ebp, ebp
+401e92: mov          r9, rdx
+401e95: pop          rsi
+401e96: mov          rdx, rsp
+401e99: and          rsp, 0xfffffffffffffff0
+401e9d: push         rax
+401e9e: push         rsp
+401e9f: xor          r8d, r8d
+401ea2: xor          ecx, ecx
+401ea4: mov          rdi, 0x4010c0
+401eab: call         qword ptr [rip + 0x3127]
+401eb1: hlt          
+401eb2: nop          word ptr cs:[rax + rax]
+401ebc: nop          dword ptr [rax]
+401ec0: ret          
+401ec1: nop          word ptr cs:[rax + rax]
+401ecb: nop          dword ptr [rax + rax]
+401ed0: mov          eax, 0x405040
+401ed5: cmp          rax, 0x405040
+401edb: je           0x401ef0
+401edd: mov          eax, 0
+401ee2: test         rax, rax
+401ee5: je           0x401ef0
+401ee7: mov          edi, 0x405040
+401eec: jmp          rax
+401eee: nop          
+401ef0: ret          
+401ef1: nop          word ptr cs:[rax + rax]
+401efc: nop          dword ptr [rax]
+401f00: mov          esi, 0x405040
+401f05: sub          rsi, 0x405040
+401f0c: mov          rax, rsi
+401f0f: shr          rsi, 0x3f
+401f13: sar          rax, 3
+401f17: add          rsi, rax
+401f1a: sar          rsi, 1
+401f1d: je           0x401f30
+401f1f: mov          eax, 0
+401f24: test         rax, rax
+401f27: je           0x401f30
+401f29: mov          edi, 0x405040
+401f2e: jmp          rax
+401f30: ret          
+401f31: nop          word ptr cs:[rax + rax]
+401f3c: nop          dword ptr [rax]
+401f40: endbr64      
+401f44: cmp          byte ptr [rip + 0x310d], 0
+401f4b: jne          0x401f60
+401f4d: push         rbp
+401f4e: mov          rbp, rsp
+401f51: call         0x401ed0
+401f56: mov          byte ptr [rip + 0x30fb], 1
+401f5d: pop          rbp
+401f5e: ret          
+401f5f: nop          
+401f60: ret          
+401f61: nop          word ptr cs:[rax + rax]
+401f6c: nop          dword ptr [rax]
+401f70: endbr64      
+401f74: jmp          0x401f00
+401f76: nop          word ptr cs:[rax + rax]
+401f80: mov          rsi, qword ptr [rdi]
+401f83: mov          rdx, qword ptr [rdi + 8]
+401f87: mov          r8, rdi
+401f8a: mov          rcx, qword ptr [rdi + 0x10]
+401f8e: mov          rax, qword ptr [rdi + 0x18]
+401f92: mov          edi, 8
+401f97: nop          word ptr cs:[rax + rax]
+401fa2: nop          word ptr cs:[rax + rax]
+401fad: nop          word ptr cs:[rax + rax]
+401fb8: nop          dword ptr [rax + rax]
+401fc0: add          rsi, rdx
+401fc3: add          rcx, rax
+401fc6: rol          rdx, 0xd
+401fca: rol          rax, 0x10
+401fce: xor          rdx, rsi
+401fd1: rol          rsi, 0x20
+401fd5: xor          rax, rcx
+401fd8: add          rcx, rdx
+401fdb: rol          rdx, 0x11
+401fdf: add          rsi, rax
+401fe2: rol          rax, 0x15
+401fe6: xor          rdx, rcx
+401fe9: xor          rax, rsi
+401fec: rol          rcx, 0x20
+401ff0: sub          edi, 1
+401ff3: jne          0x401fc0
+401ff5: mov          qword ptr [r8 + 8], rdx
+401ff9: mov          qword ptr [r8], rsi
+401ffc: mov          qword ptr [r8 + 0x18], rax
+402000: mov          qword ptr [r8 + 0x10], rcx
+402004: ret          
+402005: nop          word ptr cs:[rax + rax]
+402010: sub          rsp, 0x58
+402014: mov          qword ptr [rsp], rdi
+402018: cmp          rdi, 1
+40201c: jbe          0x402166
+402022: mov          qword ptr [rsp + 0x48], r14
+402027: mov          r14d, 0x403080
+40202d: mov          rcx, r14
+402030: mov          rsi, qword ptr [rcx]
+402033: cmp          rsi, qword ptr [rsp]
+402037: je           0x4021eb
+40203d: mov          rax, qword ptr [rsp]
+402041: xor          edx, edx
+402043: div          rsi
+402046: test         rdx, rdx
+402049: je           0x4021fa
+40204f: add          rcx, 8
+402053: mov          eax, 0x4030e0
+402058: cmp          rax, rcx
+40205b: jne          0x402030
+40205d: mov          rax, qword ptr [rsp]
+402061: mov          qword ptr [rsp + 0x28], rbx
+402066: mov          qword ptr [rsp + 0x30], rbp
+40206b: lea          rcx, [rax - 1]
+40206f: mov          qword ptr [rsp + 0x38], r12
+402074: mov          qword ptr [rsp + 0x40], r13
+402079: mov          qword ptr [rsp + 0x50], r15
+40207e: mov          qword ptr [rsp + 8], rcx
+402083: test         al, 1
+402085: je           0x402204
+40208b: mov          qword ptr [rsp + 0x10], rcx
+402090: shr          qword ptr [rsp + 0x10], 1
+402095: test         byte ptr [rsp + 0x10], 1
+40209a: je           0x402090
+40209c: mov          rax, qword ptr [rsp + 8]
+4020a1: shr          rax, 1
+4020a4: tzcnt        rax, rax
+4020a9: add          eax, 1
+4020ac: mov          dword ptr [rsp + 0x1c], eax
+4020b0: mov          r12, qword ptr [rsp]
+4020b4: xor          r13d, r13d
+4020b7: nop          word ptr [rax + rax]
+4020c0: mov          rax, qword ptr [r14]
+4020c3: xor          edx, edx
+4020c5: div          qword ptr [rsp]
+4020c9: mov          rbp, rdx
+4020cc: test         rdx, rdx
+4020cf: je           0x4021c0
+4020d5: mov          rbx, qword ptr [rsp + 0x10]
+4020da: mov          r15d, 1
+4020e0: test         bl, 1
+4020e3: je           0x402123
+4020e5: mov          rax, r15
+4020e8: mov          rcx, r13
+4020eb: imul         rbp
+4020ee: mov          rsi, rdx
+4020f1: mov          rdi, rax
+4020f4: mov          rdx, r12
+4020f7: call         0x4028f0
+4020fc: shr          rbx, 1
+4020ff: mov          r15, rax
+402102: je           0x402170
+402104: mov          rax, rbp
+402107: mov          rcx, r13
+40210a: imul         rbp
+40210d: mov          rsi, rdx
+402110: mov          rdi, rax
+402113: mov          rdx, r12
+402116: call         0x4028f0
+40211b: mov          rbp, rax
+40211e: test         bl, 1
+402121: jne          0x4020e5
+402123: mov          rax, rbp
+402126: mov          rcx, r13
+402129: shr          rbx, 1
+40212c: imul         rbp
+40212f: mov          rsi, rdx
+402132: mov          rdi, rax
+402135: mov          rdx, r12
+402138: call         0x4028f0
+40213d: mov          rbp, rax
+402140: jmp          0x4020e0
+402142: nop          word ptr [rax + rax]
+402148: mov          rbx, qword ptr [rsp + 0x28]
+40214d: mov          rbp, qword ptr [rsp + 0x30]
+402152: mov          r12, qword ptr [rsp + 0x38]
+402157: mov          r13, qword ptr [rsp + 0x40]
+40215c: mov          r14, qword ptr [rsp + 0x48]
+402161: mov          r15, qword ptr [rsp + 0x50]
+402166: xor          eax, eax
+402168: add          rsp, 0x58
+40216c: ret          
+40216d: nop          dword ptr [rax]
+402170: cmp          rax, 1
+402174: je           0x4021c0
+402176: cmp          qword ptr [rsp + 8], rax
+40217b: je           0x4021c0
+40217d: cmp          dword ptr [rsp + 0x1c], 1
+402182: jle          0x402148
+402184: mov          ebx, 1
+402189: jmp          0x402199
+40218b: nop          dword ptr [rax + rax]
+402190: add          ebx, 1
+402193: cmp          ebx, dword ptr [rsp + 0x1c]
+402197: je           0x402148
+402199: mov          rax, r15
+40219c: mov          rcx, r13
+40219f: imul         r15
+4021a2: mov          rsi, rdx
+4021a5: mov          rdi, rax
+4021a8: mov          rdx, r12
+4021ab: call         0x4028f0
+4021b0: mov          r15, rax
+4021b3: cmp          qword ptr [rsp + 8], rax
+4021b8: jne          0x402190
+4021ba: nop          word ptr [rax + rax]
+4021c0: add          r14, 8
+4021c4: mov          eax, 0x4030e0
+4021c9: cmp          rax, r14
+4021cc: jne          0x4020c0
+4021d2: mov          rbx, qword ptr [rsp + 0x28]
+4021d7: mov          rbp, qword ptr [rsp + 0x30]
+4021dc: mov          r12, qword ptr [rsp + 0x38]
+4021e1: mov          r13, qword ptr [rsp + 0x40]
+4021e6: mov          r15, qword ptr [rsp + 0x50]
+4021eb: mov          r14, qword ptr [rsp + 0x48]
+4021f0: mov          eax, 1
+4021f5: add          rsp, 0x58
+4021f9: ret          
+4021fa: mov          r14, qword ptr [rsp + 0x48]
+4021ff: jmp          0x402166
+402204: mov          rax, qword ptr [rsp + 8]
+402209: mov          dword ptr [rsp + 0x1c], 0
+402211: mov          qword ptr [rsp + 0x10], rax
+402216: jmp          0x4020b0
+40221b: nop          dword ptr [rax + rax]
+402220: sub          rsp, 0x38
+402224: mov          r8, rdi
+402227: mov          edi, dword ptr [rsp + 0x50]
+40222b: test         edi, edi
+40222d: jne          0x4022b0
+402233: mov          esi, dword ptr [rsp + 0x68]
+402237: test         esi, esi
+402239: jne          0x402290
+40223b: mov          r11, qword ptr [rsp + 0x40]
+402240: mov          r9, qword ptr [rsp + 0x58]
+402245: mov          r10, qword ptr [rsp + 0x48]
+40224a: mov          rax, qword ptr [rsp + 0x60]
+40224f: cmp          r11, r9
+402252: jne          0x4022d0
+402254: movabs       rdx, 0xbb5708ad7b4883b7
+40225e: add          rax, r10
+402261: imul         rax, rdx
+402265: movabs       rdx, 0x44b82f988
+40226f: cmp          rdx, rax
+402272: jb           0x4024f0
+402278: pxor         xmm0, xmm0
+40227c: mov          dword ptr [r8 + 0x10], 1
+402284: mov          rax, r8
+402287: movups       xmmword ptr [r8], xmm0
+40228b: add          rsp, 0x38
+40228f: ret          
+402290: mov          rax, qword ptr [rsp + 0x50]
+402295: movdqu       xmm0, xmmword ptr [rsp + 0x40]
+40229b: mov          qword ptr [r8 + 0x10], rax
+40229f: movups       xmmword ptr [r8], xmm0
+4022a3: mov          rax, r8
+4022a6: add          rsp, 0x38
+4022aa: ret          
+4022ab: nop          dword ptr [rax + rax]
+4022b0: mov          rax, qword ptr [rsp + 0x68]
+4022b5: movdqu       xmm0, xmmword ptr [rsp + 0x58]
+4022bb: mov          qword ptr [r8 + 0x10], rax
+4022bf: mov          rax, r8
+4022c2: movups       xmmword ptr [r8], xmm0
+4022c6: add          rsp, 0x38
+4022ca: ret          
+4022cb: nop          dword ptr [rax + rax]
+4022d0: mov          qword ptr [rsp + 0x20], rbx
+4022d5: mov          qword ptr [rsp + 0x28], r14
+4022da: cmp          rax, r10
+4022dd: jae          0x402488
+4022e3: mov          rcx, r10
+4022e6: sub          rcx, rax
+4022e9: movabs       rax, 0x89705f3112a28fe5
+4022f3: mul          rcx
+4022f6: shr          rdx, 0x1d
+4022fa: imul         rdx, rdx, 0x3b9aca07
+402301: sub          rdx, rcx
+402304: lea          r14, [rdx + 0x3b9aca07]
+40230b: cmp          r9, r11
+40230e: jb           0x402497
+402314: movabs       rsi, 0x89705f3112a28fe5
+40231e: mov          rcx, r9
+402321: sub          rcx, r11
+402324: mov          rax, rcx
+402327: mul          rsi
+40232a: shr          rdx, 0x1d
+40232e: imul         rax, rdx, 0x3b9aca07
+402335: sub          rcx, rax
+402338: mov          rdx, rcx
+40233b: je           0x4028ca
+402341: xor          edi, edi
+402343: mov          esi, 1
+402348: mov          eax, 0x3b9aca07
+40234d: jmp          0x402363
+40234f: nop          word ptr cs:[rax + rax]
+40235a: nop          word ptr [rax + rax]
+402360: mov          rsi, rbx
+402363: cqo          
+402365: mov          rbx, rdi
+402368: mov          rdi, rsi
+40236b: idiv         rcx
+40236e: imul         rax, rsi
+402372: sub          rbx, rax
+402375: mov          rax, rcx
+402378: mov          rcx, rdx
+40237b: test         rdx, rdx
+40237e: jne          0x402360
+402380: cmp          rax, 1
+402384: jg           0x402730
+40238a: test         rsi, rsi
+40238d: lea          rax, [rsi + 0x3b9aca07]
+402394: mov          qword ptr [rsp + 0x18], r8
+402399: cmovns       rax, rsi
+40239d: xor          ecx, ecx
+40239f: mov          qword ptr [rsp + 0x10], r9
+4023a4: mov          qword ptr [rsp + 8], r11
+4023a9: mul          r14
+4023ac: mov          qword ptr [rsp], r10
+4023b0: mov          rsi, rdx
+4023b3: mov          rdi, rax
+4023b6: mov          edx, 0x3b9aca07
+4023bb: call         0x4028f0
+4023c0: xor          ecx, ecx
+4023c2: mov          rbx, rax
+4023c5: mov          r14, rdx
+4023c8: imul         rax
+4023cb: mov          rsi, rdx
+4023ce: mov          rdi, rax
+4023d1: mov          edx, 0x3b9aca07
+4023d6: call         0x4028f0
+4023db: mov          r11, qword ptr [rsp + 8]
+4023e0: mov          r10, qword ptr [rsp]
+4023e4: mov          r9, qword ptr [rsp + 0x10]
+4023e9: mov          r8, qword ptr [rsp + 0x18]
+4023ee: mov          rdx, rax
+4023f1: cmp          rax, r11
+4023f4: jb           0x40279f
+4023fa: sub          rax, r11
+4023fd: cmp          rax, r9
+402400: jb           0x4027d0
+402406: sub          rax, r9
+402409: mov          r9, rax
+40240c: cmp          r11, r9
+40240f: jb           0x402765
+402415: sub          r11, r9
+402418: mov          rax, r11
+40241b: mov          rcx, r14
+40241e: mov          qword ptr [rsp + 0x10], r8
+402423: mul          rbx
+402426: mov          qword ptr [rsp + 8], r9
+40242b: imul         rcx, r11
+40242f: mov          qword ptr [rsp], r10
+402433: mov          rdi, rax
+402436: add          rcx, rdx
+402439: mov          edx, 0x3b9aca07
+40243e: mov          rsi, rcx
+402441: xor          ecx, ecx
+402443: call         0x4028f0
+402448: mov          r10, qword ptr [rsp]
+40244c: mov          r9, qword ptr [rsp + 8]
+402451: mov          r8, qword ptr [rsp + 0x10]
+402456: cmp          rax, r10
+402459: jb           0x402700
+40245f: sub          rax, r10
+402462: mov          rbx, qword ptr [rsp + 0x20]
+402467: mov          r14, qword ptr [rsp + 0x28]
+40246c: mov          qword ptr [r8 + 8], rax
+402470: mov          rax, r8
+402473: mov          qword ptr [r8], r9
+402476: mov          dword ptr [r8 + 0x10], 0
+40247e: add          rsp, 0x38
+402482: ret          
+402483: nop          dword ptr [rax + rax]
+402488: sub          rax, r10
+40248b: mov          r14, rax
+40248e: cmp          r9, r11
+402491: jae          0x402314
+402497: movabs       rcx, 0x89705f3112a28fe5
+4024a1: mov          rsi, r11
+4024a4: sub          rsi, r9
+4024a7: mov          rax, rsi
+4024aa: mul          rcx
+4024ad: shr          rdx, 0x1d
+4024b1: imul         rdx, rdx, 0x3b9aca07
+4024b8: sub          rdx, rsi
+4024bb: lea          rsi, [rdx + 0x3b9aca07]
+4024c2: mov          rax, rsi
+4024c5: mul          rcx
+4024c8: shr          rdx, 0x1d
+4024cc: imul         rax, rdx, 0x3b9aca07
+4024d3: sub          rsi, rax
+4024d6: mov          rdx, rsi
+4024d9: je           0x40279a
+4024df: mov          rcx, rsi
+4024e2: jmp          0x402341
+4024e7: nop          word ptr [rax + rax]
+4024f0: mov          rax, r10
+4024f3: xor          edx, edx
+4024f5: mov          qword ptr [rsp + 0x20], rbx
+4024fa: mov          ebx, 1
+4024ff: add          rax, r10
+402502: mov          qword ptr [rsp + 0x18], r8
+402507: adc          rdx, rdx
+40250a: mov          rdi, rax
+40250d: xor          ecx, ecx
+40250f: mov          qword ptr [rsp + 0x10], r9
+402514: mov          rsi, rdx
+402517: mov          edx, 0x3b9aca07
+40251c: mov          qword ptr [rsp + 8], r11
+402521: mov          qword ptr [rsp], r10
+402525: mov          qword ptr [rsp + 0x28], r14
+40252a: mov          qword ptr [rsp + 0x30], r15
+40252f: call         0x4028f0
+402534: xor          esi, esi
+402536: mov          r10, qword ptr [rsp]
+40253a: mov          r11, qword ptr [rsp + 8]
+40253f: mov          rcx, rax
+402542: mov          r9, qword ptr [rsp + 0x10]
+402547: mov          r8, qword ptr [rsp + 0x18]
+40254c: mov          eax, 0x3b9aca07
+402551: test         rcx, rcx
+402554: jne          0x402563
+402556: jmp          0x402897
+40255b: nop          dword ptr [rax + rax]
+402560: mov          rbx, rdi
+402563: cqo          
+402565: mov          rdi, rsi
+402568: mov          rsi, rbx
+40256b: idiv         rcx
+40256e: imul         rax, rbx
+402572: sub          rdi, rax
+402575: mov          rax, rcx
+402578: mov          rcx, rdx
+40257b: test         rdx, rdx
+40257e: jne          0x402560
+402580: cmp          rax, 1
+402584: jg           0x402800
+40258a: mov          rax, r11
+40258d: xor          ecx, ecx
+40258f: mov          qword ptr [rsp + 0x18], r8
+402594: mul          r11
+402597: mov          qword ptr [rsp + 0x10], r9
+40259c: mov          qword ptr [rsp + 8], r10
+4025a1: mov          qword ptr [rsp], r11
+4025a5: mov          rsi, rdx
+4025a8: mov          rdi, rax
+4025ab: mov          edx, 0x3b9aca07
+4025b0: call         0x4028f0
+4025b5: mov          edx, 3
+4025ba: xor          ecx, ecx
+4025bc: imul         rdx
+4025bf: mov          rsi, rdx
+4025c2: mov          rdi, rax
+4025c5: mov          edx, 0x3b9aca07
+4025ca: call         0x4028f0
+4025cf: lea          rcx, [rax + 0x20a6e]
+4025d6: movabs       rax, 0x89705f3112a28fe5
+4025e0: mul          rcx
+4025e3: lea          rax, [rbx + 0x3b9aca07]
+4025ea: shr          rdx, 0x1d
+4025ee: imul         rdx, rdx, 0x3b9aca07
+4025f5: sub          rcx, rdx
+4025f8: test         rbx, rbx
+4025fb: cmovns       rax, rbx
+4025ff: mul          rcx
+402602: xor          ecx, ecx
+402604: mov          rsi, rdx
+402607: mov          rdi, rax
+40260a: mov          edx, 0x3b9aca07
+40260f: call         0x4028f0
+402614: xor          ecx, ecx
+402616: mov          r14, rax
+402619: mov          r15, rdx
+40261c: imul         rax
+40261f: mov          rsi, rdx
+402622: mov          rdi, rax
+402625: mov          edx, 0x3b9aca07
+40262a: call         0x4028f0
+40262f: mov          r11, qword ptr [rsp]
+402633: mov          r10, qword ptr [rsp + 8]
+402638: mov          r9, qword ptr [rsp + 0x10]
+40263d: mov          r8, qword ptr [rsp + 0x18]
+402642: mov          rdx, rax
+402645: cmp          rax, r11
+402648: jb           0x40286a
+40264e: sub          rax, r11
+402651: mov          rbx, rax
+402654: cmp          rbx, r9
+402657: jb           0x402838
+40265d: sub          rbx, r9
+402660: cmp          r11, rbx
+402663: jae          0x4028b0
+402669: movabs       rax, 0x89705f3112a28fe5
+402673: mov          rcx, rbx
+402676: sub          rcx, r11
+402679: mul          rcx
+40267c: shr          rdx, 0x1d
+402680: imul         rdx, rdx, 0x3b9aca07
+402687: sub          rdx, rcx
+40268a: lea          r11, [rdx + 0x3b9aca07]
+402691: mov          rcx, r15
+402694: mov          rax, r14
+402697: mov          qword ptr [rsp + 8], r8
+40269c: mul          r11
+40269f: mov          qword ptr [rsp], r10
+4026a3: imul         rcx, r11
+4026a7: mov          rdi, rax
+4026aa: add          rcx, rdx
+4026ad: mov          edx, 0x3b9aca07
+4026b2: mov          rsi, rcx
+4026b5: xor          ecx, ecx
+4026b7: call         0x4028f0
+4026bc: mov          r10, qword ptr [rsp]
+4026c0: mov          r8, qword ptr [rsp + 8]
+4026c5: mov          r11, rax
+4026c8: cmp          rax, r10
+4026cb: jb           0x402807
+4026d1: sub          rax, r10
+4026d4: mov          r14, qword ptr [rsp + 0x28]
+4026d9: mov          r15, qword ptr [rsp + 0x30]
+4026de: mov          qword ptr [r8], rbx
+4026e1: mov          qword ptr [r8 + 8], rax
+4026e5: mov          rbx, qword ptr [rsp + 0x20]
+4026ea: mov          dword ptr [r8 + 0x10], 0
+4026f2: jmp          0x4022a3
+4026f7: nop          word ptr [rax + rax]
+402700: sub          r10, rax
+402703: movabs       rax, 0x89705f3112a28fe5
+40270d: mul          r10
+402710: shr          rdx, 0x1d
+402714: imul         rdx, rdx, 0x3b9aca07
+40271b: sub          rdx, r10
+40271e: lea          rax, [rdx + 0x3b9aca07]
+402725: jmp          0x402462
+40272a: nop          word ptr [rax + rax]
+402730: test         r11, r11
+402733: jne          0x402798
+402735: test         r9, r9
+402738: je           0x4028c0
+40273e: movabs       rax, 0x89705f3112a28fe5
+402748: mul          r9
+40274b: shr          rdx, 0x1d
+40274f: xor          ebx, ebx
+402751: xor          r14d, r14d
+402754: imul         rax, rdx, 0x3b9aca07
+40275b: sub          rax, r9
+40275e: lea          r9, [rax + 0x3b9aca07]
+402765: movabs       rax, 0x89705f3112a28fe5
+40276f: mov          rcx, r9
+402772: sub          rcx, r11
+402775: mul          rcx
+402778: shr          rdx, 0x1d
+40277c: imul         rdx, rdx, 0x3b9aca07
+402783: sub          rdx, rcx
+402786: lea          r11, [rdx + 0x3b9aca07]
+40278d: jmp          0x402418
+402792: nop          word ptr [rax + rax]
+402798: xor          edx, edx
+40279a: xor          ebx, ebx
+40279c: xor          r14d, r14d
+40279f: movabs       rax, 0x89705f3112a28fe5
+4027a9: mov          rcx, r11
+4027ac: sub          rcx, rdx
+4027af: mul          rcx
+4027b2: shr          rdx, 0x1d
+4027b6: imul         rdx, rdx, 0x3b9aca07
+4027bd: sub          rdx, rcx
+4027c0: lea          rax, [rdx + 0x3b9aca07]
+4027c7: jmp          0x4023fd
+4027cc: nop          dword ptr [rax]
+4027d0: sub          r9, rax
+4027d3: movabs       rax, 0x89705f3112a28fe5
+4027dd: mul          r9
+4027e0: shr          rdx, 0x1d
+4027e4: imul         rdx, rdx, 0x3b9aca07
+4027eb: sub          rdx, r9
+4027ee: lea          r9, [rdx + 0x3b9aca07]
+4027f5: jmp          0x40240c
+4027fa: nop          word ptr [rax + rax]
+402800: test         r11, r11
+402803: jne          0x402862
+402805: xor          ebx, ebx
+402807: movabs       rax, 0x89705f3112a28fe5
+402811: sub          r10, r11
+402814: mul          r10
+402817: shr          rdx, 0x1d
+40281b: imul         rdx, rdx, 0x3b9aca07
+402822: sub          rdx, r10
+402825: lea          rax, [rdx + 0x3b9aca07]
+40282c: jmp          0x4026d4
+402831: nop          dword ptr [rax]
+402838: movabs       rax, 0x89705f3112a28fe5
+402842: sub          r9, rbx
+402845: mul          r9
+402848: shr          rdx, 0x1d
+40284c: imul         rdx, rdx, 0x3b9aca07
+402853: sub          rdx, r9
+402856: lea          rbx, [rdx + 0x3b9aca07]
+40285d: jmp          0x402660
+402862: xor          edx, edx
+402864: xor          r14d, r14d
+402867: xor          r15d, r15d
+40286a: movabs       rax, 0x89705f3112a28fe5
+402874: mov          rcx, r11
+402877: sub          rcx, rdx
+40287a: mul          rcx
+40287d: shr          rdx, 0x1d
+402881: imul         rdx, rdx, 0x3b9aca07
+402888: sub          rdx, rcx
+40288b: lea          rbx, [rdx + 0x3b9aca07]
+402892: jmp          0x402654
+402897: test         r11, r11
+40289a: jne          0x402862
+40289c: xor          ebx, ebx
+40289e: xor          r14d, r14d
+4028a1: xor          r15d, r15d
+4028a4: nop          word ptr cs:[rax + rax]
+4028af: nop          
+4028b0: sub          r11, rbx
+4028b3: jmp          0x402691
+4028b8: nop          dword ptr [rax + rax]
+4028c0: xor          ebx, ebx
+4028c2: xor          r14d, r14d
+4028c5: jmp          0x402415
+4028ca: test         r11, r11
+4028cd: jne          0x40279a
+4028d3: test         r9, r9
+4028d6: je           0x4028c0
+4028d8: mov          rax, r9
+4028db: mul          rsi
+4028de: jmp          0x40274b
+4028e3: nop          word ptr cs:[rax + rax]
+4028ed: nop          dword ptr [rax]
+4028f0: endbr64      
+4028f4: push         r13
+4028f6: mov          r10, rdx
+4028f9: mov          r11, rcx
+4028fc: xor          r8d, r8d
+4028ff: push         r12
+402901: mov          r12, rdi
+402904: test         rsi, rsi
+402907: jns          0x40291c
+402909: xor          r13d, r13d
+40290c: neg          r12
+40290f: mov          r8, 0xffffffffffffffff
+402916: sbb          r13, rsi
+402919: mov          rsi, r13
+40291c: test         r11, r11
+40291f: js           0x402a30
+402925: mov          rdi, r12
+402928: jne          0x402958
+40292a: cmp          rsi, r10
+40292d: jae          0x402a08
+402933: mov          rax, rdi
+402936: mov          rdx, rsi
+402939: div          r10
+40293c: mov          rax, rdx
+40293f: xor          edx, edx
+402941: test         r8, r8
+402944: je           0x402950
+402946: neg          rax
+402949: adc          rdx, 0
+40294d: neg          rdx
+402950: pop          r12
+402952: pop          r13
+402954: ret          
+402955: nop          dword ptr [rax]
+402958: mov          r9, r12
+40295b: cmp          rsi, r11
+40295e: jb           0x402a57
+402964: bsr          r12, r11
+402968: xor          r12d, 0x3f
+40296c: mov          eax, r12d
+40296f: mov          r9d, 0x40
+402975: mov          ecx, r12d
+402978: mov          rdx, rsi
+40297b: sub          r9, rax
+40297e: shl          r11, cl
+402981: mov          rax, r10
+402984: mov          ecx, r9d
+402987: shr          rax, cl
+40298a: mov          ecx, r12d
+40298d: shl          r10, cl
+402990: mov          ecx, r9d
+402993: or           r11, rax
+402996: mov          rax, rdi
+402999: shr          rdx, cl
+40299c: mov          ecx, r12d
+40299f: shl          rsi, cl
+4029a2: mov          ecx, r9d
+4029a5: shr          rax, cl
+4029a8: mov          ecx, r12d
+4029ab: shl          rdi, cl
+4029ae: or           rax, rsi
+4029b1: mov          rcx, rdi
+4029b4: div          r11
+4029b7: mov          rdi, rdx
+4029ba: mul          r10
+4029bd: mov          r13, rax
+4029c0: mov          rsi, rdx
+4029c3: cmp          rdi, rdx
+4029c6: jb           0x4029cf
+4029c8: jne          0x4029db
+4029ca: cmp          rcx, rax
+4029cd: jae          0x4029db
+4029cf: sub          rax, r10
+4029d2: sbb          rdx, r11
+4029d5: mov          rsi, rdx
+4029d8: mov          r13, rax
+4029db: mov          rax, rcx
+4029de: mov          ecx, r9d
+4029e1: sub          rax, r13
+4029e4: sbb          rdi, rsi
+4029e7: mov          rdx, rdi
+4029ea: shl          rdx, cl
+4029ed: mov          ecx, r12d
+4029f0: shr          rax, cl
+4029f3: shr          rdi, cl
+4029f6: or           rax, rdx
+4029f9: mov          rdx, rdi
+4029fc: jmp          0x402941
+402a01: nop          dword ptr [rax]
+402a08: test         r10, r10
+402a0b: jne          0x402a1a
+402a0d: mov          eax, 1
+402a12: xor          edx, edx
+402a14: div          r10
+402a17: mov          r10, rax
+402a1a: mov          rax, rsi
+402a1d: xor          edx, edx
+402a1f: div          r10
+402a22: mov          rax, rdi
+402a25: div          r10
+402a28: jmp          0x40293c
+402a2d: nop          dword ptr [rax]
+402a30: mov          rax, r10
+402a33: mov          rdx, r11
+402a36: mov          rdi, r12
+402a39: neg          rax
+402a3c: adc          rdx, 0
+402a40: mov          r10, rax
+402a43: neg          rdx
+402a46: mov          r11, rdx
+402a49: je           0x40292a
+402a4f: mov          r9, r12
+402a52: cmp          rsi, rdx
+402a55: jae          0x402a68
+402a57: mov          rax, r9
+402a5a: mov          rdx, rsi
+402a5d: jmp          0x402941
+402a62: nop          word ptr [rax + rax]
+402a68: bsr          rcx, rdx
+402a6c: xor          rcx, 0x3f
+402a70: mov          r12d, ecx
+402a73: test         ecx, ecx
+402a75: jne          0x40296c
+402a7b: cmp          rdx, rsi
+402a7e: jb           0x402a85
+402a80: cmp          rdi, rax
+402a83: jb           0x402a57
+402a85: mov          r9, rdi
+402a88: sub          r9, rax
+402a8b: sbb          rsi, rdx
+402a8e: jmp          0x402a57
